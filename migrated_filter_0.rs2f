@@ -449,17 +449,21 @@ CURRENCY("Ecumenical key shard")
 // HIDE_LT_VALUE("*seed", 10000)
 
 // Hide coins < 1k
-// HIDE_LT_QUANTITY("Coins", 1000)
+HIDE_LT_QUANTITY("Air rune", 1000)
+HIDE_LT_QUANTITY("Water rune", 1000)
+HIDE_LT_QUANTITY("Fire rune", 1000)
+HIDE_LT_QUANTITY("Earth rune", 1000)
+
 
 // Highlight all grimy herbs with value > 2k
-COLOR_GT_VALUE("Grimy*", 2000, GRIMY_BROWN)
+//COLOR_GT_VALUE("Grimy*", 2000, GRIMY_BROWN)
 
 // Herbs (grouped by GE value, remove herbs you want to pickup)
 // < 1k
-HIDE_1("*Marrentill")
-HIDE_1("*Tarromin")
-HIDE_1("*Guam leaf")
-HIDE_1("*Harralander")
+//HIDE_1("*Marrentill")
+//HIDE_1("*Tarromin")
+//HIDE_1("*Guam leaf")
+//HIDE_1("*Harralander")
 
 // Catch all to display untradeables
 if (tradeable : false) {
