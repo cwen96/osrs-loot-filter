@@ -3,8 +3,8 @@ hidden: true
 name: header
 */
 
-/* Built on: Fri Aug 29 02:12:55 UTC 2025 */
-/* Commit: 11ff1ee */
+/* Built on: Thu Sep 11 13:37:01 UTC 2025 */
+/* Commit: 5e86f10 */
 meta { name = "Joe's filter"; description = "Offers an original color scheme with extensive support for category-based styling/filtering."; }
 
 
@@ -24,7 +24,7 @@ label: Default Style
 exampleItem: Santa hat
 exampleItemId: 1050
 */
-#define VAR_GLOBAL_CUSTOMSTYLE textColor = "#FFFFFFFF";showDespawn = true;icon = CurrentItem();
+#define VAR_GLOBAL_CUSTOMSTYLE textColor = "#FFFFFFFF";fontType = 1;showDespawn = true;icon = CurrentItem();
 
 apply (true) {
     VAR_GLOBAL_CUSTOMSTYLE 
@@ -36,7 +36,7 @@ label: "Default Stackable/Noted Style"
 exampleItem: Magic shortbow (u)
 exampleItemId: 73
 */
-#define VAR_DEFAULT_STACKABLE_NOTED_CUSTOMSTYLE
+#define VAR_DEFAULT_STACKABLE_NOTED_CUSTOMSTYLE fontType = 1;
 
 apply (stackable:true || noted:true) {
     VAR_DEFAULT_STACKABLE_NOTED_CUSTOMSTYLE 
@@ -48,7 +48,7 @@ label: Default Untradeable Style
 exampleItem: Long bone
 exampleItemId: 10976
 */
-#define VAR_DEFAULT_UNTRADEABLE_CUSTOMSTYLE
+#define VAR_DEFAULT_UNTRADEABLE_CUSTOMSTYLE textColor = "#ffebd4ff";textAccent = 1;fontType = 1;
 
 apply (tradeable:false && !name:CONST_GLOBAL_TRADEABLE_NON_TRADEABLE_ITEMS) {
     VAR_DEFAULT_UNTRADEABLE_CUSTOMSTYLE 
@@ -663,7 +663,7 @@ enum: [
   }
 ]
 */
-#define VAR_POTIONS_HIDE ["Attack potion(*","Strength potion(*","Serum 207(*","Compost potion(*","Restore potion(*","Energy potion(*","Defence potion(*","Agility potion(*","Combat potion(*","Fishing potion(*","Hunter potion(*","Antidote+(*"]
+#define VAR_POTIONS_HIDE ["Attack potion(*","Strength potion(*","Serum 207(*","Compost potion(*","Restore potion(*","Energy potion(*","Defence potion(*","Agility potion(*","Combat potion(*","Fishing potion(*","Hunter potion(*"]
 
 apply (name:VAR_POTIONS_HIDE) {
     hidden = true;
@@ -1562,112 +1562,112 @@ type: number
 label: Cosmic rune minimum quantity
 group: Runes
 */
-#define VAR_COSMIC_RUNE_MIN_QUANTITY 10
+#define VAR_COSMIC_RUNE_MIN_QUANTITY 0
 
 /*@ define:input:runes
 type: number
 label: Chaos rune minimum quantity
 group: Runes
 */
-#define VAR_CHAOS_RUNE_MIN_QUANTITY 10
+#define VAR_CHAOS_RUNE_MIN_QUANTITY 0
 
 /*@ define:input:runes
 type: number
 label: Nature rune minimum quantity
 group: Runes
 */
-#define VAR_NATURE_RUNE_MIN_QUANTITY 10
+#define VAR_NATURE_RUNE_MIN_QUANTITY 0
 
 /*@ define:input:runes
 type: number
 label: Law rune minimum quantity
 group: Runes
 */
-#define VAR_LAW_RUNE_MIN_QUANTITY 10
+#define VAR_LAW_RUNE_MIN_QUANTITY 0
 
 /*@ define:input:runes
 type: number
 label: Death rune minimum quantity
 group: Runes
 */
-#define VAR_DEATH_RUNE_MIN_QUANTITY 10
+#define VAR_DEATH_RUNE_MIN_QUANTITY 0
 
 /*@ define:input:runes
 type: number
 label: Sunfire rune minimum quantity
 group: Runes
 */
-#define VAR_SUNFIRE_RUNE_MIN_QUANTITY 10
+#define VAR_SUNFIRE_RUNE_MIN_QUANTITY 0
 
 /*@ define:input:runes
 type: number
 label: Astral rune minimum quantity
 group: Runes
 */
-#define VAR_ASTRAL_RUNE_MIN_QUANTITY 10
+#define VAR_ASTRAL_RUNE_MIN_QUANTITY 0
 
 /*@ define:input:runes
 type: number
 label: Blood rune minimum quantity
 group: Runes
 */
-#define VAR_BLOOD_RUNE_MIN_QUANTITY 10
+#define VAR_BLOOD_RUNE_MIN_QUANTITY 0
 
 /*@ define:input:runes
 type: number
 label: Soul rune minimum quantity
 group: Runes
 */
-#define VAR_SOUL_RUNE_MIN_QUANTITY 10
+#define VAR_SOUL_RUNE_MIN_QUANTITY 0
 
 /*@ define:input:runes
 type: number
 label: Wrath rune minimum quantity
 group: Runes
 */
-#define VAR_WRATH_RUNE_MIN_QUANTITY 10
+#define VAR_WRATH_RUNE_MIN_QUANTITY 0
 
 /*@ define:input:runes
 type: number
 label: Mist rune minimum quantity
 group: Runes
 */
-#define VAR_MIST_RUNE_MIN_QUANTITY 50
+#define VAR_MIST_RUNE_MIN_QUANTITY 0
 
 /*@ define:input:runes
 type: number
 label: Dust rune minimum quantity
 group: Runes
 */
-#define VAR_DUST_RUNE_MIN_QUANTITY 50
+#define VAR_DUST_RUNE_MIN_QUANTITY 0
 
 /*@ define:input:runes
 type: number
 label: Mud rune minimum quantity
 group: Runes
 */
-#define VAR_MUD_RUNE_MIN_QUANTITY 50
+#define VAR_MUD_RUNE_MIN_QUANTITY 0
 
 /*@ define:input:runes
 type: number
 label: Smoke rune minimum quantity
 group: Runes
 */
-#define VAR_SMOKE_RUNE_MIN_QUANTITY 50
+#define VAR_SMOKE_RUNE_MIN_QUANTITY 0
 
 /*@ define:input:runes
 type: number
 label: Steam rune minimum quantity
 group: Runes
 */
-#define VAR_STEAM_RUNE_MIN_QUANTITY 50
+#define VAR_STEAM_RUNE_MIN_QUANTITY 0
 
 /*@ define:input:runes
 type: number
 label: Lava rune minimum quantity
 group: Runes
 */
-#define VAR_LAVA_RUNE_MIN_QUANTITY 50
+#define VAR_LAVA_RUNE_MIN_QUANTITY 0
 
 /*@ define:input:runes
 type: number
@@ -2347,7 +2347,7 @@ enum: [
   "Karambwan vessel"
 ]
 */
-#define VAR_FISHING_EQUIPMENT_HIDE ["Small fishing net","Big fishing net","Fishing rod","Fly fishing rod","Harpoon","Lobster pot","Karambwan vessel"]
+#define VAR_FISHING_EQUIPMENT_HIDE []
 
 apply (name:VAR_FISHING_EQUIPMENT_HIDE) {
     hidden = true;
@@ -2368,7 +2368,7 @@ enum: [
   "Raw karambwanji"
 ]
 */
-#define VAR_FISHING_BAIT_HIDE ["Fishing bait","Feather","Stripy feather","King worm","Fish chunks"]
+#define VAR_FISHING_BAIT_HIDE []
 
 apply (name:VAR_FISHING_BAIT_HIDE) {
     hidden = true;
@@ -3432,7 +3432,7 @@ enum: [
   "Araxyte venom sack"
 ]
 */
-#define VAR_SECONDARIES_HIDE ["Eye of newt","Volcanic ash","Chocolate dust"]
+#define VAR_SECONDARIES_HIDE []
 
 /*@ define:input:herblore_secondaries
 type: enumlist
@@ -3493,7 +3493,7 @@ type: stringlist
 label: Currency to force hidden
 group: Currency
 */
-#define VAR_CURRENCY_HIDE ["Archery ticket"]
+#define VAR_CURRENCY_HIDE []
 
 apply (name:VAR_CURRENCY_HIDE) {
     hidden = true;
@@ -4481,7 +4481,7 @@ enum: [
   "Unicorn horn"
 ]
 */
-#define VAR_BOSSING_COMMANDER_ZILYANA_COMMON_HIDE ["Steel arrow","Steel dart","Unicorn horn"]
+#define VAR_BOSSING_COMMANDER_ZILYANA_COMMON_HIDE ["Steel arrow","Steel dart"]
 
 /*@ define:input:bossing
 type: enumlist
@@ -4654,7 +4654,7 @@ enum: [
   "Beer"
 ]
 */
-#define VAR_BOSSING_GENERAL_GRAARDOR_SUPPLY_HIDE ["Combat potion(3)","Super strength(3)","Beer","Kebab"]
+#define VAR_BOSSING_GENERAL_GRAARDOR_SUPPLY_HIDE ["Combat potion(3)","Super strength(3)","Beer"]
 
 /*@ define:input:bossing
 type: enumlist
@@ -4746,7 +4746,7 @@ enum: [
   "Steel arrow"
 ]
 */
-#define VAR_BOSSING_KREEARRA_COMMON_HIDE ["Feather","Black d'hide body","Rune crossbow","Mind rune","Rune arrow","Runite bolts","Crystal key","Steel dart","Steel arrow"]
+#define VAR_BOSSING_KREEARRA_COMMON_HIDE ["Feather","Steel dart","Steel arrow"]
 
 /*@ define:input:bossing
 type: enumlist
@@ -4874,7 +4874,7 @@ enum: [
   "Steel arrow"
 ]
 */
-#define VAR_BOSSING_KRIL_TSUTSAROTH_COMMON_HIDE ["Infernal ashes","Malicious ashes","Adamant arrow(p++)","Steel dart","Steel arrow"]
+#define VAR_BOSSING_KRIL_TSUTSAROTH_COMMON_HIDE ["Infernal ashes","Malicious ashes","Steel dart","Steel arrow"]
 
 /*@ define:input:bossing
 type: enumlist
@@ -4913,7 +4913,7 @@ enum: [
   "Super strength(3)"
 ]
 */
-#define VAR_BOSSING_KRIL_TSUTSAROTH_SUPPLY_HIDE ["Zamorak brew(3)","Super attack(3)","Super strength(3)"]
+#define VAR_BOSSING_KRIL_TSUTSAROTH_SUPPLY_HIDE ["Zamorak brew(3)"]
 
 /*@ define:input:bossing
 type: enumlist
@@ -5109,7 +5109,7 @@ enum: [
   "Slayer's enchantment"
 ]
 */
-#define VAR_SLAYER_WILDERNESS_SLAYER_HIDE ["Slayer's enchantment"]
+#define VAR_SLAYER_WILDERNESS_SLAYER_HIDE []
 
 /*@ define:input:slayer
 type: enumlist
@@ -5159,7 +5159,7 @@ enum: [
   "Looting bag note"
 ]
 */
-#define VAR_SLAYER_WILDERNESS_SLAYER_CAVE_HIDE ["Blighted entangle sack","Blighted karambwan","Blighted teleport spell sack"]
+#define VAR_SLAYER_WILDERNESS_SLAYER_CAVE_HIDE []
 
 /*@ define:input:slayer
 type: enumlist
@@ -5255,7 +5255,7 @@ enum: [
   "Ugthanki kebab"
 ]
 */
-#define VAR_SLAYER_SMOKE_DEVIL_COMMON_HIDE ["Adamant battleaxe","Adamantite bar","Air rune","Ashes","Coal","Coins","Crossbow string","Fire rune","Mithril plateskirt","Red d'hide body","Rune arrow","Runite bolts","Shark","Steel bar","Ugthanki kebab"]
+#define VAR_SLAYER_SMOKE_DEVIL_COMMON_HIDE ["Adamant battleaxe","Adamantite bar","Ashes","Coins","Crossbow string","Mithril plateskirt","Shark","Steel bar","Ugthanki kebab"]
 
 /*@ define:input:slayer
 type: enumlist
@@ -5865,7 +5865,7 @@ group: Tier 1
 exampleItem: Helm of neitiznot
 exampleItemId: 10828
 */
-#define VAR_VALUES_TIER_1_CUSTOMSTYLE textColor = "#FF66B2FF";textAccentColor = "#FF000000";menuTextColor = "#FF66B2FF";
+#define VAR_VALUES_TIER_1_CUSTOMSTYLE textColor = "#ffddf8ff";backgroundColor = "#d44281ff";borderColor = "#ffffffff";textAccentColor = "#FF000000";menuTextColor = "#ff6ab4ff";fontType = 2;showValue = true;showDespawn = true;notify = true;icon = CurrentItem();
 
 apply ((value:>=VAR_VALUES_TIER_1_VALUE && value:<VAR_VALUES_TIER_2_VALUE) || name:VAR_VALUES_TIER_1_SHOW) {
     VAR_VALUES_TIER_1_CUSTOMSTYLE 
@@ -5894,7 +5894,7 @@ group: Tier 2
 exampleItem: Infinity boots
 exampleItemId: 6920
 */
-#define VAR_VALUES_TIER_2_CUSTOMSTYLE textColor = "#FF99FF99";textAccentColor = "#FF000000";menuTextColor = "#FF99FF99";
+#define VAR_VALUES_TIER_2_CUSTOMSTYLE textColor = "#ff2bff2b";backgroundColor = "#706e02fa";borderColor = "#ff00ff03";textAccentColor = "#FF000000";lootbeamColor = "#ff33ff00";menuTextColor = "#ff80ff80";textAccent = 3;fontType = 2;showLootbeam = true;showValue = true;showDespawn = true;notify = true;highlightTile = true;sound = 4218;icon = CurrentItem();
 
 apply ((value:>=VAR_VALUES_TIER_2_VALUE && value:<VAR_VALUES_TIER_3_VALUE) || name:VAR_VALUES_TIER_2_SHOW) {
     VAR_VALUES_TIER_2_CUSTOMSTYLE 
@@ -5922,7 +5922,7 @@ group: Tier 3
 exampleItem: Abyssal whip
 exampleItemId: 4151
 */
-#define VAR_VALUES_TIER_3_CUSTOMSTYLE textColor = "#ffff9500";backgroundColor = "#ff7a5318";borderColor = "#FFFF9600";textAccentColor = "#FF000000";lootbeamColor = "#FFFF9600";menuTextColor = "#FFFF9600";showLootbeam = true;showValue = true;showDespawn = true;notify = true;highlightTile = true;sound = 4218;icon = CurrentItem();
+#define VAR_VALUES_TIER_3_CUSTOMSTYLE textColor = "#ffff9500";backgroundColor = "#ff7a5318";borderColor = "#FFFF9600";textAccentColor = "#FF000000";lootbeamColor = "#FFFF9600";menuTextColor = "#FFFF9600";fontType = 2;showLootbeam = true;showValue = true;showDespawn = true;notify = true;highlightTile = true;sound = 4218;icon = CurrentItem();
 
 apply ((value:>=VAR_VALUES_TIER_3_VALUE && value:<VAR_VALUES_TIER_4_VALUE) || name:VAR_VALUES_TIER_3_SHOW) {
     VAR_VALUES_TIER_3_CUSTOMSTYLE 
@@ -5935,7 +5935,7 @@ type: number
 label: Put items above this value in tier 4
 group: Tier 4
 */
-#define VAR_VALUES_TIER_4_VALUE 10000000
+#define VAR_VALUES_TIER_4_VALUE 5000000
 
 /*@ define:input:item_tiers
 type: stringlist
@@ -6007,7 +6007,7 @@ label: Uniques custom style
 exampleItem: Tanzanite fang
 exampleItemId: 12922
 */
-#define VAR_UNIQUES_CUSTOMSTYLE textColor = "#ffff0000";backgroundColor = "#ffffffff";borderColor = "#ff000000";textAccentColor = "#ffff0000";lootbeamColor = "#ffff0000";menuTextColor = "#ffff0000";textAccent = 2;fontType = 2;showLootbeam = true;showValue = true;showDespawn = true;notify = true;highlightTile = true;sound = 6765;icon = CurrentItem();
+#define VAR_UNIQUES_CUSTOMSTYLE textColor = "#ffff0000";backgroundColor = "#ffffffff";borderColor = "#ffff0000";textAccentColor = "#ffff0000";lootbeamColor = "#ffff0000";menuTextColor = "#ffff0000";textAccent = 3;fontType = 2;showLootbeam = true;showValue = true;showDespawn = true;notify = true;highlightTile = true;sound = 6765;icon = CurrentItem();
 
 
 
@@ -6069,7 +6069,7 @@ label: Custom style for items on the alchs list
 exampleItem: Rune platelegs
 exampleItemId: 1079
 */
-#define VAR_ALCHS_CUSTOMSTYLE textColor = "#ff000000";backgroundColor = "#fffaff00";borderColor = "#ff000000";textAccentColor = "#ff000000";menuTextColor = "#fffbff00";textAccent = 2;fontType = 1;showValue = true;showDespawn = true;notify = true;sound = 2380;icon = Sprite(41, 0);
+#define VAR_ALCHS_CUSTOMSTYLE textColor = "#ff000000";backgroundColor = "#99fbff00";borderColor = "#ff00ff03";textAccentColor = "#ff000000";menuTextColor = "#fffbff00";textAccent = 3;fontType = 1;showValue = true;showDespawn = true;notify = true;highlightTile = true;sound = 2310;icon = Sprite(41, 0);
 
 apply (name:VAR_ALCHS_ITEM_LIST) {
     VAR_ALCHS_CUSTOMSTYLE
@@ -6082,7 +6082,7 @@ type: stringlist
 label: List of alchables
 group: List of alchables
 */
-#define VAR_ALCHS_ITEM_LIST ["Adamant platebody","Air battlestaff","Dragon battleaxe","Dragon dagger","Dragon halberd","Dragon longsword","Dragon mace","Dragon med helm","Dragon platelegs","Dragon plateskirt","Dragon scimitar","Earth battlestaff","Fire battlestaff","Lava battlestaff","Mystic air staff","Mystic earth staff","Mystic fire staff","Mystic lava staff","Mystic robe bottom","Mystic robe top","Mystic water staff","Onyx dragon bolts (e)","Rune 2h sword","Rune battleaxe","Rune chainbody","Rune full helm","Rune halberd","Rune hasta","Rune kiteshield","Rune longsword","Rune med helm","Rune pickaxe","Rune platebody","Rune platelegs","Rune plateskirt","Rune scimitar","Rune spear","Rune sq shield","Rune sword","Rune warhammer","Runite crossbow (u)","Runite limbs","Water battlestaff"]
+#define VAR_ALCHS_ITEM_LIST ["Adamant platebody","Air battlestaff","Dragon battleaxe","Dragon dagger","Dragon halberd","Dragon longsword","Dragon mace","Dragon med helm","Dragon platelegs","Dragon plateskirt","Dragon scimitar","Earth battlestaff","Fire battlestaff","Lava battlestaff","Mystic air staff","Mystic earth staff","Mystic fire staff","Mystic lava staff","Mystic robe bottom","Mystic robe top","Mystic water staff","Onyx dragon bolts (e)","Rune 2h sword","Rune battleaxe","Rune chainbody","Rune full helm","Rune halberd","Rune hasta","Rune kiteshield","Rune longsword","Rune med helm","Rune pickaxe","Rune platebody","Rune platelegs","Rune plateskirt","Rune scimitar","Rune spear","Rune sq shield","Rune sword","Rune warhammer","Runite crossbow (u)","Runite limbs","Water battlestaff","Adamant platelegs","Rune dagger","Runite ore"]
 
 
 
@@ -6524,7 +6524,7 @@ group: Herblore
 exampleItem: Grimy ranarr weed
 exampleItemId: 207
 */
-#define VAR_CATEGORY_HERBLORE_CUSTOMSTYLE textColor = "#ff4fb043";textAccent = 1;fontType = 2;icon = CurrentItem();
+#define VAR_CATEGORY_HERBLORE_CUSTOMSTYLE textColor = "#ff1d7312";textAccent = 1;fontType = 2;icon = CurrentItem();
 
 apply (name:CONST_ALL_HERBS || name:CONST_SECONDARIES_LIST || name:CONST_ALL_HERBLORE_EQUIPMENT) {
   VAR_CATEGORY_HERBLORE_CUSTOMSTYLE
@@ -6537,7 +6537,7 @@ group: Herblore
 exampleItem: Guam leaf
 exampleItemId: 249
 */
-#define VAR_CATEGORY_HERBS_CUSTOMSTYLE textColor = "#ff4fb043";textAccent = 1;fontType = 2;menuSort = 0;icon = CurrentItem();
+#define VAR_CATEGORY_HERBS_CUSTOMSTYLE textColor = "#ff3bd327";textAccent = 1;fontType = 2;menuSort = 0;icon = CurrentItem();
 
 apply (name:CONST_ALL_HERBS) {
   VAR_CATEGORY_HERBS_CUSTOMSTYLE
@@ -6550,7 +6550,7 @@ group: Herblore
 exampleItem: Eye of newt
 exampleItemId: 221
 */
-#define VAR_CATEGORY_HERBLORE_SECONDARIES_CUSTOMSTYLE
+#define VAR_CATEGORY_HERBLORE_SECONDARIES_CUSTOMSTYLE textColor = "#ffaeffa7";
 
 apply (name:CONST_SECONDARIES_LIST) {
   VAR_CATEGORY_HERBLORE_SECONDARIES_CUSTOMSTYLE
@@ -9571,7 +9571,7 @@ label: Bark custom style
 group: Logs Styles
 exampleItem: Bark
 */
-#define VAR_BARK_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#5087734B";borderColor = "#FF483A20";textAccentColor = "#FF000000";menuTextColor = "#FF483A20";
+#define VAR_BARK_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#5087734B";borderColor = "#FF483A20";textAccentColor = "#FF000000";menuTextColor = "#ffd1b480";
 
 apply (name:"Bark") {
     VAR_BARK_CUSTOMSTYLE 
@@ -9633,7 +9633,7 @@ label: Silver ore custom style
 group: Ores Styles
 exampleItem: Silver ore
 */
-#define VAR_SILVER_ORE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#509999A5";borderColor = "#FF9999A5";textAccentColor = "#FF000000";menuTextColor = "#FF9999A5";
+#define VAR_SILVER_ORE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#509999A5";borderColor = "#ff81818e";textAccentColor = "#FF000000";menuTextColor = "#FF9999A5";
 
 apply (name:"silver ore") {
     VAR_SILVER_ORE_CUSTOMSTYLE 
@@ -9645,7 +9645,7 @@ label: Coal custom style
 group: Ores Styles
 exampleItem: Coal
 */
-#define VAR_COAL_ORE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50383725";borderColor = "#FF383725";textAccentColor = "#FF000000";menuTextColor = "#FF383725";
+#define VAR_COAL_ORE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50383725";borderColor = "#FF383725";textAccentColor = "#FF000000";menuTextColor = "#ff000000";
 
 apply (name:"coal") {
     VAR_COAL_ORE_CUSTOMSTYLE 
@@ -9657,7 +9657,7 @@ label: Gold ore custom style
 group: Ores Styles
 exampleItem: Gold ore
 */
-#define VAR_GOLD_ORE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50C6A118";borderColor = "#FFC6A118";textAccentColor = "#FF000000";menuTextColor = "#FFC6A118";
+#define VAR_GOLD_ORE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50C6A118";borderColor = "#ffffed00";textAccentColor = "#FF000000";menuTextColor = "#FFC6A118";
 
 apply (name:"gold ore") {
     VAR_GOLD_ORE_CUSTOMSTYLE 
@@ -9669,7 +9669,7 @@ label: Mithril ore custom style
 group: Ores Styles
 exampleItem: Mithril ore
 */
-#define VAR_MITHRIL_ORE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#5048486A";borderColor = "#FF48486A";textAccentColor = "#FF000000";menuTextColor = "#FF48486A";
+#define VAR_MITHRIL_ORE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#5048486A";borderColor = "#FF48486A";textAccentColor = "#FF000000";menuTextColor = "#ff7c7cc5";
 
 apply (name:"mithril ore") {
     VAR_MITHRIL_ORE_CUSTOMSTYLE 
@@ -9681,7 +9681,7 @@ label: Adamantite ore custom style
 group: Ores Styles
 exampleItem: Adamantite ore
 */
-#define VAR_ADAMANTITE_ORE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50485B49";borderColor = "#FF485B49";textAccentColor = "#FF000000";menuTextColor = "#FF485B49";
+#define VAR_ADAMANTITE_ORE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50485B49";borderColor = "#ff2caf32";textAccentColor = "#FF000000";menuTextColor = "#ff6b9d6d";
 
 apply (name:"adamantite ore") {
     VAR_ADAMANTITE_ORE_CUSTOMSTYLE 
@@ -9693,7 +9693,7 @@ label: Runite ore custom style
 group: Ores Styles
 exampleItem: Runite ore
 */
-#define VAR_RUNITE_ORE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#504D6671";borderColor = "#FF4D6671";textAccentColor = "#FF000000";menuTextColor = "#FF4D6671";
+#define VAR_RUNITE_ORE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#8069a1bf";borderColor = "#ff49c8ff";textAccentColor = "#FF000000";menuTextColor = "#ff57bce7";
 
 apply (name:"runite ore") {
     VAR_RUNITE_ORE_CUSTOMSTYLE 
@@ -9755,7 +9755,7 @@ group: Bars Styles
 exampleItem: Bronze bar
 exampleItemId: 2349
 */
-#define VAR_BRONZE_BAR_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50554127";borderColor = "#FF554127";textAccentColor = "#FF000000";menuTextColor = "#FF554127";
+#define VAR_BRONZE_BAR_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50554127";borderColor = "#FF554127";textAccentColor = "#FF000000";menuTextColor = "#ffab824d";
 
 apply (name:"Bronze bar") {
     VAR_BRONZE_BAR_CUSTOMSTYLE 
@@ -9768,7 +9768,7 @@ group: Bars Styles
 exampleItem: Iron bar
 exampleItemId: 2351
 */
-#define VAR_IRON_BAR_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#504C4545";borderColor = "#FF4C4545";textAccentColor = "#FF000000";menuTextColor = "#FF4C4545";
+#define VAR_IRON_BAR_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#504C4545";borderColor = "#FF4C4545";textAccentColor = "#FF000000";menuTextColor = "#ff9e8b8b";
 
 apply (name:"Iron bar") {
     VAR_IRON_BAR_CUSTOMSTYLE 
@@ -9781,7 +9781,7 @@ group: Bars Styles
 exampleItem: Steel bar
 exampleItemId: 2353
 */
-#define VAR_STEEL_BAR_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50887E7E";borderColor = "#FF887E7E";textAccentColor = "#FF000000";menuTextColor = "#FF887E7E";
+#define VAR_STEEL_BAR_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50887E7E";borderColor = "#FF887E7E";textAccentColor = "#FF000000";menuTextColor = "#ffcacaca";
 
 apply (name:"Steel bar") {
     VAR_STEEL_BAR_CUSTOMSTYLE 
@@ -9794,7 +9794,7 @@ group: Bars Styles
 exampleItem: Mithril bar
 exampleItemId: 2359
 */
-#define VAR_MITHRIL_BAR_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50484869";borderColor = "#FF484869";textAccentColor = "#FF000000";menuTextColor = "#FF484869";
+#define VAR_MITHRIL_BAR_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50484869";borderColor = "#FF484869";textAccentColor = "#FF000000";menuTextColor = "#ff8d8dba";
 
 apply (name:"Mithril bar") {
     VAR_MITHRIL_BAR_CUSTOMSTYLE 
@@ -9807,7 +9807,7 @@ group: Bars Styles
 exampleItem: Adamantite bar
 exampleItemId: 2361
 */
-#define VAR_ADAMANTITE_BAR_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50485A48";borderColor = "#FF485A48";textAccentColor = "#FF000000";menuTextColor = "#FF485A48";
+#define VAR_ADAMANTITE_BAR_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50485A48";borderColor = "#FF485A48";textAccentColor = "#FF000000";menuTextColor = "#ff70a470";
 
 apply (name:"Adamantite bar") {
     VAR_ADAMANTITE_BAR_CUSTOMSTYLE 
@@ -9820,7 +9820,7 @@ group: Bars Styles
 exampleItem: Runite bar
 exampleItemId: 2363
 */
-#define VAR_RUNITE_BAR_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#504B6570";borderColor = "#FF4B6570";textAccentColor = "#FF000000";menuTextColor = "#FF4B6570";
+#define VAR_RUNITE_BAR_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#695890b3";borderColor = "#FF4B6570";textAccentColor = "#FF000000";menuTextColor = "#ff73bddc";
 
 apply (name:"Runite bar") {
     VAR_RUNITE_BAR_CUSTOMSTYLE 
@@ -9950,7 +9950,7 @@ label: Sapphire custom style
 group: Gems Styles
 exampleItem: Sapphire
 */
-#define VAR_SAPPHIRE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#500C1273";borderColor = "#FF0C1273";textAccentColor = "#FF000000";menuTextColor = "#FF0C1273";
+#define VAR_SAPPHIRE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#500C1273";borderColor = "#FF0C1273";textAccentColor = "#FF000000";menuTextColor = "#ff6a95f6";
 
 apply (name:["Uncut sapphire",   "Sapphire", ]) {
     VAR_SAPPHIRE_CUSTOMSTYLE 
@@ -9962,7 +9962,7 @@ label: Emerald custom style
 group: Gems Styles
 exampleItem: Emerald
 */
-#define VAR_EMERALD_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#500C6B0F";borderColor = "#FF0C6B0F";textAccentColor = "#FF000000";menuTextColor = "#FF0C6B0F";
+#define VAR_EMERALD_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#500C6B0F";borderColor = "#FF0C6B0F";textAccentColor = "#FF000000";menuTextColor = "#ff1cdc22";
 
 apply (name:["Uncut emerald",   "Emerald", ]) {
     VAR_EMERALD_CUSTOMSTYLE 
@@ -9974,7 +9974,7 @@ label: Ruby custom style
 group: Gems Styles
 exampleItem: Ruby
 */
-#define VAR_RUBY_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#504E0F08";borderColor = "#FF4E0F08";textAccentColor = "#FF000000";menuTextColor = "#FF4E0F08";
+#define VAR_RUBY_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#504E0F08";borderColor = "#FF4E0F08";textAccentColor = "#FF000000";menuTextColor = "#ffcc3727";
 
 apply (name:["Uncut ruby",   "Ruby", ]) {
     VAR_RUBY_CUSTOMSTYLE 
@@ -9986,7 +9986,7 @@ label: Diamond custom style
 group: Gems Styles
 exampleItem: Diamond
 */
-#define VAR_DIAMOND_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50857D7D";borderColor = "#FF857D7D";textAccentColor = "#FF000000";menuTextColor = "#FF857D7D";
+#define VAR_DIAMOND_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50857D7D";borderColor = "#FF857D7D";textAccentColor = "#FF000000";menuTextColor = "#ffffffff";
 
 apply (name:["Uncut diamond",   "Diamond", ]) {
     VAR_DIAMOND_CUSTOMSTYLE 
@@ -9998,7 +9998,7 @@ label: Opal custom style
 group: Gems Styles
 exampleItem: Opal
 */
-#define VAR_OPAL_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#507E7D63";borderColor = "#FF7E7D63";textAccentColor = "#FF000000";menuTextColor = "#FF7E7D63";
+#define VAR_OPAL_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#507E7D63";borderColor = "#FF7E7D63";textAccentColor = "#FF000000";menuTextColor = "#ffb4b37e";
 
 apply (name:["Uncut opal",   "Opal", ]) {
     VAR_OPAL_CUSTOMSTYLE 
@@ -10010,7 +10010,7 @@ label: Jade custom style
 group: Gems Styles
 exampleItem: Jade
 */
-#define VAR_JADE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#506E7E64";borderColor = "#FF6E7E64";textAccentColor = "#FF000000";menuTextColor = "#FF6E7E64";
+#define VAR_JADE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#506E7E64";borderColor = "#FF6E7E64";textAccentColor = "#FF000000";menuTextColor = "#ff889e7b";
 
 apply (name:["Uncut jade",   "Jade", ]) {
     VAR_JADE_CUSTOMSTYLE 
@@ -10022,7 +10022,7 @@ label: Red topaz custom style
 group: Gems Styles
 exampleItem: Red topaz
 */
-#define VAR_RED_TOPAZ_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50830E4F";borderColor = "#FF830E4F";textAccentColor = "#FF000000";menuTextColor = "#FF830E4F";
+#define VAR_RED_TOPAZ_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50830E4F";borderColor = "#FF830E4F";textAccentColor = "#FF000000";menuTextColor = "#ffe41084";
 
 apply (name:["Uncut red topaz",   "Red topaz", ]) {
     VAR_RED_TOPAZ_CUSTOMSTYLE 
@@ -10034,7 +10034,7 @@ label: Dragonstone custom style
 group: Gems Styles
 exampleItem: Dragonstone
 */
-#define VAR_DRAGONSTONE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#504C0B62";borderColor = "#FF4C0B62";textAccentColor = "#FF000000";menuTextColor = "#FF4C0B62";
+#define VAR_DRAGONSTONE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#504C0B62";borderColor = "#FF4C0B62";textAccentColor = "#FF000000";menuTextColor = "#ffc001ff";
 
 apply (name:["Uncut dragonstone",   "Dragonstone", ]) {
     VAR_DRAGONSTONE_CUSTOMSTYLE 
@@ -10071,7 +10071,7 @@ label: Water rune custom style
 group: Runes Styles
 exampleItem: Water rune
 */
-#define VAR_WATER_RUNE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50151AA7";borderColor = "#FF151AA7";textAccentColor = "#FF000000";menuTextColor = "#FF151AA7";
+#define VAR_WATER_RUNE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50151AA7";borderColor = "#FF151AA7";textAccentColor = "#FF000000";menuTextColor = "#ff337eff";
 
 apply (name:"Water rune") {
     VAR_WATER_RUNE_CUSTOMSTYLE 
@@ -10083,7 +10083,7 @@ label: Earth rune custom style
 group: Runes Styles
 exampleItem: Earth rune
 */
-#define VAR_EARTH_RUNE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#506D490D";borderColor = "#FF6D490D";textAccentColor = "#FF000000";menuTextColor = "#FF6D490D";
+#define VAR_EARTH_RUNE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#506D490D";borderColor = "#FF6D490D";textAccentColor = "#FF000000";menuTextColor = "#ffc58d2c";
 
 apply (name:"Earth rune") {
     VAR_EARTH_RUNE_CUSTOMSTYLE 
@@ -10095,7 +10095,7 @@ label: Fire rune custom style
 group: Runes Styles
 exampleItem: Fire rune
 */
-#define VAR_FIRE_RUNE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50A72215";borderColor = "#FFA72215";textAccentColor = "#FF000000";menuTextColor = "#FFA72215";
+#define VAR_FIRE_RUNE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50A72215";borderColor = "#FFA72215";textAccentColor = "#FF000000";menuTextColor = "#ffff1500";
 
 apply (name:"Fire rune") {
     VAR_FIRE_RUNE_CUSTOMSTYLE 
@@ -10215,7 +10215,7 @@ label: Blood rune custom style
 group: Runes Styles
 exampleItem: Blood rune
 */
-#define VAR_BLOOD_RUNE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50891D11";borderColor = "#FF891D11";textAccentColor = "#FF000000";menuTextColor = "#FF891D11";
+#define VAR_BLOOD_RUNE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50891D11";borderColor = "#FF891D11";textAccentColor = "#FF000000";menuTextColor = "#ffff1900";
 
 apply (name:"Blood rune") {
     VAR_BLOOD_RUNE_CUSTOMSTYLE 
@@ -10263,7 +10263,7 @@ label: Dust rune custom style
 group: Runes Styles
 exampleItem: Dust rune
 */
-#define VAR_DUST_RUNE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50746241";borderColor = "#FF746241";textAccentColor = "#FF000000";menuTextColor = "#FF746241";
+#define VAR_DUST_RUNE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50746241";borderColor = "#FF746241";textAccentColor = "#FF000000";menuTextColor = "#ffa99671";
 
 apply (name:"Dust rune") {
     VAR_DUST_RUNE_CUSTOMSTYLE 
@@ -10275,7 +10275,7 @@ label: Mud rune custom style
 group: Runes Styles
 exampleItem: Mud rune
 */
-#define VAR_MUD_RUNE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#505D3B17";borderColor = "#FF5D3B17";textAccentColor = "#FF000000";menuTextColor = "#FF5D3B17";
+#define VAR_MUD_RUNE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#505D3B17";borderColor = "#FF5D3B17";textAccentColor = "#FF000000";menuTextColor = "#ffa97741";
 
 apply (name:"Mud rune") {
     VAR_MUD_RUNE_CUSTOMSTYLE 
@@ -10287,7 +10287,7 @@ label: Smoke rune custom style
 group: Runes Styles
 exampleItem: Smoke rune
 */
-#define VAR_SMOKE_RUNE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50534D4D";borderColor = "#FF534D4D";textAccentColor = "#FF000000";menuTextColor = "#FF534D4D";
+#define VAR_SMOKE_RUNE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50534D4D";borderColor = "#FF534D4D";textAccentColor = "#FF000000";menuTextColor = "#ffc5bcbc";
 
 apply (name:"Smoke rune") {
     VAR_SMOKE_RUNE_CUSTOMSTYLE 
@@ -10299,7 +10299,7 @@ label: Steam rune custom style
 group: Runes Styles
 exampleItem: Steam rune
 */
-#define VAR_STEAM_RUNE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50AEAEB7";borderColor = "#FFAEAEB7";textAccentColor = "#FF000000";menuTextColor = "#FFAEAEB7";
+#define VAR_STEAM_RUNE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50AEAEB7";borderColor = "#FFAEAEB7";textAccentColor = "#FF000000";menuTextColor = "#ffb0b0ed";
 
 apply (name:"Steam rune") {
     VAR_STEAM_RUNE_CUSTOMSTYLE 
@@ -10337,7 +10337,7 @@ label: Guam leaf custom style
 group: Herbs Styles
 exampleItem: Guam leaf
 */
-#define VAR_HERBS_GUAM_LEAF_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#5009550d";borderColor = "#FF09550d";textAccentColor = "#FF000000";menuTextColor = "#FF09550d";
+#define VAR_HERBS_GUAM_LEAF_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#5009550d";borderColor = "#FF09550d";textAccentColor = "#FF000000";menuTextColor = "#ff1fb126";
 
 apply (name:"*guam leaf") {
     VAR_HERBS_GUAM_LEAF_CUSTOMSTYLE 
@@ -10349,7 +10349,7 @@ label: Marrentill custom style
 group: Herbs Styles
 exampleItem: Marrentill
 */
-#define VAR_HERBS_MARRENTILL_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#500c7610";borderColor = "#FF0c7610";textAccentColor = "#FF000000";menuTextColor = "#FF0c7610";
+#define VAR_HERBS_MARRENTILL_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#500c7610";borderColor = "#FF0c7610";textAccentColor = "#FF000000";menuTextColor = "#ff12b117";
 
 apply (name:"*marrentill") {
     VAR_HERBS_MARRENTILL_CUSTOMSTYLE 
@@ -10361,7 +10361,7 @@ label: Tarromin custom style
 group: Herbs Styles
 exampleItem: Tarromin
 */
-#define VAR_HERBS_TARROMIN_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#500c7138";borderColor = "#FF0c7138";textAccentColor = "#FF000000";menuTextColor = "#FF0c7138";
+#define VAR_HERBS_TARROMIN_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#500c7138";borderColor = "#FF0c7138";textAccentColor = "#FF000000";menuTextColor = "#ff12a050";
 
 apply (name:"*tarromin") {
     VAR_HERBS_TARROMIN_CUSTOMSTYLE 
@@ -10373,7 +10373,7 @@ label: Harralander custom style
 group: Herbs Styles
 exampleItem: Harralander
 */
-#define VAR_HERBS_HARRALANDER_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#5054780c";borderColor = "#FF54780c";textAccentColor = "#FF000000";menuTextColor = "#FF54780c";
+#define VAR_HERBS_HARRALANDER_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#5054780c";borderColor = "#FF54780c";textAccentColor = "#FF000000";menuTextColor = "#ff7caf17";
 
 apply (name:"*harralander") {
     VAR_HERBS_HARRALANDER_CUSTOMSTYLE 
@@ -10385,7 +10385,7 @@ label: Ranarr weed custom style
 group: Herbs Styles
 exampleItem: Ranarr weed
 */
-#define VAR_HERBS_RANARR_WEED_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#503c5f09";borderColor = "#FF3c5f09";textAccentColor = "#FF000000";menuTextColor = "#FF3c5f09";
+#define VAR_HERBS_RANARR_WEED_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#503c5f09";borderColor = "#FF3c5f09";textAccentColor = "#FF000000";menuTextColor = "#ff6ea915";
 
 apply (name:"*ranarr weed") {
     VAR_HERBS_RANARR_WEED_CUSTOMSTYLE 
@@ -10397,7 +10397,7 @@ label: Toadflax custom style
 group: Herbs Styles
 exampleItem: Toadflax
 */
-#define VAR_HERBS_TOADFLAX_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50002400";borderColor = "#FF002400";textAccentColor = "#FF000000";menuTextColor = "#FF002400";
+#define VAR_HERBS_TOADFLAX_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50002400";borderColor = "#FF002400";textAccentColor = "#FF000000";menuTextColor = "#ff012c01";
 
 apply (name:"*toadflax") {
     VAR_HERBS_TOADFLAX_CUSTOMSTYLE 
@@ -10409,7 +10409,7 @@ label: Irit leaf custom style
 group: Herbs Styles
 exampleItem: Irit leaf
 */
-#define VAR_HERBS_IRIT_LEAF_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50507436";borderColor = "#FF507436";textAccentColor = "#FF000000";menuTextColor = "#FF507436";
+#define VAR_HERBS_IRIT_LEAF_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50507436";borderColor = "#FF507436";textAccentColor = "#FF000000";menuTextColor = "#ff6b9d47";
 
 apply (name:"*irit leaf") {
     VAR_HERBS_IRIT_LEAF_CUSTOMSTYLE 
@@ -10421,7 +10421,7 @@ label: Avantoe custom style
 group: Herbs Styles
 exampleItem: Avantoe
 */
-#define VAR_HERBS_AVANTOE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50145326";borderColor = "#FF145326";textAccentColor = "#FF000000";menuTextColor = "#FF145326";
+#define VAR_HERBS_AVANTOE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50145326";borderColor = "#FF145326";textAccentColor = "#FF000000";menuTextColor = "#ff209040";
 
 apply (name:"*avantoe") {
     VAR_HERBS_AVANTOE_CUSTOMSTYLE 
@@ -10433,7 +10433,7 @@ label: Kwuarm custom style
 group: Herbs Styles
 exampleItem: Kwuarm
 */
-#define VAR_HERBS_KWUARM_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#504d5709";borderColor = "#FF4d5709";textAccentColor = "#FF000000";menuTextColor = "#FF4d5709";
+#define VAR_HERBS_KWUARM_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#504d5709";borderColor = "#FF4d5709";textAccentColor = "#FF000000";menuTextColor = "#ff7f9014";
 
 apply (name:"*kwuarm") {
     VAR_HERBS_KWUARM_CUSTOMSTYLE 
@@ -10445,7 +10445,7 @@ label: Huasca custom style
 group: Herbs Styles
 exampleItem: Huasca
 */
-#define VAR_HERBS_HUASCA_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50513748";borderColor = "#FF513748";textAccentColor = "#FF000000";menuTextColor = "#FF513748";
+#define VAR_HERBS_HUASCA_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50513748";borderColor = "#FF513748";textAccentColor = "#FF000000";menuTextColor = "#ffa06f8f";
 
 apply (name:"*huasca") {
     VAR_HERBS_HUASCA_CUSTOMSTYLE 
@@ -10457,7 +10457,7 @@ label: Snapdragon custom style
 group: Herbs Styles
 exampleItem: Snapdragon
 */
-#define VAR_HERBS_SNAPDRAGON_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#503e4b08";borderColor = "#FF3e4b08";textAccentColor = "#FF000000";menuTextColor = "#FF3e4b08";
+#define VAR_HERBS_SNAPDRAGON_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#503e4b08";borderColor = "#FF3e4b08";textAccentColor = "#FF000000";menuTextColor = "#ff768e17";
 
 apply (name:"*snapdragon") {
     VAR_HERBS_SNAPDRAGON_CUSTOMSTYLE 
@@ -10469,7 +10469,7 @@ label: Cadantine custom style
 group: Herbs Styles
 exampleItem: Cadantine
 */
-#define VAR_HERBS_CADANTINE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#5044501c";borderColor = "#FF44501c";textAccentColor = "#FF000000";menuTextColor = "#FF44501c";
+#define VAR_HERBS_CADANTINE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#5044501c";borderColor = "#FF44501c";textAccentColor = "#FF000000";menuTextColor = "#ff889e3d";
 
 apply (name:"*cadantine") {
     VAR_HERBS_CADANTINE_CUSTOMSTYLE 
@@ -10481,7 +10481,7 @@ label: Lantadyme custom style
 group: Herbs Styles
 exampleItem: Lantadyme
 */
-#define VAR_HERBS_LANTADYME_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#5008473c";borderColor = "#FF08473c";textAccentColor = "#FF000000";menuTextColor = "#FF08473c";
+#define VAR_HERBS_LANTADYME_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#5008473c";borderColor = "#FF08473c";textAccentColor = "#FF000000";menuTextColor = "#ff119e87";
 
 apply (name:"*lantadyme") {
     VAR_HERBS_LANTADYME_CUSTOMSTYLE 
@@ -10493,7 +10493,7 @@ label: Dwarf weed custom style
 group: Herbs Styles
 exampleItem: Dwarf weed
 */
-#define VAR_HERBS_DWARF_WEED_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50094809";borderColor = "#FF094809";textAccentColor = "#FF000000";menuTextColor = "#FF094809";
+#define VAR_HERBS_DWARF_WEED_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#50094809";borderColor = "#FF094809";textAccentColor = "#FF000000";menuTextColor = "#ff17a917";
 
 apply (name:"*dwarf weed") {
     VAR_HERBS_DWARF_WEED_CUSTOMSTYLE 
@@ -10505,7 +10505,7 @@ label: Torstol custom style
 group: Herbs Styles
 exampleItem: Torstol
 */
-#define VAR_HERBS_TORSTOL_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#5009570c";borderColor = "#FF09570c";textAccentColor = "#FF000000";menuTextColor = "#FF09570c";
+#define VAR_HERBS_TORSTOL_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#5009570c";borderColor = "#FF09570c";textAccentColor = "#FF000000";menuTextColor = "#ff16a01a";
 
 apply (name:"*torstol") {
     VAR_HERBS_TORSTOL_CUSTOMSTYLE 
@@ -11980,7 +11980,7 @@ label: Rare Drop Table Item Style
 exampleItem: Dragon spear
 exampleItemId: 1249
 */
-#define VAR_RDT_CUSTOMSTYLE backgroundColor = "#ffa181f0";borderColor = "#FFdea71a";
+#define VAR_RDT_CUSTOMSTYLE backgroundColor = "#82dea71b";borderColor = "#ffffb700";showValue = true;sound = 413;icon = CurrentItem();
 
 
 apply (name:"Nature rune" && quantity:==67) {
@@ -12137,12 +12137,22 @@ group: "Ownership-related sound and notification settings"
 */
 #define VAR_SILENCE_OTHER_PLAYERS_ITEMS true
 
+apply (VAR_SILENCE_OTHER_PLAYERS_ITEMS && ownership:OWNERSHIP_OTHER) {
+    sound = 2411; // sound name: silence
+    notify = false;
+}
+
 /*@ define:input:filtering
 type: boolean
 label: "Silence sounds and notifications for other players' items"
 group: "Ownership-related sound and notification settings"
 */
 #define VAR_SILENCE_HIDE_SPAWN_ITEMS true
+
+apply (VAR_SILENCE_HIDE_SPAWN_ITEMS && ownership:OWNERSHIP_NONE) {
+    sound = 2411; // sound name: silence
+    notify = false;
+}
 
 /*@ define:module:final
 hidden: true
@@ -12156,18 +12166,6 @@ apply (name:VAR_GLOBAL_HIDE) {
 }
 apply (name:VAR_GLOBAL_SHOW) {
     hidden = false;
-}
-
-/* --- Silencing drops from unowned sources --- */
-
-apply (VAR_SILENCE_OTHER_PLAYERS_ITEMS && ownership:OWNERSHIP_OTHER) {
-    sound = 2411; // sound name: silence
-    notify = false;
-}
-
-apply (VAR_SILENCE_HIDE_SPAWN_ITEMS && ownership:OWNERSHIP_NONE) {
-    sound = 2411; // sound name: silence
-    notify = false;
 }
 
 /* --- sorting menu by value --- */
