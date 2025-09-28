@@ -3,8 +3,8 @@ hidden: true
 name: header
 */
 
-/* Built on: Thu Sep 11 13:37:01 UTC 2025 */
-/* Commit: 5e86f10 */
+/* Built on: Thu Sep 25 05:19:35 UTC 2025 */
+/* Commit: 0327296 */
 meta { name = "Joe's filter"; description = "Offers an original color scheme with extensive support for category-based styling/filtering."; }
 
 
@@ -3076,7 +3076,7 @@ enum: [
   "Wildblood seed"
 ]
 */
-#define VAR_FARMING_SEEDS_HOPS_HIDE ["Barley seed","Hammerstone seed","Asgarnian seed","Jute seed","Yanillian seed","Krandorian seed","Wildblood seed"]
+#define VAR_FARMING_SEEDS_HOPS_HIDE ["Barley seed","Hammerstone seed","Asgarnian seed","Jute seed","Yanillian seed","Krandorian seed"]
 
 apply (name:VAR_FARMING_SEEDS_HOPS_HIDE) {
     hidden = true;
@@ -3154,7 +3154,7 @@ enum: [
   "Redwood tree seed"
 ]
 */
-#define VAR_FARMING_SEEDS_SPECIAL_TREE_HIDE ["Teak seed","Mahogany seed","Calquat tree seed"]
+#define VAR_FARMING_SEEDS_SPECIAL_TREE_HIDE []
 
 apply (name:VAR_FARMING_SEEDS_SPECIAL_TREE_HIDE) {
     hidden = true;
@@ -5856,7 +5856,7 @@ type: stringlist
 label: Manually add items to tier 1
 group: Tier 1
 */
-#define VAR_VALUES_TIER_1_SHOW ["Vorkath's head","Giantsoul amulet","Desiccated page","Pendant of ates","Long bone","Scurrius' spine"]
+#define VAR_VALUES_TIER_1_SHOW ["Vorkath's head","Giantsoul amulet","Desiccated page","Pendant of ates","Long bone","Scurrius' spine","Alchemist's signet"]
 
 /*@ define:input:item_tiers
 type: style
@@ -8179,25 +8179,13 @@ apply (name:"Tormented synapse") {
 
 /*@ define:input:individual_item_styles
 type: style
-label: Burning claw
-group: Tormented Demons Drop Styles
-exampleItem: Burning claw
-*/
-#define VAR_MONSTERS_TORMENTED_DEMONS_BURNING_CLAW_CUSTOMSTYLE
-
-apply (name:"Burning claw") {
-    VAR_MONSTERS_TORMENTED_DEMONS_BURNING_CLAW_CUSTOMSTYLE
-}
-
-/*@ define:input:individual_item_styles
-type: style
 label: Burning claws
 group: Tormented Demons Drop Styles
 exampleItem: Burning claws
 */
 #define VAR_MONSTERS_TORMENTED_DEMONS_BURNING_CLAW_CUSTOMSTYLE
 
-apply (name:"Burning claws") {
+apply (name:"Burning claw" || name:"Burning claws") {
     VAR_MONSTERS_TORMENTED_DEMONS_BURNING_CLAW_CUSTOMSTYLE
 }
 
