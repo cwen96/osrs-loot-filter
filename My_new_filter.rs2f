@@ -9,6 +9,7 @@ meta { name = "My new filter"; description = "Offers an original color scheme wi
 
 
 
+
 /*@ define:module:default_styling
 ---
 name: Default Styling
@@ -120,6 +121,7 @@ apply (name:VAR_GLOBAL_SHOW_ICONS_ITEMLIST) {
 }
 
 
+
 /*@ define:module:sorting
 ---
 name: Sorting
@@ -153,6 +155,7 @@ type: stringlist
 label: Items to always show first
 */
 #define VAR_MENU_SORT_ITEMS_FIRST []
+
 
 
 /*@ define:module:filtering
@@ -2421,7 +2424,7 @@ enum: [
   "Raw karambwan"
 ]
 */
-#define VAR_FISHING_RAW_FISH_HIDE ["Raw shrimps","Raw anchovies","Raw guppy","Raw cavefish","Raw tetra","Frog spawn","Raw mackerel","Raw cod","Raw bass","Raw sardine","Raw herring","Raw pike","Raw trout","Raw salmon","Raw rainbow fish","Leaping trout","Leaping salmon","Leaping sturgeon","Raw tuna","Bluegill","Common tench","Mottled eel","Greater siren"]
+#define VAR_FISHING_RAW_FISH_HIDE ["Raw shrimps","Raw anchovies","Raw guppy","Raw cavefish","Raw tetra","Frog spawn","Raw mackerel","Raw cod","Raw bass","Raw sardine","Raw herring","Raw pike","Raw trout","Raw salmon","Raw rainbow fish","Leaping trout","Leaping salmon","Leaping sturgeon","Raw tuna"]
 
 apply (name:VAR_FISHING_RAW_FISH_HIDE) {
     hidden = true;
@@ -3929,6 +3932,7 @@ apply ((name:CONST_RUNE_ONE_HANDED_MELEE_WEAPONS || name:CONST_RUNE_TWO_HANDED_M
 apply ((name:CONST_DRAGON_ONE_HANDED_MELEE_WEAPONS || name:CONST_DRAGON_TWO_HANDED_MELEE_WEAPONS || name:CONST_DRAGON_RANGED_WEAPONS || name:CONST_DRAGON_AMMO || name:CONST_DRAGON_ARMOUR) && name:VAR_METAL_EQUIPMENT_TIERS_HIDE && !name:CONST_DEFENDERS_LIST) {
     hidden = true;
 }
+
 
 
 /*@ define:module:area_based_filtering
@@ -5839,6 +5843,7 @@ apply (area:CONST_BOUNTY_HUNTER_AREA && name:VAR_BOUNTY_HUNTER_HIDDEN_LIST) {
 }
 
 
+
 /*@ define:module:item_tiers
 ---
 name: Item tiers
@@ -5899,7 +5904,7 @@ group: Tier 2
 exampleItem: Infinity boots
 exampleItemId: 6920
 */
-#define VAR_VALUES_TIER_2_CUSTOMSTYLE textColor = "#ff2bff2b";backgroundColor = "#706e02fa";borderColor = "#ff00ff03";textAccentColor = "#FF000000";lootbeamColor = "#ff33ff00";menuTextColor = "#ff80ff80";textAccent = 3;fontType = 2;showLootbeam = true;showValue = true;showDespawn = true;notify = true;highlightTile = true;sound = 1299;icon = CurrentItem();
+#define VAR_VALUES_TIER_2_CUSTOMSTYLE textColor = "#ff2bff2b";backgroundColor = "#706e02fa";borderColor = "#ff00ff03";textAccentColor = "#FF000000";lootbeamColor = "#ff33ff00";menuTextColor = "#ff80ff80";textAccent = 3;fontType = 2;showLootbeam = true;showValue = true;showDespawn = true;notify = true;highlightTile = true;sound = 1628;icon = CurrentItem();
 
 apply ((value:>=VAR_VALUES_TIER_2_VALUE && value:<VAR_VALUES_TIER_3_VALUE) || name:VAR_VALUES_TIER_2_SHOW) {
     VAR_VALUES_TIER_2_CUSTOMSTYLE 
@@ -5999,6 +6004,7 @@ rule (VAR_VALUES_TIER_4_TERMINATE && ((value:>=VAR_VALUES_TIER_4_VALUE) || name:
 
 
 
+
 /*@ define:module:uniques
 ---
 name: Uniques
@@ -6052,6 +6058,7 @@ group: Power User
 rule (VAR_UNIQUES_TERMINATE && name:VAR_UNIQUES_LIST) {}
 
 
+
 /*@ define:module:alchs
 ---
 name: Alchs
@@ -6076,7 +6083,7 @@ label: Custom style for items on the alchs list
 exampleItem: Rune platelegs
 exampleItemId: 1079
 */
-#define VAR_ALCHS_CUSTOMSTYLE textColor = "#ff000000";backgroundColor = "#99fbff00";borderColor = "#ff00ff03";textAccentColor = "#ff000000";menuTextColor = "#fffbff00";textAccent = 3;fontType = 1;showValue = true;showDespawn = true;notify = true;highlightTile = true;sound = 2310;icon = Sprite(41, 0);
+#define VAR_ALCHS_CUSTOMSTYLE textColor = "#ff000000";backgroundColor = "#7dfffb00";borderColor = "#ff00ff03";textAccentColor = "#ff000000";menuTextColor = "#fffbff00";textAccent = 3;fontType = 2;showValue = true;showDespawn = true;notify = true;highlightTile = true;sound = 2581;icon = Sprite(41, 0);
 
 apply (name:VAR_ALCHS_ITEM_LIST) {
     VAR_ALCHS_CUSTOMSTYLE
@@ -6089,7 +6096,7 @@ type: stringlist
 label: List of alchables
 group: List of alchables
 */
-#define VAR_ALCHS_ITEM_LIST ["Adamant platebody","Air battlestaff","Dragon battleaxe","Dragon dagger","Dragon halberd","Dragon longsword","Dragon mace","Dragon med helm","Dragon platelegs","Dragon plateskirt","Dragon scimitar","Earth battlestaff","Fire battlestaff","Lava battlestaff","Mystic air staff","Mystic earth staff","Mystic fire staff","Mystic lava staff","Mystic robe bottom","Mystic robe top","Mystic water staff","Onyx dragon bolts (e)","Rune 2h sword","Rune battleaxe","Rune chainbody","Rune full helm","Rune halberd","Rune hasta","Rune kiteshield","Rune longsword","Rune med helm","Rune pickaxe","Rune platebody","Rune platelegs","Rune plateskirt","Rune scimitar","Rune spear","Rune sq shield","Rune sword","Rune warhammer","Runite crossbow (u)","Runite limbs","Water battlestaff","Adamant platelegs","Rune dagger","Runite ore"]
+#define VAR_ALCHS_ITEM_LIST ["Adamant platebody","Air battlestaff","Dragon battleaxe","Dragon dagger","Dragon halberd","Dragon longsword","Dragon mace","Dragon med helm","Dragon platelegs","Dragon plateskirt","Dragon scimitar","Earth battlestaff","Fire battlestaff","Lava battlestaff","Mystic air staff","Mystic earth staff","Mystic fire staff","Mystic lava staff","Mystic robe bottom","Mystic robe top","Mystic water staff","Onyx dragon bolts (e)","Rune 2h sword","Rune battleaxe","Rune chainbody","Rune full helm","Rune halberd","Rune hasta","Rune kiteshield","Rune longsword","Rune med helm","Rune pickaxe","Rune platebody","Rune platelegs","Rune plateskirt","Rune scimitar","Rune spear","Rune sq shield","Rune sword","Rune warhammer","Runite crossbow (u)","Runite limbs","Water battlestaff","Runite ore"]
 
 
 
@@ -6101,6 +6108,7 @@ group: Power User
 #define VAR_ALCHS_TERMINATE true
 
 rule (VAR_ALCHS_TERMINATE && name:VAR_ALCHS_ITEM_LIST) {}
+
 
 
 /*@ define:module:item_category_styles
@@ -6121,7 +6129,7 @@ group: Currency
 exampleItem: Coins
 exampleItemId: 1004
 */
-#define VAR_CURRENCY_CUSTOMSTYLE textColor = "#ff07f051";textAccent = 1;fontType = 1;icon = CurrentItem();
+#define VAR_CURRENCY_CUSTOMSTYLE textColor = "#ff07f051";backgroundColor = "#9efffb00";borderColor = "#ff000000";textAccent = 3;fontType = 2;showValue = false;icon = CurrentItem();
 
 apply (name:CONST_CURRENCY_LIST) {
     VAR_CURRENCY_CUSTOMSTYLE 
@@ -6333,7 +6341,7 @@ group: Ammo
 exampleItem: Dragon arrow
 exampleItemId: 11212
 */
-#define VAR_CATEGORY_AMMO_CUSTOMSTYLE icon = Sprite(3190, 0);
+#define VAR_CATEGORY_AMMO_CUSTOMSTYLE textColor = "#ffff0000";icon = Sprite(3190, 0);
 
 apply (name:CONST_BRONZE_AMMO || name:CONST_IRON_AMMO || name:CONST_STEEL_AMMO || name:CONST_BLACK_AMMO || name:CONST_MITHRIL_AMMO || name:CONST_ADAMANT_AMMO || name:CONST_RUNE_AMMO || name:CONST_DRAGON_AMMO || name:CONST_LAST_MAN_STANDING_AMMO_LIST || name:CONST_AMMO_STANDARD_ARROWS_LIST || name:CONST_AMMO_DARTS_LIST || name:CONST_AMMO_BOLTS_LIST || name:CONST_AMMO_BOLTS_E_LIST || name:CONST_AMMO_DRAGON_BOLTS_E_LIST || name:CONST_AMMO_JAVELINS_LIST || name:CONST_AMMO_SPECIAL_BOLTS_LIST || name:CONST_AMMO_BRUTAL_ARROWS_LIST || name:CONST_AMMO_SPECIAL_ARROWS_LIST || name:CONST_AMMO_KNIVES_LIST || name:CONST_AMMO_THROWING_AXES_LIST || name:CONST_AMMO_CHINCHOMPAS_LIST || name:CONST_AMMO_MISC_LIST) {
     VAR_CATEGORY_AMMO_CUSTOMSTYLE
@@ -6532,7 +6540,7 @@ group: Herblore
 exampleItem: Grimy ranarr weed
 exampleItemId: 207
 */
-#define VAR_CATEGORY_HERBLORE_CUSTOMSTYLE textColor = "#ff1d7312";textAccent = 1;fontType = 2;icon = CurrentItem();
+#define VAR_CATEGORY_HERBLORE_CUSTOMSTYLE textColor = "#ff1d7312";backgroundColor = "#a179db8c";textAccent = 2;fontType = 2;icon = CurrentItem();
 
 apply (name:CONST_ALL_HERBS || name:CONST_SECONDARIES_LIST || name:CONST_ALL_HERBLORE_EQUIPMENT) {
   VAR_CATEGORY_HERBLORE_CUSTOMSTYLE
@@ -6545,7 +6553,7 @@ group: Herblore
 exampleItem: Guam leaf
 exampleItemId: 249
 */
-#define VAR_CATEGORY_HERBS_CUSTOMSTYLE textColor = "#ff3bd327";textAccent = 1;fontType = 2;menuSort = 0;icon = CurrentItem();
+#define VAR_CATEGORY_HERBS_CUSTOMSTYLE textColor = "#ff1d7312";backgroundColor = "#a179db8c";textAccent = 2;fontType = 2;menuSort = 0;icon = CurrentItem();
 
 apply (name:CONST_ALL_HERBS) {
   VAR_CATEGORY_HERBS_CUSTOMSTYLE
@@ -6558,7 +6566,7 @@ group: Herblore
 exampleItem: Eye of newt
 exampleItemId: 221
 */
-#define VAR_CATEGORY_HERBLORE_SECONDARIES_CUSTOMSTYLE textColor = "#ffaeffa7";
+#define VAR_CATEGORY_HERBLORE_SECONDARIES_CUSTOMSTYLE textColor = "#ff3bd327";backgroundColor = "#910022ff";borderColor = "#ff000000";textAccent = 3;fontType = 2;
 
 apply (name:CONST_SECONDARIES_LIST) {
   VAR_CATEGORY_HERBLORE_SECONDARIES_CUSTOMSTYLE
@@ -7016,7 +7024,7 @@ group: Metal Equipment
 exampleItem: Mithril platelegs
 exampleItemId: 1071
 */
-#define VAR_MITHRIL_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#80414161";borderColor = "#FF414161";textAccentColor = "#FF000000";menuTextColor = "#FF5a5a7a";
+#define VAR_MITHRIL_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#80414161";borderColor = "#FF414161";textAccentColor = "#FF000000";menuTextColor = "#ff0000ff";
 
 apply (name:CONST_MITHRIL_ONE_HANDED_MELEE_WEAPONS || name:CONST_MITHRIL_TWO_HANDED_MELEE_WEAPONS || name:CONST_MITHRIL_RANGED_WEAPONS || name:CONST_MITHRIL_AMMO || name:CONST_MITHRIL_ARMOUR || name:CONST_MITHRIL_OTHER) {
     VAR_MITHRIL_CUSTOMSTYLE 
@@ -7029,7 +7037,7 @@ group: Metal Equipment
 exampleItem: Adamant platelegs
 exampleItemId: 1073
 */
-#define VAR_ADAMANT_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#80405140";borderColor = "#FF405140";textAccentColor = "#FF000000";menuTextColor = "#FF5a7a5a";
+#define VAR_ADAMANT_CUSTOMSTYLE textColor = "#ffffffff";backgroundColor = "#80405140";borderColor = "#FF405140";textAccentColor = "#FF000000";menuTextColor = "#ff47ce47";
 
 apply (name:CONST_ADAMANT_ONE_HANDED_MELEE_WEAPONS || name:CONST_ADAMANT_TWO_HANDED_MELEE_WEAPONS || name:CONST_ADAMANT_RANGED_WEAPONS || name:CONST_ADAMANT_AMMO || name:CONST_ADAMANT_ARMOUR || name:CONST_ADAMANT_OTHER) {
     VAR_ADAMANT_CUSTOMSTYLE 
@@ -7042,7 +7050,7 @@ group: Metal Equipment
 exampleItem: Rune platelegs
 exampleItemId: 1079
 */
-#define VAR_RUNE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#80415760";borderColor = "#FF415760";textAccentColor = "#FF000000";menuTextColor = "#FF5a7a90";
+#define VAR_RUNE_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#80415760";borderColor = "#FF415760";textAccentColor = "#FF000000";menuTextColor = "#ffa6dbff";
 
 apply (name:CONST_RUNE_ONE_HANDED_MELEE_WEAPONS || name:CONST_RUNE_TWO_HANDED_MELEE_WEAPONS || name:CONST_RUNE_RANGED_WEAPONS || name:CONST_RUNE_AMMO || name:CONST_RUNE_ARMOUR || name:CONST_RUNE_OTHER) {
     VAR_RUNE_CUSTOMSTYLE 
@@ -7055,7 +7063,7 @@ group: Metal Equipment
 exampleItem: Dragon platelegs
 exampleItemId: 4087
 */
-#define VAR_DRAGON_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#80541109";borderColor = "#FF541109";textAccentColor = "#FF000000";menuTextColor = "#FF7a3a19";
+#define VAR_DRAGON_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#80541109";borderColor = "#FF541109";textAccentColor = "#FF000000";menuTextColor = "#ffff5500";
 
 apply (name:CONST_DRAGON_ONE_HANDED_MELEE_WEAPONS || name:CONST_DRAGON_TWO_HANDED_MELEE_WEAPONS || name:CONST_DRAGON_RANGED_WEAPONS || name:CONST_DRAGON_AMMO || name:CONST_DRAGON_ARMOUR) {
     VAR_DRAGON_CUSTOMSTYLE 
@@ -7067,7 +7075,7 @@ label: Bronze (t) Armour
 group: Metal Equipment
 exampleItem: Bronze platelegs (t)
 */
-#define VAR_BRONZE_TRIMMED_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#8043341d";borderColor = "#FF615c2d";textAccentColor = "#FF000000";menuTextColor = "#FF7a5a2d";
+#define VAR_BRONZE_TRIMMED_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#8043341d";borderColor = "#FF615c2d";textAccentColor = "#FF000000";menuTextColor = "#ffb67d2d";
 
 apply (name:CONST_BRONZE_TRIMMED_ARMOUR) {
     VAR_BRONZE_TRIMMED_CUSTOMSTYLE 
@@ -7079,7 +7087,7 @@ label: Iron (t) Armour
 group: Metal Equipment
 exampleItem: Iron platelegs (t)
 */
-#define VAR_IRON_TRIMMED_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#804f4948";borderColor = "#FF151111";textAccentColor = "#FF000000";menuTextColor = "#FF7a6a68";
+#define VAR_IRON_TRIMMED_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#804f4948";borderColor = "#FF151111";textAccentColor = "#FF000000";menuTextColor = "#ffb39d9a";
 
 apply (name:CONST_IRON_TRIMMED_ARMOUR) {
     VAR_IRON_TRIMMED_CUSTOMSTYLE 
@@ -7091,7 +7099,7 @@ label: Steel (t) Armour
 group: Metal Equipment
 exampleItem: Steel platelegs (t)
 */
-#define VAR_STEEL_TRIMMED_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#80857c7b";borderColor = "#FFb1a6a6";textAccentColor = "#FF000000";menuTextColor = "#FFb0a09b";
+#define VAR_STEEL_TRIMMED_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#80857c7b";borderColor = "#FFb1a6a6";textAccentColor = "#FF000000";menuTextColor = "#ffbcbcbc";
 
 apply (name:CONST_STEEL_TRIMMED_ARMOUR) {
     VAR_STEEL_TRIMMED_CUSTOMSTYLE 
@@ -7103,7 +7111,7 @@ label: Black (t) Armour
 group: Metal Equipment
 exampleItem: Black platelegs (t)
 */
-#define VAR_BLACK_TRIMMED_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#801d1b1b";borderColor = "#FF423e3e";textAccentColor = "#FF000000";menuTextColor = "#FF3b4a4a";
+#define VAR_BLACK_TRIMMED_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#801d1b1b";borderColor = "#FF423e3e";textAccentColor = "#FF000000";menuTextColor = "#ff000000";
 
 apply (name:CONST_BLACK_TRIMMED_ARMOUR) {
     VAR_BLACK_TRIMMED_CUSTOMSTYLE 
@@ -7115,7 +7123,7 @@ label: Mithril (t) Armour
 group: Metal Equipment
 exampleItem: Mithril platelegs (t)
 */
-#define VAR_MITHRIL_TRIMMED_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#80414161";borderColor = "#FF6e8aa3";textAccentColor = "#FF000000";menuTextColor = "#FF6a6a8a";
+#define VAR_MITHRIL_TRIMMED_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#80414161";borderColor = "#FF6e8aa3";textAccentColor = "#FF000000";menuTextColor = "#ff8787ff";
 
 apply (name:CONST_MITHRIL_TRIMMED_ARMOUR) {
     VAR_MITHRIL_TRIMMED_CUSTOMSTYLE 
@@ -7127,7 +7135,7 @@ label: Adamant (t) Armour
 group: Metal Equipment
 exampleItem: Adamant platelegs (t)
 */
-#define VAR_ADAMANT_TRIMMED_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#80405140";borderColor = "#FF6a725a";textAccentColor = "#FF000000";menuTextColor = "#FF6a8a6a";
+#define VAR_ADAMANT_TRIMMED_CUSTOMSTYLE hidden = false;textColor = "#FFFFFFFF";backgroundColor = "#80405140";borderColor = "#FF6a725a";textAccentColor = "#FF000000";menuTextColor = "#ff90bc90";
 
 apply (name:CONST_ADAMANT_TRIMMED_ARMOUR) {
     VAR_ADAMANT_TRIMMED_CUSTOMSTYLE 
@@ -7139,7 +7147,7 @@ label: Rune (t) Armour
 group: Metal Equipment
 exampleItem: Rune platelegs (t)
 */
-#define VAR_RUNE_TRIMMED_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#80415760";borderColor = "#FF6d88a1";textAccentColor = "#FF000000";menuTextColor = "#FF6a8a9a";
+#define VAR_RUNE_TRIMMED_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#80415760";borderColor = "#FF6d88a1";textAccentColor = "#FF000000";menuTextColor = "#ff8bc4e0";
 
 apply (name:CONST_RUNE_TRIMMED_ARMOUR) {
     VAR_RUNE_TRIMMED_CUSTOMSTYLE 
@@ -7151,7 +7159,7 @@ label: Bronze (g) Armour
 group: Metal Equipment
 exampleItem: Bronze platelegs (g)
 */
-#define VAR_BRONZE_GOLD_TRIMMED_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#8043341d";borderColor = "#FFdea71a";textAccentColor = "#FF000000";menuTextColor = "#FF7a6a2d";
+#define VAR_BRONZE_GOLD_TRIMMED_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#8043341d";borderColor = "#FFdea71a";textAccentColor = "#FF000000";menuTextColor = "#ffa99541";
 
 apply (name:CONST_BRONZE_GOLD_TRIMMED_ARMOUR) {
     VAR_BRONZE_GOLD_TRIMMED_CUSTOMSTYLE 
@@ -7163,7 +7171,7 @@ label: Iron (g) Armour
 group: Metal Equipment
 exampleItem: Iron platelegs (g)
 */
-#define VAR_IRON_GOLD_TRIMMED_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#804f4948";borderColor = "#FFdea71a";textAccentColor = "#FF000000";menuTextColor = "#FF7a7a58";
+#define VAR_IRON_GOLD_TRIMMED_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#804f4948";borderColor = "#FFdea71a";textAccentColor = "#FF000000";menuTextColor = "#ffa0a080";
 
 apply (name:CONST_IRON_GOLD_TRIMMED_ARMOUR) {
     VAR_IRON_GOLD_TRIMMED_CUSTOMSTYLE 
@@ -7175,7 +7183,7 @@ label: Steel (g) Armour
 group: Metal Equipment
 exampleItem: Steel platelegs (g)
 */
-#define VAR_STEEL_GOLD_TRIMMED_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#80857c7b";borderColor = "#FFdea71a";textAccentColor = "#FF000000";menuTextColor = "#FFb0b08b";
+#define VAR_STEEL_GOLD_TRIMMED_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#80857c7b";borderColor = "#FFdea71a";textAccentColor = "#FF000000";menuTextColor = "#ffbfbfac";
 
 apply (name:CONST_STEEL_GOLD_TRIMMED_ARMOUR) {
     VAR_STEEL_GOLD_TRIMMED_CUSTOMSTYLE 
@@ -7187,7 +7195,7 @@ label: Black (g) Armour
 group: Metal Equipment
 exampleItem: Black platelegs (g)
 */
-#define VAR_BLACK_GOLD_TRIMMED_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#801d1b1b";borderColor = "#FFdea71a";textAccentColor = "#FF000000";menuTextColor = "#FF2b4a4a";
+#define VAR_BLACK_GOLD_TRIMMED_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#801d1b1b";borderColor = "#FFdea71a";textAccentColor = "#FF000000";menuTextColor = "#ff000000";
 
 apply (name:CONST_BLACK_GOLD_TRIMMED_ARMOUR) {
     VAR_BLACK_GOLD_TRIMMED_CUSTOMSTYLE 
@@ -7199,7 +7207,7 @@ label: Mithril (g) Armour
 group: Metal Equipment
 exampleItem: Mithril platelegs (g)
 */
-#define VAR_MITHRIL_GOLD_TRIMMED_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#80414161";borderColor = "#FFdea71a";textAccentColor = "#FF000000";menuTextColor = "#FF7a7a6a";
+#define VAR_MITHRIL_GOLD_TRIMMED_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#80414161";borderColor = "#FFdea71a";textAccentColor = "#FF000000";menuTextColor = "#f00004fd";
 
 apply (name:CONST_MITHRIL_GOLD_TRIMMED_ARMOUR) {
     VAR_MITHRIL_GOLD_TRIMMED_CUSTOMSTYLE 
@@ -7343,11 +7351,12 @@ label: Gilded Armour and Weapons
 group: Metal Equipment
 exampleItem: Gilded platelegs
 */
-#define VAR_RUNE_GILDED_CUSTOMSTYLE textColor = "#FFFFFFFF";backgroundColor = "#80c39318";borderColor = "#FF7c540c";textAccentColor = "#FF000000";menuTextColor = "#FFbca41c";
+#define VAR_RUNE_GILDED_CUSTOMSTYLE hidden = false;
 
 apply (name:CONST_RUNE_GILDED) {
     VAR_RUNE_GILDED_CUSTOMSTYLE 
 }
+
 
 
 /*@ define:module:individual_item_styles
@@ -11964,6 +11973,7 @@ apply (area:CONST_GAUNTLET_AREA && name:"* legs *") {
 }
 
 
+
 /*@ define:module:rare_drop_table
 ---
 name: Rare Drop Table Style
@@ -11978,7 +11988,7 @@ label: Rare Drop Table Item Style
 exampleItem: Dragon spear
 exampleItemId: 1249
 */
-#define VAR_RDT_CUSTOMSTYLE backgroundColor = "#82dea71b";borderColor = "#ffffb700";showValue = true;sound = 413;icon = CurrentItem();
+#define VAR_RDT_CUSTOMSTYLE textColor = "#ffc83eff";backgroundColor = "#82dea71b";borderColor = "#ffffb700";textAccent = 1;fontType = 2;showValue = true;icon = CurrentItem();
 
 
 apply (name:"Nature rune" && quantity:==67) {
@@ -12071,6 +12081,7 @@ apply (name:"Dragon spear" && quantity:==1) {
 
 
 
+
 /*@ define:module:utilities
 ---
 name: Utilities
@@ -12152,6 +12163,7 @@ apply (VAR_SILENCE_HIDE_SPAWN_ITEMS && ownership:OWNERSHIP_NONE) {
     sound = 2411; // sound name: silence
     notify = false;
 }
+
 
 
 /*@ define:module:final
@@ -12938,6 +12950,7 @@ apply (VAR_SORTING_MENU_SORT_UNTRADEABLE_FIRST && tradeable:false && value:>=200
 apply (name:VAR_MENU_SORT_ITEMS_FIRST) {
     menuSort = 300;
 }
+
 
 
 /*@ define:module:constants
