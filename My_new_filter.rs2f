@@ -355,7 +355,7 @@ enum: [
   "Bearded gorilla bones"
 ]
 */
-#define VAR_BONES_HIDE ["Bones","Wolf bones","Burnt bones","Monkey bones","Bat bones","Big bones","Jogre bones","Wyrmling bones","Zogre bones"]
+#define VAR_BONES_HIDE ["Bones","Wolf bones","Burnt bones","Monkey bones","Bat bones","Big bones","Jogre bones"]
 
 apply (name:VAR_BONES_HIDE) {
     hidden = true;
@@ -669,7 +669,7 @@ enum: [
   }
 ]
 */
-#define VAR_POTIONS_HIDE ["Attack potion(*","Strength potion(*","Serum 207(*","Compost potion(*","Restore potion(*","Energy potion(*","Defence potion(*","Agility potion(*","Combat potion(*","Fishing potion(*","Hunter potion(*"]
+#define VAR_POTIONS_HIDE ["Attack potion(*","Strength potion(*","Serum 207(*","Compost potion(*","Restore potion(*","Energy potion(*","Defence potion(*","Agility potion(*","Combat potion(*","Fishing potion(*"]
 
 apply (name:VAR_POTIONS_HIDE) {
     hidden = true;
@@ -932,7 +932,7 @@ enum: [
   }
 ]
 */
-#define VAR_AMMO_STANDARD_ARROWS_HIDE ["Bronze*","Iron*","Steel*","Mithril*","Adamant*"]
+#define VAR_AMMO_STANDARD_ARROWS_HIDE ["Bronze*","Iron*","Steel*"]
 
 /*@ define:input:ammo
 type: number
@@ -992,7 +992,7 @@ enum: [
   }
 ]
 */
-#define VAR_AMMO_DARTS_HIDE ["Bronze dart*","Iron dart*","Steel dart*","Black dart*","Mithril dart*","Adamant dart*"]
+#define VAR_AMMO_DARTS_HIDE ["Bronze dart*","Iron dart*","Steel dart*","Black dart*","Mithril dart*"]
 
 /*@ define:input:ammo
 type: number
@@ -1519,49 +1519,49 @@ type: boolean
 label: Force runes to be shown if they're above min quantity
 group: Runes
 */
-#define VAR_RUNES_SHOW_ABOVE_MIN_QUANTITY false
+#define VAR_RUNES_SHOW_ABOVE_MIN_QUANTITY true
 
 /*@ define:input:runes
 type: number
 label: Air rune minimum quantity
 group: Runes
 */
-#define VAR_AIR_RUNE_MIN_QUANTITY 500
+#define VAR_AIR_RUNE_MIN_QUANTITY 5000
 
 /*@ define:input:runes
 type: number
 label: Water rune minimum quantity
 group: Runes
 */
-#define VAR_WATER_RUNE_MIN_QUANTITY 500
+#define VAR_WATER_RUNE_MIN_QUANTITY 5000
 
 /*@ define:input:runes
 type: number
 label: Earth rune minimum quantity
 group: Runes
 */
-#define VAR_EARTH_RUNE_MIN_QUANTITY 500
+#define VAR_EARTH_RUNE_MIN_QUANTITY 5000
 
 /*@ define:input:runes
 type: number
 label: Fire rune minimum quantity
 group: Runes
 */
-#define VAR_FIRE_RUNE_MIN_QUANTITY 500
+#define VAR_FIRE_RUNE_MIN_QUANTITY 5000
 
 /*@ define:input:runes
 type: number
 label: Mind rune minimum quantity
 group: Runes
 */
-#define VAR_MIND_RUNE_MIN_QUANTITY 500
+#define VAR_MIND_RUNE_MIN_QUANTITY 5000
 
 /*@ define:input:runes
 type: number
 label: Body rune minimum quantity
 group: Runes
 */
-#define VAR_BODY_RUNE_MIN_QUANTITY 500
+#define VAR_BODY_RUNE_MIN_QUANTITY 0
 
 /*@ define:input:runes
 type: number
@@ -2623,7 +2623,7 @@ enum: [
   "'Perfect' gold bar"
 ]
 */
-#define VAR_BARS_HIDE ["Bronze bar","Iron bar","Silver bar","Gold bar"]
+#define VAR_BARS_HIDE []
 
 apply (name:VAR_BARS_HIDE) {
     hidden = true;
@@ -4662,7 +4662,7 @@ enum: [
   "Beer"
 ]
 */
-#define VAR_BOSSING_GENERAL_GRAARDOR_SUPPLY_HIDE ["Combat potion(3)","Super strength(3)","Beer"]
+#define VAR_BOSSING_GENERAL_GRAARDOR_SUPPLY_HIDE ["Beer"]
 
 /*@ define:input:bossing
 type: enumlist
