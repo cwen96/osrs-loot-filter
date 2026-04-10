@@ -10,6 +10,7 @@ meta { name = "My new filter"; description = "Offers an original color scheme wi
 
 
 
+
 /*@ define:module:default_styling
 ---
 name: Default Styling
@@ -122,6 +123,7 @@ apply (name:VAR_GLOBAL_SHOW_ICONS_ITEMLIST) {
 
 
 
+
 /*@ define:module:sorting
 ---
 name: Sorting
@@ -155,6 +157,7 @@ type: stringlist
 label: Items to always show first
 */
 #define VAR_MENU_SORT_ITEMS_FIRST []
+
 
 
 
@@ -3935,6 +3938,7 @@ apply ((name:CONST_DRAGON_ONE_HANDED_MELEE_WEAPONS || name:CONST_DRAGON_TWO_HAND
 
 
 
+
 /*@ define:module:area_based_filtering
 ---
 name: Area-Based Filtering
@@ -5844,6 +5848,7 @@ apply (area:CONST_BOUNTY_HUNTER_AREA && name:VAR_BOUNTY_HUNTER_HIDDEN_LIST) {
 
 
 
+
 /*@ define:module:item_tiers
 ---
 name: Item tiers
@@ -6005,6 +6010,7 @@ rule (VAR_VALUES_TIER_4_TERMINATE && ((value:>=VAR_VALUES_TIER_4_VALUE) || name:
 
 
 
+
 /*@ define:module:uniques
 ---
 name: Uniques
@@ -6059,6 +6065,7 @@ rule (VAR_UNIQUES_TERMINATE && name:VAR_UNIQUES_LIST) {}
 
 
 
+
 /*@ define:module:alchs
 ---
 name: Alchs
@@ -6108,6 +6115,7 @@ group: Power User
 #define VAR_ALCHS_TERMINATE true
 
 rule (VAR_ALCHS_TERMINATE && name:VAR_ALCHS_ITEM_LIST) {}
+
 
 
 
@@ -7356,6 +7364,7 @@ exampleItem: Gilded platelegs
 apply (name:CONST_RUNE_GILDED) {
     VAR_RUNE_GILDED_CUSTOMSTYLE 
 }
+
 
 
 
@@ -11974,6 +11983,7 @@ apply (area:CONST_GAUNTLET_AREA && name:"* legs *") {
 
 
 
+
 /*@ define:module:rare_drop_table
 ---
 name: Rare Drop Table Style
@@ -11988,7 +11998,7 @@ label: Rare Drop Table Item Style
 exampleItem: Dragon spear
 exampleItemId: 1249
 */
-#define VAR_RDT_CUSTOMSTYLE textColor = "#ffc83eff";backgroundColor = "#82dea71b";borderColor = "#ffffb700";textAccent = 1;fontType = 2;showValue = true;icon = CurrentItem();
+#define VAR_RDT_CUSTOMSTYLE textColor = "#ffffffff";backgroundColor = "#82c72cdf";borderColor = "#fffff500";textAccent = 1;fontType = 2;showValue = true;icon = CurrentItem();
 
 
 apply (name:"Nature rune" && quantity:==67) {
@@ -12082,6 +12092,7 @@ apply (name:"Dragon spear" && quantity:==1) {
 
 
 
+
 /*@ define:module:utilities
 ---
 name: Utilities
@@ -12163,6 +12174,7 @@ apply (VAR_SILENCE_HIDE_SPAWN_ITEMS && ownership:OWNERSHIP_NONE) {
     sound = 2411; // sound name: silence
     notify = false;
 }
+
 
 
 
@@ -12950,6 +12962,7 @@ apply (VAR_SORTING_MENU_SORT_UNTRADEABLE_FIRST && tradeable:false && value:>=200
 apply (name:VAR_MENU_SORT_ITEMS_FIRST) {
     menuSort = 300;
 }
+
 
 
 
