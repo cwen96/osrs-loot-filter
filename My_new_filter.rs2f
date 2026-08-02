@@ -16419,7 +16419,7 @@ type: style
 group: SS Tier
 exampleItem: Uncut zenyte
 */
-#define CRAFTING_SS_STYLE textColor = "#ff85654A";backgroundColor = "#ffffffff";borderColor = "#ff85654A";lootbeamColor = "#ff85654A";menuTextColor = "#ff85654A";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropSS.wav";menuSort = 50000;
+#define CRAFTING_SS_STYLE textColor = "#ffff7300";backgroundColor = "#ffffffff";borderColor = "#ffff0000";lootbeamColor = "#ff85654A";menuTextColor = "#ffff7300";textAccent = 1;fontType = 2;showLootbeam = true;sound = 6765;menuSort = 50000;
 
 /*@ define:input:crafting
 label: S Tier Crafting Supplies
@@ -16463,7 +16463,7 @@ type: style
 group: S Tier
 exampleItem: Uncut onyx
 */
-#define CRAFTING_S_STYLE textColor = "#ffD8BD1A";backgroundColor = "#ff85654A";borderColor = "#ffD8BD1A";lootbeamColor = "#ff85654A";menuTextColor = "#ffD8BD1A";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropS.wav";menuSort = 40000;
+#define CRAFTING_S_STYLE textColor = "#ffD8BD1A";backgroundColor = "#ff85654A";borderColor = "#ffD8BD1A";lootbeamColor = "#ff85654A";menuTextColor = "#ffD8BD1A";textAccent = 1;fontType = 2;showLootbeam = true;sound = 10224;menuSort = 40000;
 
 /*@ define:input:crafting
 label: A Tier Crafting Supplies
@@ -16514,7 +16514,7 @@ type: style
 group: A Tier
 exampleItem: Hueycoatl hide
 */
-#define CRAFTING_A_STYLE textColor = "#ffD8BD1A";backgroundColor = "#cc85654A";borderColor = "#ffD8BD1A";menuTextColor = "#ffD8BD1A";textAccent = 3;fontType = 2;sound = "DropA.wav";menuSort = 30000;
+#define CRAFTING_A_STYLE textColor = "#ffD8BD1A";backgroundColor = "#cc85654A";borderColor = "#ffD8BD1A";menuTextColor = "#ffD8BD1A";textAccent = 1;fontType = 2;sound = 4218;menuSort = 30000;icon = CurrentItem();
 
 /*@ define:input:crafting
 label: B Tier Crafting Supplies
@@ -18202,7 +18202,7 @@ type: style
 group: SS Tier
 exampleItem: Dragon crossbow (u)
 */
-#define FLETCHING_SS_STYLE textColor = "#ff094A4C";backgroundColor = "#ffffffff";borderColor = "#ffffffff";lootbeamColor = "#ff094A4C";menuTextColor = "#ff094A4C";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropSS.wav";menuSort = 50000;
+#define FLETCHING_SS_STYLE textColor = "#ff094A4C";backgroundColor = "#ffffffff";borderColor = "#ffffffff";lootbeamColor = "#ff094A4C";menuTextColor = "#ff13a4a9";textAccent = 3;fontType = 2;showLootbeam = true;sound = 6765;menuSort = 50000;
 
 /*@ define:input:fletching
 label: S Tier
@@ -18246,7 +18246,7 @@ type: style
 group: S Tier
 exampleItem: Onyx bolt tips
 */
-#define FLETCHING_S_STYLE textColor = "#ffFFBF1E";backgroundColor = "#ff094A4C";borderColor = "#ffFFBF1E";lootbeamColor = "#ffFFBF1E";menuTextColor = "#ff094A4C";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropS.wav";menuSort = 40000;
+#define FLETCHING_S_STYLE textColor = "#ffFFBF1E";backgroundColor = "#ff094A4C";borderColor = "#ffFFBF1E";lootbeamColor = "#ffFFBF1E";menuTextColor = "#ff14a6ab";textAccent = 3;fontType = 2;showLootbeam = true;sound = 10224;menuSort = 40000;
 
 /*@ define:input:fletching
 label: A Tier
@@ -18297,7 +18297,7 @@ type: style
 group: A Tier
 exampleItem: Runite limbs
 */
-#define FLETCHING_A_STYLE textColor = "#ffFFBF1E";backgroundColor = "#cc094A4C";borderColor = "#ffFFBF1E";menuTextColor = "#ffbbbbbb";textAccent = 3;fontType = 2;sound = "DropA.wav";menuSort = 30000;
+#define FLETCHING_A_STYLE textColor = "#ffFFBF1E";backgroundColor = "#cc094A4C";borderColor = "#ffFFBF1E";menuTextColor = "#ffbbbbbb";textAccent = 3;fontType = 2;sound = 4718;menuSort = 30000;
 
 /*@ define:input:fletching
 label: B Tier
@@ -18354,7 +18354,7 @@ type: style
 group: B Tier
 exampleItem: Dragon bolts (unf)
 */
-#define FLETCHING_B_STYLE textColor = "#ffFFBF1E";backgroundColor = "#99094A4C";menuTextColor = "#ff094A4C";textAccent = 3;menuSort = 20000;
+#define FLETCHING_B_STYLE textColor = "#ffFFBF1E";backgroundColor = "#99094A4C";menuTextColor = "#ff13a8ad";textAccent = 3;menuSort = 20000;
 
 /*@ define:input:fletching
 label: C Tier
@@ -18418,7 +18418,7 @@ type: style
 group: C Tier
 exampleItem: Magic shortbow (u)
 */
-#define FLETCHING_C_STYLE textColor = "#ffFFBF1E";backgroundColor = "#33094A4C";menuTextColor = "#ff094A4C";textAccent = 3;menuSort = 10000;
+#define FLETCHING_C_STYLE textColor = "#ffFFBF1E";backgroundColor = "#33094A4C";menuTextColor = "#ff15b6bc";textAccent = 3;menuSort = 10000;
 /*@ define:input:fletching
 label: D Tier
 type: enumlist
@@ -18488,7 +18488,7 @@ type: style
 group: D Tier
 exampleItem: Bowstring
 */
-#define FLETCHING_D_STYLE textColor = "#ff094A4C";menuTextColor = "#ff094A4C";
+#define FLETCHING_D_STYLE textColor = "#ff094A4C";menuTextColor = "#ff0fa6ab";
 
 /*@ define:input:fletching
 label: E Tier
@@ -18566,7 +18566,7 @@ type: style
 group: E Tier
 exampleItem: Headless arrow
 */
-#define FLETCHING_E_STYLE textColor = "#66094A4C";textAccentColor = "#66000000";menuTextColor = "#ff094A4C";menuSort = -10000;
+#define FLETCHING_E_STYLE textColor = "#66094A4C";textAccentColor = "#66000000";menuTextColor = "#ff14a6ab";menuSort = -10000;
 
 rule (name:FLETCHING_SS_NAMES) {FLETCHING_SS_STYLE}
 rule (name:FLETCHING_S_NAMES && quantity:>=FLETCHING_S_SS_QUANT) {FLETCHING_SS_STYLE}
@@ -18644,7 +18644,7 @@ type: style
 group: SS Tier
 exampleItem: Dragon platebody
 */
-#define DRAGON_GEAR_SS_STYLE textColor = "#ff870c12";backgroundColor = "#ffffffff";borderColor = "#ff870c12";lootbeamColor = "#ff870c12";menuTextColor = "#ff870c12";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropSS.wav";menuSort = 50000;
+#define DRAGON_GEAR_SS_STYLE textColor = "#ff870c12";backgroundColor = "#ffffffff";borderColor = "#ff870c12";lootbeamColor = "#ff870c12";menuTextColor = "#ffff000d";textAccent = 3;fontType = 2;showLootbeam = true;sound = 6765;menuSort = 50000;
 
 /*@ define:input:dragon_gear
 label: S Tier Dragon Gear
@@ -18688,7 +18688,7 @@ type: style
 group: S Tier
 exampleItem: Dragon platelegs
 */
-#define DRAGON_GEAR_S_STYLE textColor = "#ffffffff";backgroundColor = "#ff870c12";borderColor = "#ffffffff";lootbeamColor = "#ff870c12";menuTextColor = "#ff870c12";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropS.wav";menuSort = 40000;
+#define DRAGON_GEAR_S_STYLE textColor = "#ffffffff";backgroundColor = "#ff870c12";borderColor = "#ffffffff";lootbeamColor = "#ff870c12";menuTextColor = "#ffff000d";textAccent = 3;fontType = 2;showLootbeam = true;sound = 10224;menuSort = 40000;
 
 /*@ define:input:dragon_gear
 label: A Tier Dragon Gear 
@@ -18739,7 +18739,7 @@ type: style
 group: A Tier
 exampleItem: Dragon kiteshield
 */
-#define DRAGON_GEAR_A_STYLE textColor = "#ffffffff";backgroundColor = "#cc870c12";borderColor = "#ffffffff";menuTextColor = "#ff870c12";textAccent = 3;fontType = 2;sound = "DropA.wav";menuSort = 30000;
+#define DRAGON_GEAR_A_STYLE textColor = "#ffffffff";backgroundColor = "#cc870c12";borderColor = "#ffffffff";menuTextColor = "#ffff000d";textAccent = 3;fontType = 2;sound = 4218;menuSort = 30000;
 
 /*@ define:input:dragon_gear
 label: B Tier Dragon Gear
@@ -21730,7 +21730,7 @@ type: style
 group: SS Tier
 exampleItem: Iron platebody
 */
-#define IRON_GEAR_SS_STYLE textColor = "#ff391D14";backgroundColor = "#ffffffff";borderColor = "#ff391D14";lootbeamColor = "#ff391D14";menuTextColor = "#ff391D14";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropSS.wav";menuSort = 50000;
+#define IRON_GEAR_SS_STYLE textColor = "#ff391D14";backgroundColor = "#ffffffff";borderColor = "#ff391D14";lootbeamColor = "#ff391D14";menuTextColor = "#ff391D14";textAccent = 3;fontType = 2;showLootbeam = true;sound = 6765;menuSort = 50000;
 
 /*@ define:input:iron_gear
 label: S Tier Iron Gear
@@ -21774,7 +21774,7 @@ type: style
 group: S Tier
 exampleItem: Iron platelegs
 */
-#define IRON_GEAR_S_STYLE textColor = "#ffffffff";backgroundColor = "#ff391D14";borderColor = "#ffffffff";lootbeamColor = "#ff391D14";menuTextColor = "#ff391D14";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropS.wav";menuSort = 40000;
+#define IRON_GEAR_S_STYLE textColor = "#ffffffff";backgroundColor = "#ff391D14";borderColor = "#ffffffff";lootbeamColor = "#ff391D14";menuTextColor = "#ff391D14";textAccent = 3;fontType = 2;showLootbeam = true;sound = 10224;menuSort = 40000;
 
 /*@ define:input:iron_gear
 label: A Tier Iron Gear 
@@ -21825,7 +21825,7 @@ type: style
 group: A Tier
 exampleItem: Iron kiteshield
 */
-#define IRON_GEAR_A_STYLE textColor = "#ffffffff";backgroundColor = "#cc391D14";borderColor = "#ffffffff";menuTextColor = "#ff391D14";textAccent = 3;fontType = 2;sound = "DropA.wav";menuSort = 30000;
+#define IRON_GEAR_A_STYLE textColor = "#ffffffff";backgroundColor = "#cc391D14";borderColor = "#ffffffff";menuTextColor = "#ff391D14";textAccent = 3;fontType = 2;sound = 4218;menuSort = 30000;
 
 /*@ define:input:iron_gear
 label: B Tier Iron Gear
@@ -21890,7 +21890,7 @@ type: enumlist
 enum: ["Iron felling axe","Large iron keel parts","Iron warhammer","Iron battleaxe","Iron halberd","Iron 2h sword","Iron gloves","Iron defender","Iron sq shield","Iron plateskirt","Iron platelegs","Iron kiteshield","Iron chainbody","Iron platebody","Iron keel parts","Iron dagger","Iron axe","Iron pickaxe","Iron sword","Iron mace","Iron scimitar","Iron hasta","Iron longsword","Iron claws","Iron spear","Iron crossbow","Iron dart","Iron knife","Iron thrownaxe","Iron arrow","Iron brutal","Iron javelin","Iron bolts","Iron boots","Iron med helm","Iron full helm","Iron bar","Iron ore","Iron bolts (unf)","Iron dart tip","Iron nails","Iron arrowtips","Iron cannonball","Iron javelin tips","Iron limbs","Iron crossbow (u)","Seeking iron arrow"]
 group: C Tier
 */
-#define IRON_GEAR_C_NAMES ["Large iron keel parts"]
+#define IRON_GEAR_C_NAMES ["Large iron keel parts","Iron axe","Iron pickaxe","Iron boots"]
 
 /*@ define:input:iron_gear
 label: Show Unnoted
@@ -22024,7 +22024,7 @@ type: enumlist
 enum: ["Iron felling axe","Large iron keel parts","Iron warhammer","Iron battleaxe","Iron halberd","Iron 2h sword","Iron gloves","Iron defender","Iron sq shield","Iron plateskirt","Iron platelegs","Iron kiteshield","Iron chainbody","Iron platebody","Iron keel parts","Iron dagger","Iron axe","Iron pickaxe","Iron sword","Iron mace","Iron scimitar","Iron hasta","Iron longsword","Iron claws","Iron spear","Iron crossbow","Iron dart","Iron knife","Iron thrownaxe","Iron arrow","Iron brutal","Iron javelin","Iron bolts","Iron boots","Iron med helm","Iron full helm","Iron bar","Iron ore","Iron bolts (unf)","Iron dart tip","Iron nails","Iron arrowtips","Iron cannonball","Iron javelin tips","Iron limbs","Iron crossbow (u)","Seeking iron arrow"]
 group: E Tier
 */
-#define IRON_GEAR_E_NAMES ["Iron dagger","Iron axe","Iron pickaxe","Iron sword","Iron mace","Iron scimitar","Iron hasta","Iron longsword","Iron claws","Iron spear","Iron crossbow","Iron dart","Iron knife","Iron thrownaxe","Iron arrow","Iron brutal","Iron javelin","Iron bolts","Iron boots","Iron med helm","Iron full helm","Iron bar","Iron ore","Iron bolts (unf)","Iron dart tip","Iron nails","Iron arrowtips","Iron cannonball","Iron javelin tips","Iron limbs","Iron crossbow (u)","Seeking iron arrow"]
+#define IRON_GEAR_E_NAMES ["Iron dagger","Iron sword","Iron mace","Iron scimitar","Iron hasta","Iron longsword","Iron claws","Iron spear","Iron crossbow","Iron dart","Iron knife","Iron thrownaxe","Iron arrow","Iron brutal","Iron javelin","Iron bolts","Iron boots","Iron med helm","Iron full helm","Iron bar","Iron ore","Iron bolts (unf)","Iron dart tip","Iron nails","Iron arrowtips","Iron cannonball","Iron javelin tips","Iron limbs","Iron crossbow (u)","Seeking iron arrow"]
 
 /*@ define:input:iron_gear
 label: Show Unnoted
@@ -22170,7 +22170,7 @@ type: style
 group: SS Tier
 exampleItem: Bronze platebody
 */
-#define BRONZE_GEAR_SS_STYLE textColor = "#ff5b462a";backgroundColor = "#ffffffff";borderColor = "#ff5b462a";lootbeamColor = "#ff5b462a";menuTextColor = "#ff5b462a";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropSS.wav";menuSort = 50000;
+#define BRONZE_GEAR_SS_STYLE backgroundColor = "#ffffffff";borderColor = "#ff5b462a";lootbeamColor = "#ff5b462a";menuTextColor = "#ffe6b372";textAccent = 3;fontType = 2;showLootbeam = true;sound = "DropSS.wav";menuSort = 50000;
 
 /*@ define:input:bronze_gear
 label: S Tier Bronze Gear
@@ -22214,7 +22214,7 @@ type: style
 group: S Tier
 exampleItem: Bronze platelegs
 */
-#define BRONZE_GEAR_S_STYLE textColor = "#ffffffff";backgroundColor = "#ff5b462a";borderColor = "#ffffffff";lootbeamColor = "#ff5b462a";menuTextColor = "#ff5b462a";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropS.wav";menuSort = 40000;
+#define BRONZE_GEAR_S_STYLE textColor = "#ffffffff";backgroundColor = "#ff5b462a";borderColor = "#ffffffff";lootbeamColor = "#ff5b462a";menuTextColor = "#ffffc579";textAccent = 3;fontType = 2;showLootbeam = true;sound = "DropS.wav";menuSort = 40000;
 
 /*@ define:input:bronze_gear
 label: A Tier Bronze Gear 
@@ -22265,7 +22265,7 @@ type: style
 group: A Tier
 exampleItem: Bronze kiteshield
 */
-#define BRONZE_GEAR_A_STYLE textColor = "#ffffffff";backgroundColor = "#cc5b462a";borderColor = "#ffffffff";menuTextColor = "#ff5b462a";textAccent = 3;fontType = 2;sound = "DropA.wav";menuSort = 30000;
+#define BRONZE_GEAR_A_STYLE textColor = "#ffffffff";backgroundColor = "#cc5b462a";borderColor = "#ffffffff";menuTextColor = "#ffffc271";textAccent = 3;fontType = 2;sound = "DropA.wav";menuSort = 30000;
 
 /*@ define:input:bronze_gear
 label: B Tier Bronze Gear
@@ -22273,7 +22273,7 @@ type: enumlist
 enum: ["Bronze felling axe","Large bronze keel parts","Bronze defender","Bronze gloves","Bronze keel parts","Bronze dagger","Bronze axe","Bronze sword","Bronze mace","Bronze pickaxe","Bronze scimitar","Bronze hasta","Bronze longsword","Bronze warhammer","Bronze battleaxe","Bronze claws","Bronze spear","Bronze halberd","Bronze 2h sword","Bronze crossbow","Bronze dart","Bronze knife","Bronze thrownaxe","Bronze arrow","Bronze bolts","Bronze brutal","Bronze javelin","Bronze boots","Bronze med helm","Bronze full helm","Bronze sq shield","Bronze kiteshield","Bronze plateskirt","Bronze platelegs","Bronze chainbody","Bronze platebody","Bronze bar","Bronze bolts (unf)","Bronze dart tip","Bronze nails","Bronze arrowtips","Seeking bronze arrow"]
 group: B Tier
 */
-#define BRONZE_GEAR_B_NAMES []
+#define BRONZE_GEAR_B_NAMES ["Bronze pickaxe","Bronze axe","Bronze boots","Large bronze keel parts"]
 
 /*@ define:input:bronze_gear
 label: Show Unnoted
@@ -22322,7 +22322,7 @@ type: style
 group: B Tier
 exampleItem: Bronze pickaxe
 */
-#define BRONZE_GEAR_B_STYLE textColor = "#ffffffff";backgroundColor = "#995b462a";menuTextColor = "#ff5b462a";textAccent = 3;menuSort = 20000;
+#define BRONZE_GEAR_B_STYLE textColor = "#ffffffff";backgroundColor = "#995b462a";menuTextColor = "#ffffc375";textAccent = 3;menuSort = 20000;
 
 /*@ define:input:bronze_gear
 label: C Tier Bronze Gear
@@ -22330,14 +22330,14 @@ type: enumlist
 enum: ["Bronze felling axe","Large bronze keel parts","Bronze defender","Bronze gloves","Bronze keel parts","Bronze dagger","Bronze axe","Bronze sword","Bronze mace","Bronze pickaxe","Bronze scimitar","Bronze hasta","Bronze longsword","Bronze warhammer","Bronze battleaxe","Bronze claws","Bronze spear","Bronze halberd","Bronze 2h sword","Bronze crossbow","Bronze dart","Bronze knife","Bronze thrownaxe","Bronze arrow","Bronze bolts","Bronze brutal","Bronze javelin","Bronze boots","Bronze med helm","Bronze full helm","Bronze sq shield","Bronze kiteshield","Bronze plateskirt","Bronze platelegs","Bronze chainbody","Bronze platebody","Bronze bar","Bronze bolts (unf)","Bronze dart tip","Bronze nails","Bronze arrowtips","Seeking bronze arrow"]
 group: C Tier
 */
-#define BRONZE_GEAR_C_NAMES ["Large bronze keel parts"]
+#define BRONZE_GEAR_C_NAMES ["Bronze bar"]
 
 /*@ define:input:bronze_gear
 label: Show Unnoted
 type: boolean
 group: C Tier
 */
-#define BRONZE_GEAR_C_SHOW_UNNOTED true
+#define BRONZE_GEAR_C_SHOW_UNNOTED false
 
 rule (name:BRONZE_GEAR_C_NAMES && !BRONZE_GEAR_C_SHOW_UNNOTED && stackable:false && (PERFECT_KILL_LISTS)))) {hideOverlay = true;}
 rule (name:BRONZE_GEAR_C_NAMES && !BRONZE_GEAR_C_SHOW_UNNOTED && stackable:false) {hidden = true;}
@@ -22347,7 +22347,7 @@ label: Minimum Quantity
 type: number
 group: C Tier
 */
-#define BRONZE_GEAR_C_MIN_QUANT 0
+#define BRONZE_GEAR_C_MIN_QUANT 5
 
 rule (name:BRONZE_GEAR_C_NAMES && quantity:<BRONZE_GEAR_C_MIN_QUANT && (PERFECT_KILL_LISTS)))) {hideOverlay = true;}
 rule (name:BRONZE_GEAR_C_NAMES && quantity:<BRONZE_GEAR_C_MIN_QUANT) {hidden = true;}
@@ -22386,7 +22386,7 @@ type: style
 group: C Tier
 exampleItem: Bronze axe
 */
-#define BRONZE_GEAR_C_STYLE textColor = "#ffffffff";backgroundColor = "#335b462a";menuTextColor = "#ff5b462a";textAccent = 3;menuSort = 10000;
+#define BRONZE_GEAR_C_STYLE textColor = "#ffffffff";backgroundColor = "#335b462a";menuTextColor = "#ffffcc8a";textAccent = 3;menuSort = 10000;
 /*@ define:input:bronze_gear
 label: D Tier Bronze Gear
 type: enumlist
@@ -22400,7 +22400,7 @@ label: Show Unnoted
 type: boolean
 group: D Tier
 */
-#define BRONZE_GEAR_D_SHOW_UNNOTED false
+#define BRONZE_GEAR_D_SHOW_UNNOTED true
 
 rule (name:BRONZE_GEAR_D_NAMES && !BRONZE_GEAR_D_SHOW_UNNOTED && stackable:false && (PERFECT_KILL_LISTS)))) {hideOverlay = true;}
 rule (name:BRONZE_GEAR_D_NAMES && !BRONZE_GEAR_D_SHOW_UNNOTED && stackable:false) {hidden = true;}
@@ -22456,7 +22456,7 @@ type: style
 group: D Tier
 exampleItem: Bronze dagger
 */
-#define BRONZE_GEAR_D_STYLE textColor = "#ff5b462a";menuTextColor = "#ff5b462a";
+#define BRONZE_GEAR_D_STYLE textColor = "#ff5b462a";menuTextColor = "#ffffc880";
 
 /*@ define:input:bronze_gear
 label: E Tier Bronze Gear
@@ -22464,7 +22464,7 @@ type: enumlist
 enum: ["Bronze felling axe","Large bronze keel parts","Bronze defender","Bronze gloves","Bronze keel parts","Bronze dagger","Bronze axe","Bronze sword","Bronze mace","Bronze pickaxe","Bronze scimitar","Bronze hasta","Bronze longsword","Bronze warhammer","Bronze battleaxe","Bronze claws","Bronze spear","Bronze halberd","Bronze 2h sword","Bronze crossbow","Bronze dart","Bronze knife","Bronze thrownaxe","Bronze arrow","Bronze bolts","Bronze brutal","Bronze javelin","Bronze boots","Bronze med helm","Bronze full helm","Bronze sq shield","Bronze kiteshield","Bronze plateskirt","Bronze platelegs","Bronze chainbody","Bronze platebody","Bronze bar","Bronze bolts (unf)","Bronze dart tip","Bronze nails","Bronze arrowtips","Seeking bronze arrow"]
 group: E Tier
 */
-#define BRONZE_GEAR_E_NAMES ["Bronze dagger","Bronze axe","Bronze sword","Bronze mace","Bronze pickaxe","Bronze scimitar","Bronze hasta","Bronze longsword","Bronze warhammer","Bronze battleaxe","Bronze claws","Bronze spear","Bronze halberd","Bronze 2h sword","Bronze crossbow","Bronze dart","Bronze knife","Bronze thrownaxe","Bronze arrow","Bronze bolts","Bronze brutal","Bronze javelin","Bronze boots","Bronze med helm","Bronze full helm","Bronze sq shield","Bronze kiteshield","Bronze plateskirt","Bronze platelegs","Bronze chainbody","Bronze platebody","Bronze bar","Bronze bolts (unf)","Bronze dart tip","Bronze nails","Bronze arrowtips","Seeking bronze arrow"]
+#define BRONZE_GEAR_E_NAMES ["Bronze dagger","Bronze sword","Bronze mace","Bronze pickaxe","Bronze scimitar","Bronze hasta","Bronze longsword","Bronze warhammer","Bronze battleaxe","Bronze claws","Bronze spear","Bronze halberd","Bronze 2h sword","Bronze crossbow","Bronze dart","Bronze knife","Bronze thrownaxe","Bronze arrow","Bronze bolts","Bronze brutal","Bronze javelin","Bronze med helm","Bronze full helm","Bronze sq shield","Bronze kiteshield","Bronze plateskirt","Bronze platelegs","Bronze chainbody","Bronze platebody","Bronze bolts (unf)","Bronze dart tip","Bronze nails","Bronze arrowtips","Seeking bronze arrow"]
 
 /*@ define:input:bronze_gear
 label: Show Unnoted
@@ -22534,7 +22534,7 @@ type: style
 group: E Tier
 exampleItem: Bronze arrow
 */
-#define BRONZE_GEAR_E_STYLE textColor = "#665b462a";textAccentColor = "#66000000";menuTextColor = "#ff5b462a";menuSort = -10000;
+#define BRONZE_GEAR_E_STYLE textColor = "#665b462a";textAccentColor = "#66000000";menuTextColor = "#ffffc982";menuSort = -10000;
 rule (name:BRONZE_GEAR_SS_NAMES) {BRONZE_GEAR_SS_STYLE}
 rule (name:BRONZE_GEAR_S_NAMES && quantity:>=BRONZE_GEAR_S_SS_QUANT) {BRONZE_GEAR_SS_STYLE}
 rule (name:BRONZE_GEAR_A_NAMES && quantity:>=BRONZE_GEAR_A_SS_QUANT) {BRONZE_GEAR_SS_STYLE}
@@ -22665,72 +22665,72 @@ type: number
 label: S Value
 type: number
 */
-#define FALLBACK_VALUE_S 1000000
+#define FALLBACK_VALUE_S 5000000
 
 
 /*@ define:input:fallback
 label: A Value
 type: number
 */
-#define FALLBACK_VALUE_A 100000
+#define FALLBACK_VALUE_A 1000000
 
 
 /*@ define:input:fallback
 label: B Value
 type: number
 */
-#define FALLBACK_VALUE_B 10000
+#define FALLBACK_VALUE_B 100000
 
 
 /*@ define:input:fallback
 label: C Value
 type: number
 */
-#define FALLBACK_VALUE_C 1000
+#define FALLBACK_VALUE_C 10000
 
 
 /*@ define:input:fallback
 label: D Value
 type: number
 */
-#define FALLBACK_VALUE_D 100
+#define FALLBACK_VALUE_D 5000
 
 /*@ define:input:fallback
 label: E Value
 type: number
 */
-#define FALLBACK_VALUE_E 0
+#define FALLBACK_VALUE_E 1000
 
 
 /*@ define:input:fallback
 label: SS Tier
 type: style
 */
-#define FALLBACK_SS_STYLE textColor = "#ffff0000";backgroundColor = "#ffffffff";borderColor = "#ffff0000";lootbeamColor = "#ffff0000";menuTextColor = "#ffff0000";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropSS.wav";menuSort = 50000;
+#define FALLBACK_SS_STYLE textColor = "#ffff0000";backgroundColor = "#ffffffff";borderColor = "#ffff0000";lootbeamColor = "#ffff0000";menuTextColor = "#ffff0000";textAccent = 1;fontType = 2;showLootbeam = true;showValue = true;showDespawn = true;notify = true;highlightTile = true;sound = 6765;menuSort = 60000;icon = CurrentItem();
 
 /*@ define:input:fallback
 label: S Tier
 type: style
 */
-#define FALLBACK_S_STYLE textColor = "#ffffffff";backgroundColor = "#FFFFBFEA";borderColor = "#ffffffff";lootbeamColor = "#FFFFBFEA";menuTextColor = "#FFFFBFEA";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropS.wav";menuSort = 40000;
+#define FALLBACK_S_STYLE textColor = "#ffff9500";backgroundColor = "#ff7a5318";borderColor = "#FFFF9600";textAccentColor = "#ff000000";lootbeamColor = "#FFFF9600";menuTextColor = "#FFFFBFEA";textAccent = 1;fontType = 2;showLootbeam = true;showValue = true;showDespawn = true;notify = true;highlightTile = true;sound = 10224;menuSort = 50000;icon = CurrentItem();
 
 /*@ define:input:fallback
 label: A Tier
 type: style
 */
-#define FALLBACK_A_STYLE textColor = "#ffffffff";backgroundColor = "#ccffcc00";borderColor = "#ffffffff";menuTextColor = "#ffffcc00";textAccent = 3;fontType = 2;sound = "DropA.wav";menuSort = 30000;
+#define FALLBACK_A_STYLE textColor = "#ffffffff";backgroundColor = "#9e6e02fa";borderColor = "#ffff0000";textAccentColor = "#ff000000";lootbeamColor = "#ffa600ff";menuTextColor = "#ffd29fff";textAccent = 1;fontType = 2;showLootbeam = true;showValue = true;showDespawn = true;notify = true;highlightTile = true;sound = 4218;menuSort = 40000;icon = CurrentItem();
 
 /*@ define:input:fallback
 label: B Tier
 type: style
 */
-#define FALLBACK_B_STYLE textColor = "#ffffffff";backgroundColor = "#7000c8ff";menuTextColor = "#ff00c9ff";textAccent = 3;menuSort = 20000;
+#define FALLBACK_B_STYLE textColor = "#ffddf8ff";backgroundColor = "#d44b86fd";borderColor = "#ff0057ff";textAccentColor = "#ff000000";menuTextColor = "#ff8cc6ff";textAccent = 1;fontType = 2;showLootbeam = false;showValue = true;showDespawn = true;notify = true;highlightTile = true;menuSort = 30000;icon = CurrentItem();
 
 /*@ define:input:fallback
 label: C Tier
 type: style
 */
-#define FALLBACK_C_STYLE textColor = "#ffffffff";backgroundColor = "#337bff1f";menuTextColor = "#ff7bff1f";textAccent = 3;menuSort = 10000;
+#define FALLBACK_C_STYLE textColor = "#ff000000";backgroundColor = "#ffa0a0a0";borderColor = "#ff000000";textAccentColor = "#ff000000";menuTextColor = "#ffffffff";textAccent = 1;fontType = 2;showLootbeam = false;showValue = true;showDespawn = true;notify = true;highlightTile = true;menuSort = 20000;icon = CurrentItem();
 	
 /*@ define:input:fallback
 label: D Tier
