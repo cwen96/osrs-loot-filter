@@ -6,11 +6,13 @@ name: header
 meta { name = "Storn's Iron Filter (1)"; description = "A Filter for the Ironman Experience.     Turn off GE value and enjoy!"; }
 
 
+
 /*@ define:module:greetings
 name: Welcome to Storn's Iron Filter
 description:
     This is filter made for Ironman players. Sit back, relax, and turn off item value. Items are organized into different tiers base on value to ironman, rather than GE price. 
 */
+
 
 
 /*@ define:module:settings
@@ -65,12 +67,24 @@ group: Show
 
 apply (SHOW_ITEM_ICON) {icon = CurrentItem();}
 
+// Key tiering, forced ahead of the Keys module.
+//   Both key halves (the crystal and moon variants share one name) -> B tier
+//   Full crystal key                                                -> A tier
+// These sit before every other `rule`; evaluation is top-down and terminates
+// on the first match, so they win outright. Properties are inlined copies of
+// KEYS_B_STYLE / KEYS_A_STYLE rather than macro references, because those
+// macros are defined further down the file, and because the Keys module's own
+// SS rule was reaching the halves regardless of the Moon Key Half toggle.
+rule (name:["Tooth half of key","Loop half of key"]) {textColor = "#ffea02ff";backgroundColor = "#b37dd6f0";borderColor = "#ffc400ff";menuTextColor = "#ffd000ff";textAccent = 1;fontType = 2;menuSort = 20000;}
+rule (name:"Crystal key") {textColor = "#ffea02ff";backgroundColor = "#cc4e0a5d";borderColor = "#ffea02ff";menuTextColor = "#ffd000ff";textAccent = 1;fontType = 2;sound = 4218;menuSort = 30000;}
+
 /*@ define:input:settings
 label: UIM Death Piles (Turns off filter) 
 type: boolean
 group: Show
 */
 #define ENABLE_UIM_DEATH_PILES false
+
 
 
 /*@ define:module:hidden
@@ -101,7 +115,7 @@ label: Hide if quant < 10
 type: stringlist
 group: User
 */
-#define HIDE_USER_UNDER_10 ["Nature rune"]
+#define HIDE_USER_UNDER_10 ["Nature rune","Chaos rune"]
 
 apply (name:HIDE_USER_UNDER_10 && quantity:<10) {hidden=true;}
 
@@ -110,7 +124,7 @@ label: Hide if quant < 100
 type: stringlist
 group: User
 */
-#define HIDE_USER_UNDER_100 ["Chaos rune"]
+#define HIDE_USER_UNDER_100 []
 
 apply (name:HIDE_USER_UNDER_100 && quantity:<100) {hidden=true;}
 
@@ -264,6 +278,7 @@ rule (ENABLE_UIM_DEATH_PILES && ((area:[3238, 6066, 0, 3284, 6102, 0] || area:[2
 rule (ENABLE_UIM_DEATH_PILES && ((area:[3238, 6066, 0, 3284, 6102, 0] || area:[2958, 3335, 0, 2983, 3355, 0] || area:[3088, 3468, 0, 3092, 3470, 0] || area:[3042, 3480, 1, 3062, 3501, 1] || area:[2672, 3305, 0, 2678, 3312, 0]  || area:[1794, 9479, 0, 1856, 9538, 0]  || area:[3206, 9600, 0, 3237, 9628, 0]) && value:>=UIM_FALLBACK_VALUE_E)) {UIM_FALLBACK_E_STYLE}
 
 
+
 /*@ define:module:food_and_pots
 name: Food and Potions
 subtitle: Never Forget your Pots Again
@@ -299,8 +314,9 @@ exampleItem: Saradomin brew(4)
 */
 #define MYPOTS_STYLE textColor = "#ff0500ff";backgroundColor = "#a1ffffff";fontType = 2;showLootbeam = true;menuSort = 7500;
 
-rule (name:MYFOOD_NAMES && stackable:false) {MYFOOD_STYLE}
-rule (name:MYPOTS_NAMES && stackable:false) {MYPOTS_STYLE}
+/* MOVED: the "My Food and Potions" rules now live just above the
+   Miscellaneous Uniques module, so location-specific Hide/Show/Supply
+   rules get to match first. */
 
 /*@ define:input:food_and_pots
 label: Supply Drops
@@ -734,36 +750,9 @@ group: Extra Food & Potions
 */
 #define EXTRA_FOOD_30_STYLE
 
-rule (name:EXTRA_FOOD_1_NAMES && noted:false) {EXTRA_FOOD_1_STYLE}
-rule (name:EXTRA_FOOD_2_NAMES && noted:false) {EXTRA_FOOD_2_STYLE}
-rule (name:EXTRA_FOOD_3_NAMES && noted:false) {EXTRA_FOOD_3_STYLE}
-rule (name:EXTRA_FOOD_4_NAMES && noted:false) {EXTRA_FOOD_4_STYLE}
-rule (name:EXTRA_FOOD_5_NAMES && noted:false) {EXTRA_FOOD_5_STYLE}
-rule (name:EXTRA_FOOD_6_NAMES && noted:false) {EXTRA_FOOD_6_STYLE}
-rule (name:EXTRA_FOOD_7_NAMES && noted:false) {EXTRA_FOOD_7_STYLE}
-rule (name:EXTRA_FOOD_8_NAMES && noted:false) {EXTRA_FOOD_8_STYLE}
-rule (name:EXTRA_FOOD_9_NAMES && noted:false) {EXTRA_FOOD_9_STYLE}
-rule (name:EXTRA_FOOD_10_NAMES && noted:false) {EXTRA_FOOD_10_STYLE}
-rule (name:EXTRA_FOOD_11_NAMES && noted:false) {EXTRA_FOOD_11_STYLE}
-rule (name:EXTRA_FOOD_12_NAMES && noted:false) {EXTRA_FOOD_12_STYLE}
-rule (name:EXTRA_FOOD_13_NAMES && noted:false) {EXTRA_FOOD_13_STYLE}
-rule (name:EXTRA_FOOD_14_NAMES && noted:false) {EXTRA_FOOD_14_STYLE}
-rule (name:EXTRA_FOOD_15_NAMES && noted:false) {EXTRA_FOOD_15_STYLE}
-rule (name:EXTRA_FOOD_16_NAMES && noted:false) {EXTRA_FOOD_16_STYLE}
-rule (name:EXTRA_FOOD_17_NAMES && noted:false) {EXTRA_FOOD_17_STYLE}
-rule (name:EXTRA_FOOD_18_NAMES && noted:false) {EXTRA_FOOD_18_STYLE}
-rule (name:EXTRA_FOOD_19_NAMES && noted:false) {EXTRA_FOOD_19_STYLE}
-rule (name:EXTRA_FOOD_20_NAMES && noted:false) {EXTRA_FOOD_20_STYLE}
-rule (name:EXTRA_FOOD_21_NAMES && noted:false) {EXTRA_FOOD_21_STYLE}
-rule (name:EXTRA_FOOD_22_NAMES && noted:false) {EXTRA_FOOD_22_STYLE}
-rule (name:EXTRA_FOOD_23_NAMES && noted:false) {EXTRA_FOOD_23_STYLE}
-rule (name:EXTRA_FOOD_24_NAMES && noted:false) {EXTRA_FOOD_24_STYLE}
-rule (name:EXTRA_FOOD_25_NAMES && noted:false) {EXTRA_FOOD_25_STYLE}
-rule (name:EXTRA_FOOD_26_NAMES && noted:false) {EXTRA_FOOD_26_STYLE}
-rule (name:EXTRA_FOOD_27_NAMES && noted:false) {EXTRA_FOOD_27_STYLE}
-rule (name:EXTRA_FOOD_28_NAMES && noted:false) {EXTRA_FOOD_28_STYLE}
-rule (name:EXTRA_FOOD_29_NAMES && noted:false) {EXTRA_FOOD_29_STYLE}
-rule (name:EXTRA_FOOD_30_NAMES && noted:false) {EXTRA_FOOD_30_STYLE}
+/* MOVED: the "Extra Food 1-30" rules now live just above the
+   Miscellaneous Uniques module, for the same reason as My Food above. */
+
 
 
 /*@ define:module:uniques
@@ -937,7 +926,7 @@ label: SS Tier Uniques
 type: stringlist
 group: Custom Uniques
 */
-#define UNIQUE_CUSTOM_SS_NAMES ["Imbued heart","Dragon chainbody","Curved bone","Abyssal dagger","Dragon harpoon","Jar of *","Uncut onyx","Hallowfell","Infernal cape","Fire cape","Dizana's *"]
+#define UNIQUE_CUSTOM_SS_NAMES ["Imbued heart","Dragon chainbody","Curved bone","Dragon harpoon","Jar of *","Uncut onyx","Hallowfell","Infernal cape","Fire cape","Dizana's *","Abyssal dagger *"]
 
 rule (name:UNIQUE_CUSTOM_SS_NAMES) {UNIQUE_SS_STYLE}
 
@@ -946,7 +935,7 @@ label: S Tier Uniques
 type: stringlist
 group: Custom Uniques
 */
-#define UNIQUE_CUSTOM_S_NAMES ["Eternal gem","Dragon knife","Long bone","Leaf-bladed battleaxe","Dragon metal sheet","* half of key (moon key)","Ancient staff","Dragon pickaxe"]
+#define UNIQUE_CUSTOM_S_NAMES ["Eternal gem","Dragon knife","Long bone","Leaf-bladed battleaxe","Dragon metal sheet","* half of key (moon key)","Ancient staff","Dragon pickaxe","Dark bow*"]
 
 rule (name:UNIQUE_CUSTOM_S_NAMES) {UNIQUE_S_STYLE}
 
@@ -976,6 +965,7 @@ group: Custom Uniques
 #define UNIQUE_CUSTOM_C_NAMES ["Looting bag note","looting bag"]
 
 rule (name:UNIQUE_CUSTOM_C_NAMES) {UNIQUE_C_STYLE}
+
 
 
 /*@ define:module:slayer_pvm
@@ -2023,7 +2013,7 @@ label: Hide Items
 type: stringlist
 group: Warped Jellies
 */
-#define WARPED_JELLIES_HIDE ["Adamant battleaxe","Adamant 2h sword"]
+#define WARPED_JELLIES_HIDE ["Adamant battleaxe","Adamant 2h sword","Adamant axe","Black 2h sword","Mithril boots","Thread","Gold bar"]
 
 rule (area:[1709,10039,0,1731,10061,0] && name:WARPED_JELLIES_HIDE) {hidden = true;} // Catacombs of Kourend - North
 rule (area:[1681,9990,0,1696,10008,0] && name:WARPED_JELLIES_HIDE) {hidden = true;} // Catacombs of Kourend - South
@@ -2567,6 +2557,7 @@ group: Smoke Devils
 #define SMOKE_DEVILS_SUPPLY []
 
 SUPPLY_DROP_RULESET([2378,9415,0,2429,9471,0], SMOKE_DEVILS_SUPPLY)
+
 
 
 /*@ define:module:boss_pvm
@@ -6793,6 +6784,7 @@ enum: ["Dragon 2h sword", "Dragon pickaxe", "Odium ward", "Malediction ward", "V
 rule (name:WILDERNESS_BOSSES_C_UNIQUES) {UNIQUE_C_STYLE}
 
 
+
 /*@ define:module:cox
 name: Chambers of Xeric
 subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
@@ -7027,6 +7019,7 @@ group: Raid Items
 rule (area:[3210,5120,0,3369,5776,1] && name:SHOW_COX) {hidden = false;}
 
 
+
 /*@ define:module:tob
 name: Theatre of Blood
 subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
@@ -7102,6 +7095,7 @@ exampleItem: Dawnbringer
 rule (name:"Dawnbringer") {TOB_DAWNBRINGER}
 
 
+
 /*@ define:module:toa
 name: Tombs of Amascut
 subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
@@ -7112,7 +7106,7 @@ label: Enable Sound on MVP
 type: boolean
 group: MVP
 */
-#define ENABLE_TOA_MVP true
+#define ENABLE_TOA_MVP false
 
 /*@ define:input:toa
 label: Sound ID
@@ -7234,6 +7228,7 @@ group: Red-X
 rule (area:[3786,5398,0,3828,5419,0] && ownership:2 && ENABLE_TOA_REDX) {TOA_REDX_STYLE}
 
 
+
 /*@ define:module:clues
 name: Clue Scrolls 
 subtitle: Go on a Treasure Hunt
@@ -7251,7 +7246,7 @@ type: style
 group: Beginner
 exampleItem: Clue scroll (beginner)
 */
-#define CLUE_BEGINNER_STYLE textColor = "#ffbf9bbf";backgroundColor = "#99333333";borderColor = "#ffbf9bbf";
+#define CLUE_BEGINNER_STYLE textColor = "#ffffd5ff";backgroundColor = "#99333333";borderColor = "#ffbf9bbf";
 
 /*@ define:input:clues
 label: Easy Clue
@@ -7259,7 +7254,7 @@ type: style
 group: Easy
 exampleItem: Clue scroll (easy)
 */
-#define CLUE_EASY_STYLE textColor = "#ff00a33c";backgroundColor = "#99333333";borderColor = "#ff00a33c";
+#define CLUE_EASY_STYLE textColor = "#ff00ff5e";backgroundColor = "#99333333";borderColor = "#ff00a33c";
 
 /*@ define:input:clues
 label: Medium Clue
@@ -7267,7 +7262,7 @@ type: style
 group: Medium
 exampleItem: Clue scroll (medium)
 */
-#define CLUE_MEDIUM_STYLE textColor = "#ff52c7de";backgroundColor = "#99333333";borderColor = "#ff52c7de";
+#define CLUE_MEDIUM_STYLE textColor = "#ff36ddff";backgroundColor = "#99333333";borderColor = "#ff52c7de";
 
 /*@ define:input:clues
 label: Hard Clue
@@ -7283,7 +7278,7 @@ type: style
 group: Elite
 exampleItem: Clue scroll (elite)
 */
-#define CLUE_ELITE_STYLE textColor = "#ffe6ad29";backgroundColor = "#99333333";borderColor = "#ffe6ad29";
+#define CLUE_ELITE_STYLE textColor = "#ffffc234";backgroundColor = "#99333333";borderColor = "#ffe6ad29";
 
 /*@ define:input:clues
 label: Master Clue
@@ -7373,6 +7368,7 @@ exampleItem: Reward casket (master)
 #define CASKET_MASTER_STYLE textColor = "#ffe40f0f";backgroundColor = "#ffffffff";borderColor = "#ffc90808";textAccent = 1;fontType = 2;
 
 rule (name:["Reward casket (master)"]) {CASKET_MASTER_STYLE}
+
 
 
 /*@ define:module:clue_scroll_uniques
@@ -7827,6 +7823,7 @@ group: Shared Clue Uniques
 rule (name:"Purple sweets" && quantity:>=PURPLE_SWEETS_C_QUANTITY) {UNIQUE_C_STYLE}
 
 
+
 /*@ define:module:mini_games
 name: Minigames
 subtitle: Set Unique Teirs and Hide Drops
@@ -8277,6 +8274,47 @@ enum: ["Fletching knife","Bow string spool", "Ent Branch", "Greenman mask"]
 #define VALE_FLETCHING_C_UNIQUES []
 
 rule (name:VALE_FLETCHING_C_UNIQUES) {UNIQUE_C_STYLE}
+
+
+/* "Food and Potions" module rules. These sit here, after every
+   location-specific rule, so that a per-location Hide list can hide a food or
+   potion at that location while it still shows everywhere else. In rs2f the
+   first `rule` that matches an item wins and stops evaluation, so while these
+   lived up in the Food and Potions module they swallowed every food/potion
+   before any area rule could hide it. */
+rule (name:MYFOOD_NAMES && stackable:false) {MYFOOD_STYLE}
+rule (name:MYPOTS_NAMES && stackable:false) {MYPOTS_STYLE}
+
+rule (name:EXTRA_FOOD_1_NAMES && noted:false) {EXTRA_FOOD_1_STYLE}
+rule (name:EXTRA_FOOD_2_NAMES && noted:false) {EXTRA_FOOD_2_STYLE}
+rule (name:EXTRA_FOOD_3_NAMES && noted:false) {EXTRA_FOOD_3_STYLE}
+rule (name:EXTRA_FOOD_4_NAMES && noted:false) {EXTRA_FOOD_4_STYLE}
+rule (name:EXTRA_FOOD_5_NAMES && noted:false) {EXTRA_FOOD_5_STYLE}
+rule (name:EXTRA_FOOD_6_NAMES && noted:false) {EXTRA_FOOD_6_STYLE}
+rule (name:EXTRA_FOOD_7_NAMES && noted:false) {EXTRA_FOOD_7_STYLE}
+rule (name:EXTRA_FOOD_8_NAMES && noted:false) {EXTRA_FOOD_8_STYLE}
+rule (name:EXTRA_FOOD_9_NAMES && noted:false) {EXTRA_FOOD_9_STYLE}
+rule (name:EXTRA_FOOD_10_NAMES && noted:false) {EXTRA_FOOD_10_STYLE}
+rule (name:EXTRA_FOOD_11_NAMES && noted:false) {EXTRA_FOOD_11_STYLE}
+rule (name:EXTRA_FOOD_12_NAMES && noted:false) {EXTRA_FOOD_12_STYLE}
+rule (name:EXTRA_FOOD_13_NAMES && noted:false) {EXTRA_FOOD_13_STYLE}
+rule (name:EXTRA_FOOD_14_NAMES && noted:false) {EXTRA_FOOD_14_STYLE}
+rule (name:EXTRA_FOOD_15_NAMES && noted:false) {EXTRA_FOOD_15_STYLE}
+rule (name:EXTRA_FOOD_16_NAMES && noted:false) {EXTRA_FOOD_16_STYLE}
+rule (name:EXTRA_FOOD_17_NAMES && noted:false) {EXTRA_FOOD_17_STYLE}
+rule (name:EXTRA_FOOD_18_NAMES && noted:false) {EXTRA_FOOD_18_STYLE}
+rule (name:EXTRA_FOOD_19_NAMES && noted:false) {EXTRA_FOOD_19_STYLE}
+rule (name:EXTRA_FOOD_20_NAMES && noted:false) {EXTRA_FOOD_20_STYLE}
+rule (name:EXTRA_FOOD_21_NAMES && noted:false) {EXTRA_FOOD_21_STYLE}
+rule (name:EXTRA_FOOD_22_NAMES && noted:false) {EXTRA_FOOD_22_STYLE}
+rule (name:EXTRA_FOOD_23_NAMES && noted:false) {EXTRA_FOOD_23_STYLE}
+rule (name:EXTRA_FOOD_24_NAMES && noted:false) {EXTRA_FOOD_24_STYLE}
+rule (name:EXTRA_FOOD_25_NAMES && noted:false) {EXTRA_FOOD_25_STYLE}
+rule (name:EXTRA_FOOD_26_NAMES && noted:false) {EXTRA_FOOD_26_STYLE}
+rule (name:EXTRA_FOOD_27_NAMES && noted:false) {EXTRA_FOOD_27_STYLE}
+rule (name:EXTRA_FOOD_28_NAMES && noted:false) {EXTRA_FOOD_28_STYLE}
+rule (name:EXTRA_FOOD_29_NAMES && noted:false) {EXTRA_FOOD_29_STYLE}
+rule (name:EXTRA_FOOD_30_NAMES && noted:false) {EXTRA_FOOD_30_STYLE}
 
 
 /*@ define:module:misc_uniques
@@ -9567,6 +9605,7 @@ rule (name:MISC_C_UNIQUES) {UNIQUE_C_STYLE}
 apply ((PERFECT_KILL_LISTS)))) {menuSort = -50000;}
 
 
+
 /*@ define:module:currency
 name: Currency
 subtitle: Used to Trade with other Players and Vendors
@@ -9940,6 +9979,7 @@ rule (name:"Numulite" && quantity:>=NUMALITE_MIN_QUANT && quantity:>=NUMALITE_D_
 rule (name:"Numulite" && quantity:>=NUMALITE_MIN_QUANT && quantity:>=NUMALITE_E_QUANT) {NUMALITE_E_STYLE}
 
 
+
 /*@ define:module:alchs
 name: Alchs
 subtitle: Turn Everything to Gold
@@ -9971,28 +10011,28 @@ label: SS Value
 type: number
 group: Tiers
 */
-#define ALCHS_SS_VALUE 1000000
+#define ALCHS_SS_VALUE 150000
 
 /*@ define:input:alchs
 label: S Value
 type: number
 group: Tiers
 */
-#define ALCHS_S_VALUE 500000
+#define ALCHS_S_VALUE 100000
 
 /*@ define:input:alchs
 label: A Value
 type: number
 group: Tiers
 */
-#define ALCHS_A_VALUE 200000
+#define ALCHS_A_VALUE 50000
 
 /*@ define:input:alchs
 label: B Value
 type: number
 group: Tiers
 */
-#define ALCHS_B_VALUE 100000
+#define ALCHS_B_VALUE 25000
 
 /*@ define:input:alchs
 label: C Value
@@ -10021,7 +10061,7 @@ type: style
 group: Styles
 exampleItem: Dragon platelegs
 */
-#define ALCHS_SS_STYLE textColor = "#ffffff00";backgroundColor = "#ff9aad3c";borderColor = "#fff4f400";lootbeamColor = "#ffbbbb22";menuTextColor = "#ffffff00";textAccent = 2;fontType = 2;showLootbeam = false;showValue = true;menuSort = 50000;icon = Sprite(41, 0);
+#define ALCHS_SS_STYLE textColor = "#ffffff00";backgroundColor = "#ff9aad3c";borderColor = "#ffff0000";lootbeamColor = "#ffbbbb22";menuTextColor = "#ffffff00";textAccent = 2;fontType = 2;showLootbeam = false;showValue = true;menuSort = 50000;icon = Sprite(41, 0);
 
 /*@ define:input:alchs
 label: S Tier
@@ -10029,7 +10069,7 @@ type: style
 group: Styles
 exampleItem: Dragon halberd
 */
-#define ALCHS_S_STYLE textColor = "#ffffff00";backgroundColor = "#ff9aad3c";borderColor = "#fff4f400";lootbeamColor = "#ffbbbb22";menuTextColor = "#ffffff00";textAccent = 2;fontType = 2;showLootbeam = false;showValue = true;menuSort = 50000;icon = Sprite(41, 0);
+#define ALCHS_S_STYLE textColor = "#ffffff00";backgroundColor = "#ff9aad3c";borderColor = "#ff4aff00";lootbeamColor = "#ffbbbb22";menuTextColor = "#ffffff00";textAccent = 2;fontType = 2;showLootbeam = false;showValue = true;menuSort = 50000;icon = Sprite(41, 0);
 
 
 /*@ define:input:alchs
@@ -10038,7 +10078,7 @@ type: style
 group: Styles
 exampleItem: Dragon battleaxe
 */
-#define ALCHS_A_STYLE textColor = "#ffffff00";backgroundColor = "#ff9aad3c";borderColor = "#fff4f400";lootbeamColor = "#ffbbbb22";menuTextColor = "#ffffff00";textAccent = 2;fontType = 2;showLootbeam = false;showValue = true;menuSort = 50000;icon = Sprite(41, 0);
+#define ALCHS_A_STYLE textColor = "#ffffff00";backgroundColor = "#ff9aad3c";borderColor = "#ff003df5";lootbeamColor = "#ffbbbb22";menuTextColor = "#ffffff00";textAccent = 2;fontType = 2;showLootbeam = false;showValue = true;menuSort = 50000;icon = Sprite(41, 0);
 
 /*@ define:input:alchs
 label: B Tier
@@ -10083,6 +10123,7 @@ rule (name:ALCHS_NAMES && !name:ALCHS_BAD_NAMES && havalue:>=ALCHS_MIN_VALUE && 
 rule (name:ALCHS_NAMES && !name:ALCHS_BAD_NAMES && havalue:>=ALCHS_MIN_VALUE && havalue:>=ALCHS_E_VALUE) {ALCHS_E_STYLE}
 
 
+
 /*@ define:module:keys
 name: Keys
 subtitle: Keys for Chests and Bosses
@@ -10121,7 +10162,7 @@ label: Moon Key Half SS Tier
 type: boolean
 group: SS Tier
 */
-#define KEYS_MOON_KEY_SS true
+#define KEYS_MOON_KEY_SS false
 
 /*@ define:input:keys
 label: SS Tier
@@ -10573,6 +10614,7 @@ rule ((name:KEYS_E_NAMES || (KEYS_MOON_KEY_E && id:[30107,30105])) && quantity:>
 rule (name:KEYS_E_NAMES || (KEYS_MOON_KEY_E && id:[30107,30105])) {KEYS_E_STYLE}
 
 
+
 /*@ define:module:teleports
 name: Teleports
 subtitle: Teleport Items and Teleport Charges
@@ -11016,6 +11058,7 @@ rule (name:TELEPORTS_E_NAMES && quantity:>=TELEPORTS_E_D_QUANT) {TELEPORTS_D_STY
 rule (name:TELEPORTS_E_NAMES) {TELEPORTS_E_STYLE}
 
 
+
 /*@ define:module:charges
 name: Item Charges
 subtitle: Charges for Various Items
@@ -11452,6 +11495,7 @@ rule (name:CHARGES_D_NAMES) {CHARGES_D_STYLE}
 rule (name:CHARGES_E_NAMES && quantity:>=CHARGES_E_D_QUANT) {CHARGES_D_STYLE}
 
 rule (name:CHARGES_E_NAMES) {CHARGES_E_STYLE}
+
 
 
 /*@ define:module:seeds
@@ -11910,6 +11954,7 @@ rule (name:SEEDS_D_NAMES) {SEEDS_D_STYLE}
 rule (name:SEEDS_E_NAMES && quantity:>=SEEDS_E_D_QUANT) {SEEDS_D_STYLE}
 
 rule (name:SEEDS_E_NAMES) {SEEDS_E_STYLE}
+
 
 
 /*@ define:module:herbs
@@ -12763,7 +12808,7 @@ label: Show Unnoted
 type: boolean
 group: E Tier
 */
-#define HERBS_E_SHOW_UNNOTED true
+#define HERBS_E_SHOW_UNNOTED false
 
 rule (name:HERBS_E_NAMES && !HERBS_E_SHOW_UNNOTED && stackable:false && (PERFECT_KILL_LISTS)))) {hideOverlay = true;}
 rule (name:HERBS_E_NAMES && !HERBS_E_SHOW_UNNOTED && stackable:false) {hidden = true;}
@@ -12862,6 +12907,7 @@ rule (name:HERBS_D_NAMES) {HERBS_D_STYLE}
 rule (name:HERBS_E_NAMES && quantity:>=HERBS_E_D_QUANT) {HERBS_D_STYLE}
 
 rule (name:HERBS_E_NAMES) {HERBS_E_STYLE}
+
 
 
 /*@ define:module:herblore_secondaries
@@ -12998,7 +13044,7 @@ type: style
 group: A Tier
 exampleItem: Wine of zamorak
 */
-#define HERBLORE_SECONDARIES_A_STYLE textColor = "#ffffffff";backgroundColor = "#cc81b0f6";borderColor = "#ffffffff";menuTextColor = "#ff62a1ff";textAccent = 3;fontType = 2;sound = 4718;menuSort = 30000;
+#define HERBLORE_SECONDARIES_A_STYLE textColor = "#ffffffff";backgroundColor = "#cc81b0f6";borderColor = "#ffffffff";menuTextColor = "#ff62a1ff";textAccent = 3;fontType = 2;sound = 4218;menuSort = 30000;
 
 /*@ define:input:herblore_secondaries
 label: B Tier Herblore Secondaries
@@ -13197,14 +13243,14 @@ type: enumlist
 enum: ["Eye of newt","Unicorn horn","Unicorn horn dust","Limpwurt root","Ashes","Red spiders' eggs","White berries","Toad's legs","Goat horn dust","Desert goat horn","Snape grass","Mort myre fungus","Kebbit teeth dust","Kebbit teeth","Dragon scale dust","Blue dragon scale","Potato cactus","Wine of zamorak","Jangerberries","Volcanic ash","Giant egg sac","Aldarium","Scaly blue dragonhide","Nail beast nails","Magic roots","Nihil dust","Lily of the sands","Crushed superior dragon bones","Crystal dust", "Swamp tar","Lava scale","Lava scale shard","Araxyte venom sac","Bird nest","Crushed nest","Marlin scales","Yellow fin","Rainbow crab paste","Crab paste","Haddock eye","Squid paste","Mole claw","Mole skin"]
 group: E Tier
 */
-#define HERBLORE_SECONDARIES_E_NAMES ["Eye of newt","Ashes","Swamp tar","Toad's legs","Goat horn dust","Desert goat horn","Kebbit teeth dust","Kebbit teeth","Jangerberries","Mole claw","Mole skin","Unicorn horn","Unicorn horn dust"]
+#define HERBLORE_SECONDARIES_E_NAMES ["Eye of newt","Ashes","Swamp tar","Toad's legs","Goat horn dust","Desert goat horn","Kebbit teeth dust","Kebbit teeth","Jangerberries","Unicorn horn","Unicorn horn dust"]
 
 /*@ define:input:herblore_secondaries
 label: Show Unnoted
 type: boolean
 group: E Tier
 */
-#define HERBLORE_SECONDARIES_E_SHOW_UNNOTED true
+#define HERBLORE_SECONDARIES_E_SHOW_UNNOTED false
 
 rule (name:HERBLORE_SECONDARIES_E_NAMES && !HERBLORE_SECONDARIES_E_SHOW_UNNOTED && stackable:false && (PERFECT_KILL_LISTS)))) {hideOverlay = true;}
 rule (name:HERBLORE_SECONDARIES_E_NAMES && !HERBLORE_SECONDARIES_E_SHOW_UNNOTED && stackable:false) {hidden = true;}
@@ -13305,6 +13351,7 @@ rule (name:HERBLORE_SECONDARIES_E_NAMES && quantity:>=HERBLORE_SECONDARIES_E_D_Q
 rule (name:HERBLORE_SECONDARIES_E_NAMES) {HERBLORE_SECONDARIES_E_STYLE}
 
 
+
 /*@ define:module:cooking
 name: Cooking 
 subtitle: Raw Food and other Ingrediants
@@ -13316,7 +13363,7 @@ type: enumlist
 enum: ["Raw shark","Raw karambwan","Raw sea turtle","Raw manta ray", "Raw anglerfish", "Raw moonlight antelope","Raw dashing kebbit","Raw sunlight antelope","Raw pyre fox","Raw dark crab","Raw monkfish","Raw swordfish","Grapes","Raw marlin","Raw bluefin","Raw halibut","Raw yellowfin","Raw haddock","Raw jumbo squid","Raw giant krill","Raw Shrimps","Raw chicken","Raw rabbit","Raw Anchovies","Raw Sardine","Raw Ugthanki meat","Raw Herring","Raw Mackerel","Raw bird meat","Thin snail","Raw Trout","Raw rabbit","Lean snail","Raw Cod","Raw Pike","Raw Cavefish","Raw beast meat","Raw red crab meat","Giant crab meat","Raw Fat snail","Raw wild kebbit","Raw Salmon","Raw Slimy eel","Raw Tuna","Raw chompy","Raw fishcake","Raw larupia","Raw barb-tailed kebbit","Raw Rainbow fish","Raw Cave eel","Raw Lobster","Raw jubbly","Raw graahk","Raw Bass","Raw Swordfish","Raw kyatt","Raw Swordtip"]
 group: SS Tier
 */
-#define COOKING_SS_NAMES []
+#define COOKING_SS_NAMES ["Raw marlin","Raw moonlight antelope","Raw anglerfish","Raw halibut"]
 
 /*@ define:input:cooking
 label: Show Unnoted
@@ -13344,7 +13391,7 @@ type: style
 group: SS Tier
 exampleItem: Raw anglerfish
 */
-#define COOKING_SS_STYLE textColor = "#ff4c0369";backgroundColor = "#ffffffff";borderColor = "#ff4c0369";lootbeamColor = "#ff4c0369";menuTextColor = "#ff4c0369";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropSS.wav";menuSort = 50000;
+#define COOKING_SS_STYLE textColor = "#ff4b0866";backgroundColor = "#ffffffff";borderColor = "#ff4c0369";lootbeamColor = "#ff4c0369";menuTextColor = "#ffb700ff";textAccent = 3;fontType = 1;showLootbeam = true;menuSort = 50000;
 
 /*@ define:input:cooking
 label: S Tier Cooking
@@ -13352,7 +13399,7 @@ type: enumlist
 enum: ["Raw shark","Raw karambwan","Raw sea turtle","Raw manta ray", "Raw anglerfish", "Raw moonlight antelope","Raw dashing kebbit","Raw sunlight antelope","Raw pyre fox","Raw dark crab","Raw monkfish","Raw swordfish","Grapes","Raw marlin","Raw bluefin","Raw halibut","Raw yellowfin","Raw haddock","Raw jumbo squid","Raw giant krill","Raw Shrimps","Raw chicken","Raw rabbit","Raw Anchovies","Raw Sardine","Raw Ugthanki meat","Raw Herring","Raw Mackerel","Raw bird meat","Thin snail","Raw Trout","Raw rabbit","Lean snail","Raw Cod","Raw Pike","Raw Cavefish","Raw beast meat","Raw red crab meat","Giant crab meat","Raw Fat snail","Raw wild kebbit","Raw Salmon","Raw Slimy eel","Raw Tuna","Raw chompy","Raw fishcake","Raw larupia","Raw barb-tailed kebbit","Raw Rainbow fish","Raw Cave eel","Raw Lobster","Raw jubbly","Raw graahk","Raw Bass","Raw Swordfish","Raw kyatt","Raw Swordtip"]
 group: S Tier
 */
-#define COOKING_S_NAMES []
+#define COOKING_S_NAMES ["Raw karambwan","Raw shark","Raw manta ray","Raw sea turtle"]
 
 /*@ define:input:cooking
 label: Show Unnoted
@@ -13388,7 +13435,7 @@ type: style
 group: S Tier
 exampleItem: Raw manta ray
 */
-#define COOKING_S_STYLE textColor = "#ffc42533";backgroundColor = "#ff4c0369";borderColor = "#ffc42533";lootbeamColor = "#ffc42533";menuTextColor = "#ff4c0369";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropS.wav";menuSort = 40000;
+#define COOKING_S_STYLE textColor = "#ffc42533";backgroundColor = "#ff4c0369";borderColor = "#ffc42533";lootbeamColor = "#ffc42533";menuTextColor = "#ffb700ff";textAccent = 3;fontType = 1;showLootbeam = true;menuSort = 40000;
 
 /*@ define:input:cooking
 label: A Tier Cooking
@@ -13746,6 +13793,7 @@ rule (name:COOKING_E_NAMES && quantity:>=COOKING_E_D_QUANT) {COOKING_D_STYLE}
 rule (name:COOKING_E_NAMES) {COOKING_E_STYLE}
 
 
+
 /*@ define:module:food_and_pots_stockpile
 name: Food and Potion Drops
 subtitle: Food and Drinks for Later Consumption
@@ -13757,7 +13805,7 @@ type: enumlist
 enum: ["Goading potion(*)","Prayer regeneration potion(*)","Sanfew serum(*)","Surge potion(*)","Prayer potion(*)","Super restore(*)","Divine super attack potion(*)","Divine super defence potion(*)","Divine super strength potion(*)","Divine ranging potion(*)","Stamina potion(*)","Divine magic potion(*)","Antidote++(*)","Battlemage potion(*)","Extended antifire(*)","Saradomin brew(*)","Anti-venom(*)","Anti-venom+(*)","Forgotten brew(*)","Super antifire potion(*)","Extended anti-venom+(*)","Divine super combat potion(*)","Extended super antifire(*)","Monkfish","Cooked kyatt","Anchovy pizza","Cooked karambwan","Curry","Cooked pyre fox","Guthix rest","Shark","Sea turtle","Cooked sunlight antelope","Pineapple pizza","Dragonfruit pie","Summer pie","Wild pie","Manta ray","Tuna potato","Dark crab","Anglerfish","Cooked dashing kebbit","Cooked moonlight antelope","Basket of strawberries","Giant krill","Haddock","Yellowfin","Halibut","Bluefin","Marlin","Red crab meat","Blue crab meat","Rainbow crab meat","Super attack(*)","Antidote+(*)","Super defence(*)","Super strength(*)","Antifire potion(*)","Ranging potion(*)","Shrimps","Cooked chicken","Cooked meat","Sardine","Bread","Herring","Mackerel","Trout","Pike","Peach","Salmon","Tuna","Jug of wine","Cake","Meat pie","Lobster","Bass","Plain pizza","Swordfish","Apple pie","Ixcoztic white","Chocolate cake","Attack potion(*)","Antipoison(*)","Relicym's balm(*)","Strength potion(*)","Restore potion(*)","Energy potion(*)","Defence potion(*)","Agility potion(*)","Combat potion(*)","Superantipoison(*)","Fishing potion(*)","Super energy(*)","Hunter potion(*)","Magic essence(*)"]
 group: SS Tier
 */
-#define FOOD_AND_POTS_STOCKPILE_SS_NAMES []
+#define FOOD_AND_POTS_STOCKPILE_SS_NAMES ["Sanfew serum(*)","Goading potion(*)","Prayer regeneration potion(*)","Surge potion(*)","Halibut","Anglerfish","Marlin","Cooked moonlight antelope"]
 
 /*@ define:input:food_and_pots_stockpile
 label: Show Unnoted
@@ -13785,7 +13833,7 @@ type: style
 group: SS Tier
 exampleItem: "Sanfew serum(4)"
 */
-#define FOOD_AND_POTS_STOCKPILE_SS_STYLE textColor = "#ff813f09";backgroundColor = "#ffffffff";borderColor = "#ff813f09";lootbeamColor = "#ff813f09";menuTextColor = "#ff813f09";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropSS.wav";menuSort = 50000;
+#define FOOD_AND_POTS_STOCKPILE_SS_STYLE textColor = "#ffff0000";backgroundColor = "#ffffffff";borderColor = "#ff813f09";lootbeamColor = "#ff813f09";menuTextColor = "#ffff7300";textAccent = 3;fontType = 2;showLootbeam = true;menuSort = 50000;
 
 /*@ define:input:food_and_pots_stockpile
 label: S Tier Food and Pots
@@ -13793,7 +13841,7 @@ type: enumlist
 enum: ["Goading potion(*)","Prayer regeneration potion(*)","Sanfew serum(*)","Surge potion(*)","Prayer potion(*)","Super restore(*)","Divine super attack potion(*)","Divine super defence potion(*)","Divine super strength potion(*)","Divine ranging potion(*)","Stamina potion(*)","Divine magic potion(*)","Antidote++(*)","Battlemage potion(*)","Extended antifire(*)","Saradomin brew(*)","Anti-venom(*)","Anti-venom+(*)","Forgotten brew(*)","Super antifire potion(*)","Extended anti-venom+(*)","Divine super combat potion(*)","Extended super antifire(*)","Monkfish","Cooked kyatt","Anchovy pizza","Cooked karambwan","Curry","Cooked pyre fox","Guthix rest","Shark","Sea turtle","Cooked sunlight antelope","Pineapple pizza","Dragonfruit pie","Summer pie","Wild pie","Manta ray","Tuna potato","Dark crab","Anglerfish","Cooked dashing kebbit","Cooked moonlight antelope","Basket of strawberries","Giant krill","Haddock","Yellowfin","Halibut","Bluefin","Marlin","Red crab meat","Blue crab meat","Rainbow crab meat","Super attack(*)","Antidote+(*)","Super defence(*)","Super strength(*)","Antifire potion(*)","Ranging potion(*)","Shrimps","Cooked chicken","Cooked meat","Sardine","Bread","Herring","Mackerel","Trout","Pike","Peach","Salmon","Tuna","Jug of wine","Cake","Meat pie","Lobster","Bass","Plain pizza","Swordfish","Apple pie","Ixcoztic white","Chocolate cake","Attack potion(*)","Antipoison(*)","Relicym's balm(*)","Strength potion(*)","Restore potion(*)","Energy potion(*)","Defence potion(*)","Agility potion(*)","Combat potion(*)","Superantipoison(*)","Fishing potion(*)","Super energy(*)","Hunter potion(*)","Magic essence(*)"]
 group: S Tier
 */
-#define FOOD_AND_POTS_STOCKPILE_S_NAMES []
+#define FOOD_AND_POTS_STOCKPILE_S_NAMES ["Super restore(*)","Antidote++(*)","Anti-venom(*)","Anti-venom+(*)","Extended anti-venom+(*)","Shark","Sea turtle","Summer pie","Wild pie","Manta ray","Tuna potato","Dark crab"]
 
 /*@ define:input:food_and_pots_stockpile
 label: Show Unnoted
@@ -13829,7 +13877,7 @@ type: style
 group: S Tier
 exampleItem: "Super restore(4)"
 */
-#define FOOD_AND_POTS_STOCKPILE_S_STYLE textColor = "#ffffffff";backgroundColor = "#ff813f09";borderColor = "#ffffffff";lootbeamColor = "#ffffffff";menuTextColor = "#ff813f09";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropS.wav";menuSort = 40000;
+#define FOOD_AND_POTS_STOCKPILE_S_STYLE textColor = "#ffffffff";backgroundColor = "#ff813f09";borderColor = "#ffffffff";lootbeamColor = "#ffffffff";menuTextColor = "#ffff7300";textAccent = 3;fontType = 2;showLootbeam = true;menuSort = 40000;
 
 /*@ define:input:food_and_pots_stockpile
 label: A Tier Food and Pots
@@ -13837,7 +13885,7 @@ type: enumlist
 enum: ["Goading potion(*)","Prayer regeneration potion(*)","Sanfew serum(*)","Surge potion(*)","Prayer potion(*)","Super restore(*)","Divine super attack potion(*)","Divine super defence potion(*)","Divine super strength potion(*)","Divine ranging potion(*)","Stamina potion(*)","Divine magic potion(*)","Antidote++(*)","Battlemage potion(*)","Extended antifire(*)","Saradomin brew(*)","Anti-venom(*)","Anti-venom+(*)","Forgotten brew(*)","Super antifire potion(*)","Extended anti-venom+(*)","Divine super combat potion(*)","Extended super antifire(*)","Monkfish","Cooked kyatt","Anchovy pizza","Cooked karambwan","Curry","Cooked pyre fox","Guthix rest","Shark","Sea turtle","Cooked sunlight antelope","Pineapple pizza","Dragonfruit pie","Summer pie","Wild pie","Manta ray","Tuna potato","Dark crab","Anglerfish","Cooked dashing kebbit","Cooked moonlight antelope","Basket of strawberries","Giant krill","Haddock","Yellowfin","Halibut","Bluefin","Marlin","Red crab meat","Blue crab meat","Rainbow crab meat","Super attack(*)","Antidote+(*)","Super defence(*)","Super strength(*)","Antifire potion(*)","Ranging potion(*)","Shrimps","Cooked chicken","Cooked meat","Sardine","Bread","Herring","Mackerel","Trout","Pike","Peach","Salmon","Tuna","Jug of wine","Cake","Meat pie","Lobster","Bass","Plain pizza","Swordfish","Apple pie","Ixcoztic white","Chocolate cake","Attack potion(*)","Antipoison(*)","Relicym's balm(*)","Strength potion(*)","Restore potion(*)","Energy potion(*)","Defence potion(*)","Agility potion(*)","Combat potion(*)","Superantipoison(*)","Fishing potion(*)","Super energy(*)","Hunter potion(*)","Magic essence(*)"]
 group: A Tier
 */
-#define FOOD_AND_POTS_STOCKPILE_A_NAMES []
+#define FOOD_AND_POTS_STOCKPILE_A_NAMES ["Prayer potion(*)","Saradomin brew(*)","Forgotten brew(*)"]
 
 /*@ define:input:food_and_pots_stockpile
 label: Show Unnoted
@@ -13888,7 +13936,7 @@ type: enumlist
 enum: ["Goading potion(*)","Prayer regeneration potion(*)","Sanfew serum(*)","Surge potion(*)","Prayer potion(*)","Super restore(*)","Divine super attack potion(*)","Divine super defence potion(*)","Divine super strength potion(*)","Divine ranging potion(*)","Stamina potion(*)","Divine magic potion(*)","Antidote++(*)","Battlemage potion(*)","Extended antifire(*)","Saradomin brew(*)","Anti-venom(*)","Anti-venom+(*)","Forgotten brew(*)","Super antifire potion(*)","Extended anti-venom+(*)","Divine super combat potion(*)","Extended super antifire(*)","Monkfish","Cooked kyatt","Anchovy pizza","Cooked karambwan","Curry","Cooked pyre fox","Guthix rest","Shark","Sea turtle","Cooked sunlight antelope","Pineapple pizza","Dragonfruit pie","Summer pie","Wild pie","Manta ray","Tuna potato","Dark crab","Anglerfish","Cooked dashing kebbit","Cooked moonlight antelope","Basket of strawberries","Giant krill","Haddock","Yellowfin","Halibut","Bluefin","Marlin","Red crab meat","Blue crab meat","Rainbow crab meat","Super attack(*)","Antidote+(*)","Super defence(*)","Super strength(*)","Antifire potion(*)","Ranging potion(*)","Shrimps","Cooked chicken","Cooked meat","Sardine","Bread","Herring","Mackerel","Trout","Pike","Peach","Salmon","Tuna","Jug of wine","Cake","Meat pie","Lobster","Bass","Plain pizza","Swordfish","Apple pie","Ixcoztic white","Chocolate cake","Attack potion(*)","Antipoison(*)","Relicym's balm(*)","Strength potion(*)","Restore potion(*)","Energy potion(*)","Defence potion(*)","Agility potion(*)","Combat potion(*)","Superantipoison(*)","Fishing potion(*)","Super energy(*)","Hunter potion(*)","Magic essence(*)"]
 group: B Tier
 */
-#define FOOD_AND_POTS_STOCKPILE_B_NAMES ["Goading potion(*)","Prayer regeneration potion(*)","Sanfew serum(*)","Surge potion(*)"]
+#define FOOD_AND_POTS_STOCKPILE_B_NAMES ["Divine super attack potion(*)","Divine super defence potion(*)","Divine super strength potion(*)","Super attack(*)","Battlemage potion(*)","Divine ranging potion(*)","Divine super combat potion(*)","Super defence(*)","Super strength(*)","Ranging potion(*)","Divine magic potion(*)"]
 
 /*@ define:input:food_and_pots_stockpile
 label: Show Unnoted
@@ -13945,7 +13993,7 @@ type: enumlist
 enum: ["Goading potion(*)","Prayer regeneration potion(*)","Sanfew serum(*)","Surge potion(*)","Prayer potion(*)","Super restore(*)","Divine super attack potion(*)","Divine super defence potion(*)","Divine super strength potion(*)","Divine ranging potion(*)","Stamina potion(*)","Divine magic potion(*)","Antidote++(*)","Battlemage potion(*)","Extended antifire(*)","Saradomin brew(*)","Anti-venom(*)","Anti-venom+(*)","Forgotten brew(*)","Super antifire potion(*)","Extended anti-venom+(*)","Divine super combat potion(*)","Extended super antifire(*)","Monkfish","Cooked kyatt","Anchovy pizza","Cooked karambwan","Curry","Cooked pyre fox","Guthix rest","Shark","Sea turtle","Cooked sunlight antelope","Pineapple pizza","Dragonfruit pie","Summer pie","Wild pie","Manta ray","Tuna potato","Dark crab","Anglerfish","Cooked dashing kebbit","Cooked moonlight antelope","Basket of strawberries","Giant krill","Haddock","Yellowfin","Halibut","Bluefin","Marlin","Red crab meat","Blue crab meat","Rainbow crab meat","Super attack(*)","Antidote+(*)","Super defence(*)","Super strength(*)","Antifire potion(*)","Ranging potion(*)","Shrimps","Cooked chicken","Cooked meat","Sardine","Bread","Herring","Mackerel","Trout","Pike","Peach","Salmon","Tuna","Jug of wine","Cake","Meat pie","Lobster","Bass","Plain pizza","Swordfish","Apple pie","Ixcoztic white","Chocolate cake","Attack potion(*)","Antipoison(*)","Relicym's balm(*)","Strength potion(*)","Restore potion(*)","Energy potion(*)","Defence potion(*)","Agility potion(*)","Combat potion(*)","Superantipoison(*)","Fishing potion(*)","Super energy(*)","Hunter potion(*)","Magic essence(*)"]
 group: C Tier
 */
-#define FOOD_AND_POTS_STOCKPILE_C_NAMES ["Prayer potion(*)","Super restore(*)","Divine super attack potion(*)","Divine super defence potion(*)","Divine super strength potion(*)","Divine ranging potion(*)","Stamina potion(*)","Divine magic potion(*)","Antidote++(*)","Battlemage potion(*)","Extended antifire(*)","Saradomin brew(*)","Anti-venom(*)","Anti-venom+(*)","Forgotten brew(*)","Super antifire potion(*)","Extended anti-venom+(*)","Divine super combat potion(*)","Extended super antifire(*)"]
+#define FOOD_AND_POTS_STOCKPILE_C_NAMES ["Stamina potion(*)","Extended antifire(*)","Super antifire potion(*)","Extended super antifire(*)","Antifire potion(*)"]
 
 /*@ define:input:food_and_pots_stockpile
 label: Show Unnoted
@@ -14001,21 +14049,21 @@ type: style
 group: C Tier
 exampleItem: "Super combat potion(4)"
 */
-#define FOOD_AND_POTS_STOCKPILE_C_STYLE textColor = "#ffffffff";backgroundColor = "#33813f09";menuTextColor = "#ff813f09";textAccent = 3;menuSort = 10000;
+#define FOOD_AND_POTS_STOCKPILE_C_STYLE textColor = "#ffffffff";backgroundColor = "#33813f09";menuTextColor = "#ffff7300";textAccent = 3;menuSort = 10000;
 /*@ define:input:food_and_pots_stockpile
 label: D Tier Food and Pots
 type: enumlist
 enum: ["Goading potion(*)","Prayer regeneration potion(*)","Sanfew serum(*)","Surge potion(*)","Prayer potion(*)","Super restore(*)","Divine super attack potion(*)","Divine super defence potion(*)","Divine super strength potion(*)","Divine ranging potion(*)","Stamina potion(*)","Divine magic potion(*)","Antidote++(*)","Battlemage potion(*)","Extended antifire(*)","Saradomin brew(*)","Anti-venom(*)","Anti-venom+(*)","Forgotten brew(*)","Super antifire potion(*)","Extended anti-venom+(*)","Divine super combat potion(*)","Extended super antifire(*)","Monkfish","Cooked kyatt","Anchovy pizza","Cooked karambwan","Curry","Cooked pyre fox","Guthix rest","Shark","Sea turtle","Cooked sunlight antelope","Pineapple pizza","Dragonfruit pie","Summer pie","Wild pie","Manta ray","Tuna potato","Dark crab","Anglerfish","Cooked dashing kebbit","Cooked moonlight antelope","Basket of strawberries","Giant krill","Haddock","Yellowfin","Halibut","Bluefin","Marlin","Red crab meat","Blue crab meat","Rainbow crab meat","Super attack(*)","Antidote+(*)","Super defence(*)","Super strength(*)","Antifire potion(*)","Ranging potion(*)","Shrimps","Cooked chicken","Cooked meat","Sardine","Bread","Herring","Mackerel","Trout","Pike","Peach","Salmon","Tuna","Jug of wine","Cake","Meat pie","Lobster","Bass","Plain pizza","Swordfish","Apple pie","Ixcoztic white","Chocolate cake","Attack potion(*)","Antipoison(*)","Relicym's balm(*)","Strength potion(*)","Restore potion(*)","Energy potion(*)","Defence potion(*)","Agility potion(*)","Combat potion(*)","Superantipoison(*)","Fishing potion(*)","Super energy(*)","Hunter potion(*)","Magic essence(*)"]
 group: D Tier
 */
-#define FOOD_AND_POTS_STOCKPILE_D_NAMES ["Monkfish","Cooked kyatt","Anchovy pizza","Cooked karambwan","Curry","Cooked pyre fox","Guthix rest","Shark","Sea turtle","Cooked sunlight antelope","Pineapple pizza","Dragonfruit pie","Summer pie","Wild pie","Manta ray","Tuna potato","Dark crab","Anglerfish","Cooked dashing kebbit","Cooked moonlight antelope","Basket of strawberries","Giant krill","Haddock","Yellowfin","Halibut","Bluefin","Marlin","Red crab meat","Blue crab meat","Rainbow crab meat","Super attack(*)","Antidote+(*)","Super defence(*)","Super strength(*)","Antifire potion(*)","Ranging potion(*)"]
+#define FOOD_AND_POTS_STOCKPILE_D_NAMES ["Monkfish","Cooked kyatt","Anchovy pizza","Curry","Cooked pyre fox","Guthix rest","Cooked sunlight antelope","Pineapple pizza","Dragonfruit pie","Cooked dashing kebbit","Basket of strawberries","Giant krill","Haddock","Yellowfin","Bluefin","Red crab meat","Blue crab meat","Rainbow crab meat","Antidote+(*)"]
 
 /*@ define:input:food_and_pots_stockpile
 label: Show Unnoted
 type: boolean
 group: D Tier
 */
-#define FOOD_AND_POTS_STOCKPILE_D_SHOW_UNNOTED false
+#define FOOD_AND_POTS_STOCKPILE_D_SHOW_UNNOTED true
 
 rule (name:FOOD_AND_POTS_STOCKPILE_D_NAMES && !FOOD_AND_POTS_STOCKPILE_D_SHOW_UNNOTED && stackable:false && (PERFECT_KILL_LISTS)))) {hideOverlay = true;}
 rule (name:FOOD_AND_POTS_STOCKPILE_D_NAMES && !FOOD_AND_POTS_STOCKPILE_D_SHOW_UNNOTED && stackable:false) {hidden = true;}
@@ -14086,7 +14134,7 @@ label: Show Unnoted
 type: boolean
 group: E Tier
 */
-#define FOOD_AND_POTS_STOCKPILE_E_SHOW_UNNOTED false
+#define FOOD_AND_POTS_STOCKPILE_E_SHOW_UNNOTED true
 
 rule (name:FOOD_AND_POTS_STOCKPILE_E_NAMES && !FOOD_AND_POTS_STOCKPILE_E_SHOW_UNNOTED && stackable:false && (PERFECT_KILL_LISTS)))) {hideOverlay = true;}
 rule (name:FOOD_AND_POTS_STOCKPILE_E_NAMES && !FOOD_AND_POTS_STOCKPILE_E_SHOW_UNNOTED && stackable:false) {hidden = true;}
@@ -14620,6 +14668,7 @@ rule (name:BLIGHTED_FOOD_AND_POTS_STOCKPILE_E_NAMES && quantity:>=BLIGHTED_FOOD_
 rule (name:BLIGHTED_FOOD_AND_POTS_STOCKPILE_E_NAMES) {BLIGHTED_FOOD_AND_POTS_STOCKPILE_E_STYLE}
 
 
+
 /*@ define:module:runes
 name: Runes
 subtitle: Cast some Magic Spells
@@ -14631,7 +14680,7 @@ type: enumlist
 enum: ["Air rune","Water rune","Earth rune","Fire rune","Mind rune","Body Rune","Aether rune","Cosmic rune","Chaos rune","Nature rune","Law rune","Death rune","Sunfire rune","Astral rune","Blood rune","Soul rune","Wrath rune","Blighted ancient ice sack","Blighted entangle sack","Blighted surge sack","Mist rune","Dust rune","Mud rune","Smoke rune","Steam rune","Lava rune","Mist rune","Blighted vengeance sack","Blighted teleport spell sack"]
 group: SS Tier
 */
-#define RUNES_SS_NAMES []
+#define RUNES_SS_NAMES ["Wrath rune"]
 
 /*@ define:input:runes
 label: Show Unnoted
@@ -14659,7 +14708,7 @@ type: style
 group: SS Tier
 exampleItem: Wrath rune
 */
-#define RUNES_SS_STYLE textColor = "#ff6a9190";backgroundColor = "#ffffffff";borderColor = "#ff6a9190";lootbeamColor = "#ff6a9190";menuTextColor = "#ff6a9190";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropSS.wav";menuSort = 50000;
+#define RUNES_SS_STYLE textColor = "#ff6a9190";backgroundColor = "#ffffffff";borderColor = "#ff6a9190";lootbeamColor = "#ff6a9190";menuTextColor = "#ff6a9190";textAccent = 1;fontType = 2;showLootbeam = true;sound = "DropSS.wav";menuSort = 50000;
 
 /*@ define:input:runes
 label: S Tier Runes
@@ -15060,6 +15109,7 @@ rule (name:RUNES_E_NAMES && quantity:>=RUNES_E_D_QUANT) {RUNES_D_STYLE}
 rule (name:RUNES_E_NAMES) {RUNES_E_STYLE}
 
 
+
 /*@ define:module:ores_and_bars
 name: Ores & Bars
 subtitle: Everything from Bronze to Rune
@@ -15071,7 +15121,7 @@ type: enumlist
 enum: ["Runite bar","Cupronickel bar","Runite ore","Nickel ore","Lead bar","Steel bar","Lovakite bar","Mithril bar","Coal","Adamant bar","Lead ore","Gold ore","Mithril ore","Lovakite ore","Adamantite ore","Iron ore","Silver ore"]
 group: SS Tier
 */
-#define ORES_AND_BARS_SS_NAMES []
+#define ORES_AND_BARS_SS_NAMES ["Runite bar","Runite ore"]
 
 /*@ define:input:ores_and_bars
 label: Show Unnoted
@@ -15099,7 +15149,7 @@ type: style
 group: SS Tier
 exampleItem: Runite bar
 */
-#define ORES_AND_BARS_SS_STYLE textColor = "#ff5E5E4C";backgroundColor = "#ffffffff";borderColor = "#ff5E5E4C";lootbeamColor = "#ff5E5E4C";menuTextColor = "#ff5E5E4C";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropSS.wav";menuSort = 50000;
+#define ORES_AND_BARS_SS_STYLE textColor = "#ff595947";backgroundColor = "#ffffffff";borderColor = "#ff5E5E4C";lootbeamColor = "#ff5E5E4C";menuTextColor = "#ffffffb5";textAccent = 1;fontType = 2;showLootbeam = true;menuSort = 50000;
 
 /*@ define:input:ores_and_bars
 label: S Tier Ores & Bars
@@ -15107,7 +15157,7 @@ type: enumlist
 enum: ["Runite bar","Cupronickel bar","Runite ore","Nickel ore","Lead bar","Steel bar","Lovakite bar","Mithril bar","Coal","Adamant bar","Lead ore","Gold ore","Mithril ore","Lovakite ore","Adamantite ore","Iron ore","Silver ore"]
 group: S Tier
 */
-#define ORES_AND_BARS_S_NAMES []
+#define ORES_AND_BARS_S_NAMES ["Cupronickel bar"]
 
 /*@ define:input:ores_and_bars
 label: Show Unnoted
@@ -15143,7 +15193,7 @@ type: style
 group: S Tier
 exampleItem: Cupronickel bar
 */
-#define ORES_AND_BARS_S_STYLE textColor = "#ff75B5CF";backgroundColor = "#ff5E5E4C";borderColor = "#ff75B5CF";lootbeamColor = "#ff5E5E4C";menuTextColor = "#ff5E5E4C";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropS.wav";menuSort = 40000;
+#define ORES_AND_BARS_S_STYLE textColor = "#ff75B5CF";backgroundColor = "#ff5E5E4C";borderColor = "#ff75B5CF";lootbeamColor = "#ff5E5E4C";menuTextColor = "#ffcacaa4";textAccent = 3;fontType = 2;showLootbeam = true;menuSort = 40000;
 
 /*@ define:input:ores_and_bars
 label: A Tier Ores & Bars
@@ -15498,6 +15548,7 @@ rule (name:ORES_AND_BARS_D_NAMES) {ORES_AND_BARS_D_STYLE}
 rule (name:ORES_AND_BARS_E_NAMES && quantity:>=ORES_AND_BARS_E_D_QUANT) {ORES_AND_BARS_D_STYLE}
 
 rule (name:ORES_AND_BARS_E_NAMES) {ORES_AND_BARS_E_STYLE}
+
 
 
 /*@ define:module:logs
@@ -15940,6 +15991,7 @@ rule (name:LOGS_E_NAMES && quantity:>=LOGS_E_D_QUANT) {LOGS_D_STYLE}
 rule (name:LOGS_E_NAMES) {LOGS_E_STYLE}
 
 
+
 /*@ define:module:planks
 name: Planks
 subtitle: Materials for Aspiring Carpenters
@@ -15979,7 +16031,7 @@ type: style
 group: SS Tier
 exampleItem: Rosewood plank
 */
-#define PLANKS_SS_STYLE textColor = "#ff835D2F";backgroundColor = "#ffffffff";borderColor = "#ff835D2F";lootbeamColor = "#ff835D2F";menuTextColor = "#ff835D2F";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropSS.wav";menuSort = 50000;
+#define PLANKS_SS_STYLE textColor = "#ff835D2F";backgroundColor = "#ffffffff";borderColor = "#ff835D2F";lootbeamColor = "#ff835D2F";menuTextColor = "#ffffbc6a";textAccent = 1;fontType = 2;showLootbeam = true;sound = "DropSS.wav";menuSort = 50000;
 
 /*@ define:input:planks
 label: S Tier Planks
@@ -16023,7 +16075,7 @@ type: style
 group: S Tier
 exampleItem: Ironwood plank
 */
-#define PLANKS_S_STYLE textColor = "#ffB18F54";backgroundColor = "#ff835D2F";borderColor = "#ffB18F54";lootbeamColor = "#ff835D2F";menuTextColor = "#ffB18F54";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropS.wav";menuSort = 40000;
+#define PLANKS_S_STYLE textColor = "#ffffce79";backgroundColor = "#ff835D2F";borderColor = "#ffB18F54";lootbeamColor = "#ff835D2F";menuTextColor = "#ffB18F54";textAccent = 1;fontType = 2;showLootbeam = true;sound = "DropS.wav";menuSort = 40000;
 
 /*@ define:input:planks
 label: A Tier Planks
@@ -16074,7 +16126,7 @@ type: style
 group: A Tier
 exampleItem: Camphor plank
 */
-#define PLANKS_A_STYLE textColor = "#ffB18F54";backgroundColor = "#cc835D2F";borderColor = "#ffB18F54";menuTextColor = "#ffB18F54";textAccent = 3;fontType = 2;sound = "DropA.wav";menuSort = 30000;
+#define PLANKS_A_STYLE textColor = "#ffffcd77";backgroundColor = "#cc835D2F";borderColor = "#ffB18F54";menuTextColor = "#ffB18F54";textAccent = 3;fontType = 2;sound = "DropA.wav";menuSort = 30000;
 
 /*@ define:input:planks
 label: B Tier Planks
@@ -16131,7 +16183,7 @@ type: style
 group: B Tier
 exampleItem: Mahogany plank
 */
-#define PLANKS_B_STYLE textColor = "#ffB18F54";backgroundColor = "#99835D2F";menuTextColor = "#ffB18F54";textAccent = 3;menuSort = 20000;
+#define PLANKS_B_STYLE textColor = "#ffffcd78";backgroundColor = "#99835D2F";menuTextColor = "#ffB18F54";textAccent = 3;menuSort = 20000;
 
 /*@ define:input:planks
 label: C Tier Planks
@@ -16195,7 +16247,7 @@ type: style
 group: C Tier
 exampleItem: Teak plank
 */
-#define PLANKS_C_STYLE textColor = "#ffB18F54";backgroundColor = "#33835D2F";menuTextColor = "#ffB18F54";textAccent = 3;menuSort = 10000;
+#define PLANKS_C_STYLE textColor = "#ffffcd78";backgroundColor = "#33835D2F";menuTextColor = "#ffB18F54";textAccent = 3;menuSort = 10000;
 /*@ define:input:planks
 label: D Tier Planks
 type: enumlist
@@ -16265,7 +16317,7 @@ type: style
 group: D Tier
 exampleItem: Oak plank
 */
-#define PLANKS_D_STYLE textColor = "#ffB18F54";menuTextColor = "#ffB18F54";
+#define PLANKS_D_STYLE textColor = "#ffffe3b4";menuTextColor = "#ffB18F54";
 
 /*@ define:input:planks
 label: E Tier Planks
@@ -16378,6 +16430,7 @@ rule (name:PLANKS_D_NAMES) {PLANKS_D_STYLE}
 rule (name:PLANKS_E_NAMES && quantity:>=PLANKS_E_D_QUANT) {PLANKS_D_STYLE}
 
 rule (name:PLANKS_E_NAMES) {PLANKS_E_STYLE}
+
 
 
 /*@ define:module:crafting
@@ -16820,6 +16873,7 @@ rule (name:CRAFTING_E_NAMES && quantity:>=CRAFTING_E_D_QUANT) {CRAFTING_D_STYLE}
 rule (name:CRAFTING_E_NAMES) {CRAFTING_E_STYLE}
 
 
+
 /*@ define:module:prayer
 name: Prayer
 subtitle: Future Gifts to PKers
@@ -16835,7 +16889,7 @@ type: enumlist
 enum: ["Chewed bones","Curved bone","Dagannoth bones","Frost dragon bones","Hydra bones","Ourg bones","Superior dragon bones","Dragon bones","Drake bones","Fayrg bones","Lava dragon bones","Long bone","Ourg bones","Strykewyrm bones","Wyrm bones","Wyvern bones","Babydragon bones","Bleached bones","Mangled bones","Shaikahan bones","Sun-kissed bones","Bones","Bat bones","Big bones","Burnt bones","Jogre bones","Monkey bones","Small zombie monkey bones","Large zombie monkey bones","Gorilla bones","Bearded gorilla bones","Small ninja monkey bones","Medium ninja monkey bone","Wolf bones","Wyrmling bones","Zogre bones","Blessed bone shards"]
 group: Bones SS Tier
 */
-#define PRAYER_BONES_SS_NAMES []
+#define PRAYER_BONES_SS_NAMES ["Chewed bones","Ourg bones","Superior dragon bones","Lava dragon bones"]
 
 /*@ define:input:prayer
 label: Show Unnoted
@@ -16865,7 +16919,7 @@ type: style
 group: Bones SS Tier
 exampleItem: Superior dragon bones
 */
-#define PRAYER_BONES_SS_STYLE textColor = "#ffffffff";backgroundColor = "#ffddd759";borderColor = "#ffffffff";lootbeamColor = "#ffffffff";menuTextColor = "#ffffffff";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropSS.wav";menuSort = 50000;
+#define PRAYER_BONES_SS_STYLE textColor = "#ffff0000";backgroundColor = "#ffddd759";borderColor = "#ffffffff";lootbeamColor = "#ffffffff";menuTextColor = "#ffffffff";textAccent = 3;fontType = 2;showLootbeam = true;menuSort = 50000;
 
 /*@ define:input:prayer
 label: S Tier Prayer Bones
@@ -16873,7 +16927,7 @@ type: enumlist
 enum: ["Chewed bones","Curved bone","Dagannoth bones","Frost dragon bones","Hydra bones","Ourg bones","Superior dragon bones","Dragon bones","Drake bones","Fayrg bones","Lava dragon bones","Long bone","Ourg bones","Strykewyrm bones","Wyrm bones","Wyvern bones","Babydragon bones","Bleached bones","Mangled bones","Shaikahan bones","Sun-kissed bones","Bones","Bat bones","Big bones","Burnt bones","Jogre bones","Monkey bones","Small zombie monkey bones","Large zombie monkey bones","Gorilla bones","Bearded gorilla bones","Small ninja monkey bones","Medium ninja monkey bone","Wolf bones","Wyrmling bones","Zogre bones","Blessed bone shards"]
 group: Bones S Tier
 */
-#define PRAYER_BONES_S_NAMES []
+#define PRAYER_BONES_S_NAMES ["Dagannoth bones","Frost dragon bones","Hydra bones","Dragon bones","Fayrg bones","Wyvern bones"]
 
 /*@ define:input:prayer
 label: Show Unnoted
@@ -16911,7 +16965,7 @@ type: style
 group: Bones S Tier
 exampleItem: Dagannoth bones
 */
-#define PRAYER_BONES_S_STYLE textColor = "#fffff759";backgroundColor = "#ffbbbbbb";borderColor = "#fffff759";lootbeamColor = "#fffff759";menuTextColor = "#ffffffff";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropS.wav";menuSort = 40000;
+#define PRAYER_BONES_S_STYLE textColor = "#ff7000ff";backgroundColor = "#ffbbbbbb";borderColor = "#fffff759";lootbeamColor = "#fffff759";menuTextColor = "#ffffffff";textAccent = 3;fontType = 2;showLootbeam = true;sound = "DropS.wav";menuSort = 40000;
 
 /*@ define:input:prayer
 label: A Tier Prayer Bones
@@ -16919,7 +16973,7 @@ type: enumlist
 enum: ["Chewed bones","Curved bone","Dagannoth bones","Frost dragon bones","Hydra bones","Ourg bones","Superior dragon bones","Dragon bones","Drake bones","Fayrg bones","Lava dragon bones","Long bone","Ourg bones","Strykewyrm bones","Wyrm bones","Wyvern bones","Babydragon bones","Bleached bones","Mangled bones","Shaikahan bones","Sun-kissed bones","Bones","Bat bones","Big bones","Burnt bones","Jogre bones","Monkey bones","Small zombie monkey bones","Large zombie monkey bones","Gorilla bones","Bearded gorilla bones","Small ninja monkey bones","Medium ninja monkey bone","Wolf bones","Wyrmling bones","Zogre bones","Blessed bone shards"]
 group: Bones A Tier
 */
-#define PRAYER_BONES_A_NAMES ["Chewed bones"]
+#define PRAYER_BONES_A_NAMES ["Strykewyrm bones","Wyrm bones","Babydragon bones","Sun-kissed bones","Shaikahan bones","Mangled bones","Wyrmling bones","Zogre bones","Blessed bone shards","Drake bones"]
 
 /*@ define:input:prayer
 label: Show Unnoted
@@ -16964,7 +17018,7 @@ type: style
 group: Bones A Tier
 exampleItem: Frost dragon bones
 */
-#define PRAYER_BONES_A_STYLE textColor = "#fffff759";backgroundColor = "#ccbbbbbb";borderColor = "#fffff759";menuTextColor = "#ffffffff";textAccent = 3;fontType = 2;sound = "DropA.wav";menuSort = 30000;
+#define PRAYER_BONES_A_STYLE textColor = "#ff0086dc";backgroundColor = "#ccbbbbbb";borderColor = "#fffff759";menuTextColor = "#ffffffff";textAccent = 3;fontType = 2;sound = "DropA.wav";menuSort = 30000;
 
 /*@ define:input:prayer
 label: B Tier Prayer Bones
@@ -16972,7 +17026,7 @@ type: enumlist
 enum: ["Chewed bones","Curved bone","Dagannoth bones","Frost dragon bones","Hydra bones","Ourg bones","Superior dragon bones","Dragon bones","Drake bones","Fayrg bones","Lava dragon bones","Long bone","Ourg bones","Strykewyrm bones","Wyrm bones","Wyvern bones","Babydragon bones","Bleached bones","Mangled bones","Shaikahan bones","Sun-kissed bones","Bones","Bat bones","Big bones","Burnt bones","Jogre bones","Monkey bones","Small zombie monkey bones","Large zombie monkey bones","Gorilla bones","Bearded gorilla bones","Small ninja monkey bones","Medium ninja monkey bone","Wolf bones","Wyrmling bones","Zogre bones","Blessed bone shards"]
 group: Bones B Tier
 */
-#define PRAYER_BONES_B_NAMES ["Curved bone","Dagannoth bones","Frost dragon bones","Hydra bones","Ourg bones","Superior dragon bones"]
+#define PRAYER_BONES_B_NAMES ["Superior dragon bones"]
 
 /*@ define:input:prayer
 label: Show Unnoted
@@ -17023,7 +17077,7 @@ type: style
 group: Bones B Tier
 exampleItem: Dragon bones
 */
-#define PRAYER_BONES_B_STYLE textColor = "#fffff759";backgroundColor = "#99bbbbbb";menuTextColor = "#ffffffff";textAccent = 3;menuSort = 20000;
+#define PRAYER_BONES_B_STYLE textColor = "#fffff759";backgroundColor = "#99bbbbbb";menuTextColor = "#ffffffff";textAccent = 3;fontType = 1;menuSort = 20000;
 
 /*@ define:input:prayer
 label: C Tier Prayer Bones
@@ -17031,7 +17085,7 @@ type: enumlist
 enum: ["Chewed bones","Curved bone","Dagannoth bones","Frost dragon bones","Hydra bones","Ourg bones","Superior dragon bones","Dragon bones","Drake bones","Fayrg bones","Lava dragon bones","Long bone","Ourg bones","Strykewyrm bones","Wyrm bones","Wyvern bones","Babydragon bones","Bleached bones","Mangled bones","Shaikahan bones","Sun-kissed bones","Bones","Bat bones","Big bones","Burnt bones","Jogre bones","Monkey bones","Small zombie monkey bones","Large zombie monkey bones","Gorilla bones","Bearded gorilla bones","Small ninja monkey bones","Medium ninja monkey bone","Wolf bones","Wyrmling bones","Zogre bones","Blessed bone shards"]
 group: Bones C Tier
 */
-#define PRAYER_BONES_C_NAMES ["Dragon bones","Drake bones","Fayrg bones","Lava dragon bones","Long bone","Ourg bones","Strykewyrm bones","Wyrm bones","Wyvern bones"]
+#define PRAYER_BONES_C_NAMES []
 
 /*@ define:input:prayer
 label: Show Unnoted
@@ -17096,7 +17150,7 @@ type: enumlist
 enum: ["Chewed bones","Curved bone","Dagannoth bones","Frost dragon bones","Hydra bones","Ourg bones","Superior dragon bones","Dragon bones","Drake bones","Fayrg bones","Lava dragon bones","Long bone","Ourg bones","Strykewyrm bones","Wyrm bones","Wyvern bones","Babydragon bones","Bleached bones","Mangled bones","Shaikahan bones","Sun-kissed bones","Bones","Bat bones","Big bones","Burnt bones","Jogre bones","Monkey bones","Small zombie monkey bones","Large zombie monkey bones","Gorilla bones","Bearded gorilla bones","Small ninja monkey bones","Medium ninja monkey bone","Wolf bones","Wyrmling bones","Zogre bones","Blessed bone shards"]
 group: Bones D Tier
 */
-#define PRAYER_BONES_D_NAMES ["Babydragon bones","Bleached bones","Mangled bones","Shaikahan bones","Sun-kissed bones"]
+#define PRAYER_BONES_D_NAMES []
 
 /*@ define:input:prayer
 label: Show Unnoted
@@ -17314,7 +17368,7 @@ type: style
 group: Ashes SS Tier
 exampleItem: Infernal ashes
 */
-#define PRAYER_ASHES_SS_STYLE textColor = "#ff6A3430";backgroundColor = "#ffffffff";borderColor = "#ff6A3430";lootbeamColor = "#ff6A3430";menuTextColor = "#ff6A3430";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropSS.wav";menuSort = 50000;
+#define PRAYER_ASHES_SS_STYLE textColor = "#ff6A3430";backgroundColor = "#ffffffff";borderColor = "#ff6A3430";lootbeamColor = "#ff6A3430";menuTextColor = "#ffff766c";textAccent = 3;fontType = 2;showLootbeam = true;menuSort = 50000;
 
 /*@ define:input:prayer
 label: S Tier Ashes
@@ -17360,7 +17414,7 @@ type: style
 group: Ashes S Tier
 exampleItem: Abyssal ashes
 */
-#define PRAYER_ASHES_S_STYLE textColor = "#ffffffff";backgroundColor = "#ff6A3430";borderColor = "#ffffffff";lootbeamColor = "#ffffffff";menuTextColor = "#ff6A3430";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropS.wav";menuSort = 40000;
+#define PRAYER_ASHES_S_STYLE textColor = "#ffffffff";backgroundColor = "#ff6A3430";borderColor = "#ffffffff";lootbeamColor = "#ffffffff";menuTextColor = "#ffff7a70";textAccent = 3;fontType = 2;showLootbeam = true;menuSort = 40000;
 
 /*@ define:input:prayer
 label: A Tier Ashes
@@ -17413,7 +17467,7 @@ type: style
 group: Ashes A Tier
 exampleItem: Infernal ashes
 */
-#define PRAYER_ASHES_A_STYLE textColor = "#ffffffff";backgroundColor = "#cc6A3430";borderColor = "#ffffffff";menuTextColor = "#ff6A3430";textAccent = 3;fontType = 2;sound = "DropA.wav";menuSort = 30000;
+#define PRAYER_ASHES_A_STYLE textColor = "#ffffffff";backgroundColor = "#cc6A3430";borderColor = "#ffffffff";menuTextColor = "#ffff958e";textAccent = 3;fontType = 2;menuSort = 30000;
 
 /*@ define:input:prayer
 label: B Tier Ashes
@@ -17733,7 +17787,7 @@ type: enumlist
 enum: ["Ensouled aviansie head","Ensouled abyssal head","Ensouled dragon head","Ensouled kalphite head","Ensouled dagannoth head","Ensouled bloodveld head","Ensouled tzhaar head","Ensouled demon head","Ensouled hellhound head","Ensouled dog head","Ensouled chaos druid head","Ensouled giant head","Ensouled ogre head","Ensouled elf head","Ensouled troll head","Ensouled horror head","Ensouled goblin head","Ensouled monkey head","Ensouled imp head","Ensouled minotaur head","Ensouled scorpion head","Ensouled bear head","Ensouled unicorn head"]
 group: Ensouled Heads SS Tier
 */
-#define PRAYER_HEADS_SS_NAMES []
+#define PRAYER_HEADS_SS_NAMES ["Ensouled dragon head","Ensouled abyssal head","Ensouled aviansie head"]
 
 /*@ define:input:prayer
 label: Show Unnoted
@@ -17761,7 +17815,7 @@ type: style
 group: Ensouled Heads SS Tier
 exampleItem: Ensouled dragon head
 */
-#define PRAYER_HEADS_SS_STYLE textColor = "#ff701da3";backgroundColor = "#ffffffff";borderColor = "#ff701da3";lootbeamColor = "#ff701da3";menuTextColor = "#ff701da3";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropSS.wav";menuSort = 50000;
+#define PRAYER_HEADS_SS_STYLE textColor = "#ff701da3";backgroundColor = "#ffffffff";borderColor = "#ff701da3";lootbeamColor = "#ff701da3";menuTextColor = "#ffb339ff";textAccent = 3;fontType = 2;showLootbeam = true;menuSort = 50000;
 
 /*@ define:input:prayer
 label: S Tier Ensouled Heads
@@ -17769,7 +17823,7 @@ type: enumlist
 enum: ["Ensouled aviansie head","Ensouled abyssal head","Ensouled dragon head","Ensouled kalphite head","Ensouled dagannoth head","Ensouled bloodveld head","Ensouled tzhaar head","Ensouled demon head","Ensouled hellhound head","Ensouled dog head","Ensouled chaos druid head","Ensouled giant head","Ensouled ogre head","Ensouled elf head","Ensouled troll head","Ensouled horror head","Ensouled goblin head","Ensouled monkey head","Ensouled imp head","Ensouled minotaur head","Ensouled scorpion head","Ensouled bear head","Ensouled unicorn head"]
 group: Ensouled Heads S Tier
 */
-#define PRAYER_HEADS_S_NAMES []
+#define PRAYER_HEADS_S_NAMES ["Ensouled hellhound head","Ensouled demon head","Ensouled tzhaar head"]
 
 /*@ define:input:prayer
 label: Show Unnoted
@@ -17805,7 +17859,7 @@ type: style
 group: Ensouled Heads S Tier
 exampleItem: Ensouled abyssal head
 */
-#define PRAYER_HEADS_S_STYLE textColor = "#ffffffff";backgroundColor = "#ff701da3";borderColor = "#ffffffff";lootbeamColor = "#ffffffff";menuTextColor = "#ff701da3";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropS.wav";menuSort = 40000;
+#define PRAYER_HEADS_S_STYLE textColor = "#ffffffff";backgroundColor = "#ff701da3";borderColor = "#ffff0000";lootbeamColor = "#ffffffff";menuTextColor = "#ffb846ff";textAccent = 3;fontType = 2;showLootbeam = true;menuSort = 40000;
 
 /*@ define:input:prayer
 label: A Tier Ensouled Heads
@@ -17813,7 +17867,7 @@ type: enumlist
 enum: ["Ensouled aviansie head","Ensouled abyssal head","Ensouled dragon head","Ensouled kalphite head","Ensouled dagannoth head","Ensouled bloodveld head","Ensouled tzhaar head","Ensouled demon head","Ensouled hellhound head","Ensouled dog head","Ensouled chaos druid head","Ensouled giant head","Ensouled ogre head","Ensouled elf head","Ensouled troll head","Ensouled horror head","Ensouled goblin head","Ensouled monkey head","Ensouled imp head","Ensouled minotaur head","Ensouled scorpion head","Ensouled bear head","Ensouled unicorn head"]
 group: Ensouled Heads A Tier
 */
-#define PRAYER_HEADS_A_NAMES []
+#define PRAYER_HEADS_A_NAMES ["Ensouled bloodveld head","Ensouled dagannoth head","Ensouled kalphite head"]
 
 /*@ define:input:prayer
 label: Show Unnoted
@@ -17856,7 +17910,7 @@ type: style
 group: Ensouled Heads A Tier
 exampleItem: Ensouled aviansie head
 */
-#define PRAYER_HEADS_A_STYLE textColor = "#ffffffff";backgroundColor = "#cc701da3";borderColor = "#ffffffff";menuTextColor = "#ffbbbbbb";textAccent = 3;fontType = 2;sound = "DropA.wav";menuSort = 30000;
+#define PRAYER_HEADS_A_STYLE textColor = "#ffffffff";backgroundColor = "#cc701da3";borderColor = "#ffffffff";menuTextColor = "#ffbbbbbb";textAccent = 3;fontType = 2;menuSort = 30000;
 
 /*@ define:input:prayer
 label: B Tier Ensouled Heads
@@ -17864,7 +17918,7 @@ type: enumlist
 enum: ["Ensouled aviansie head","Ensouled abyssal head","Ensouled dragon head","Ensouled kalphite head","Ensouled dagannoth head","Ensouled bloodveld head","Ensouled tzhaar head","Ensouled demon head","Ensouled hellhound head","Ensouled dog head","Ensouled chaos druid head","Ensouled giant head","Ensouled ogre head","Ensouled elf head","Ensouled troll head","Ensouled horror head","Ensouled goblin head","Ensouled monkey head","Ensouled imp head","Ensouled minotaur head","Ensouled scorpion head","Ensouled bear head","Ensouled unicorn head"]
 group: Ensouled Heads B Tier
 */
-#define PRAYER_HEADS_B_NAMES ["Ensouled aviansie head","Ensouled abyssal head","Ensouled dragon head"]
+#define PRAYER_HEADS_B_NAMES ["Ensouled horror head","Ensouled troll head","Ensouled elf head"]
 
 /*@ define:input:prayer
 label: Show Unnoted
@@ -17913,7 +17967,7 @@ type: style
 group: Ensouled Heads B Tier
 exampleItem: Ensouled hellhound head
 */
-#define PRAYER_HEADS_B_STYLE textColor = "#ffffffff";backgroundColor = "#99701da3";menuTextColor = "#ff701da3";textAccent = 3;menuSort = 20000;
+#define PRAYER_HEADS_B_STYLE textColor = "#ffffffff";backgroundColor = "#99701da3";menuTextColor = "#ffb641ff";textAccent = 3;fontType = 1;menuSort = 20000;
 
 /*@ define:input:prayer
 label: C Tier Ensouled Heads
@@ -17921,7 +17975,7 @@ type: enumlist
 enum: ["Ensouled aviansie head","Ensouled abyssal head","Ensouled dragon head","Ensouled kalphite head","Ensouled dagannoth head","Ensouled bloodveld head","Ensouled tzhaar head","Ensouled demon head","Ensouled hellhound head","Ensouled dog head","Ensouled chaos druid head","Ensouled giant head","Ensouled ogre head","Ensouled elf head","Ensouled troll head","Ensouled horror head","Ensouled goblin head","Ensouled monkey head","Ensouled imp head","Ensouled minotaur head","Ensouled scorpion head","Ensouled bear head","Ensouled unicorn head"]
 group: Ensouled Heads C Tier
 */
-#define PRAYER_HEADS_C_NAMES ["Ensouled kalphite head","Ensouled dagannoth head","Ensouled bloodveld head","Ensouled tzhaar head","Ensouled demon head","Ensouled hellhound head"]
+#define PRAYER_HEADS_C_NAMES ["Ensouled ogre head","Ensouled giant head","Ensouled chaos druid head"]
 
 /*@ define:input:prayer
 label: Show Unnoted
@@ -17977,14 +18031,14 @@ type: style
 group: Ensouled Heads C Tier
 exampleItem: Ensouled dagannoth head
 */
-#define PRAYER_HEADS_C_STYLE textColor = "#ffffffff";backgroundColor = "#33701da3";menuTextColor = "#ff701da3";textAccent = 3;menuSort = 10000;
+#define PRAYER_HEADS_C_STYLE textColor = "#ffffffff";backgroundColor = "#33701da3";menuTextColor = "#ffb032ff";textAccent = 3;menuSort = 10000;
 /*@ define:input:prayer
 label: D Tier Ensouled Heads
 type: enumlist
 enum: ["Ensouled aviansie head","Ensouled abyssal head","Ensouled dragon head","Ensouled kalphite head","Ensouled dagannoth head","Ensouled bloodveld head","Ensouled tzhaar head","Ensouled demon head","Ensouled hellhound head","Ensouled dog head","Ensouled chaos druid head","Ensouled giant head","Ensouled ogre head","Ensouled elf head","Ensouled troll head","Ensouled horror head","Ensouled goblin head","Ensouled monkey head","Ensouled imp head","Ensouled minotaur head","Ensouled scorpion head","Ensouled bear head","Ensouled unicorn head"]
 group: Ensouled Heads D Tier
 */
-#define PRAYER_HEADS_D_NAMES ["Ensouled dog head","Ensouled chaos druid head","Ensouled giant head","Ensouled ogre head","Ensouled elf head","Ensouled troll head","Ensouled horror head"]
+#define PRAYER_HEADS_D_NAMES ["Ensouled dog head","Ensouled unicorn head","Ensouled bear head"]
 
 /*@ define:input:prayer
 label: Show Unnoted
@@ -18047,7 +18101,7 @@ type: style
 group: Ensouled Heads D Tier
 exampleItem: Ensouled giant head
 */
-#define PRAYER_HEADS_D_STYLE textColor = "#ff701da3";menuTextColor = "#ff701da3";
+#define PRAYER_HEADS_D_STYLE textColor = "#ff701da3";menuTextColor = "#ffae2dff";
 
 /*@ define:input:prayer
 label: E Tier Ensouled Heads
@@ -18055,7 +18109,7 @@ type: enumlist
 enum: ["Ensouled aviansie head","Ensouled abyssal head","Ensouled dragon head","Ensouled kalphite head","Ensouled dagannoth head","Ensouled bloodveld head","Ensouled tzhaar head","Ensouled demon head","Ensouled hellhound head","Ensouled dog head","Ensouled chaos druid head","Ensouled giant head","Ensouled ogre head","Ensouled elf head","Ensouled troll head","Ensouled horror head","Ensouled goblin head","Ensouled monkey head","Ensouled imp head","Ensouled minotaur head","Ensouled scorpion head","Ensouled bear head","Ensouled unicorn head"]
 group: Ensouled Heads E Tier
 */
-#define PRAYER_HEADS_E_NAMES ["Ensouled goblin head","Ensouled monkey head","Ensouled imp head","Ensouled minotaur head","Ensouled scorpion head","Ensouled bear head","Ensouled unicorn head"]
+#define PRAYER_HEADS_E_NAMES ["Ensouled goblin head","Ensouled monkey head","Ensouled imp head","Ensouled minotaur head","Ensouled scorpion head","Ensouled bear head"]
 
 /*@ define:input:prayer
 label: Show Unnoted
@@ -18161,6 +18215,7 @@ rule (name:PRAYER_HEADS_D_NAMES) {PRAYER_HEADS_D_STYLE}
 rule (name:PRAYER_HEADS_E_NAMES && quantity:>=PRAYER_HEADS_E_D_QUANT) {PRAYER_HEADS_D_STYLE}
 
 rule (name:PRAYER_HEADS_E_NAMES) {PRAYER_HEADS_E_STYLE}
+
 
 
 /*@ define:module:fletching
@@ -18297,7 +18352,7 @@ type: style
 group: A Tier
 exampleItem: Runite limbs
 */
-#define FLETCHING_A_STYLE textColor = "#ffFFBF1E";backgroundColor = "#cc094A4C";borderColor = "#ffFFBF1E";menuTextColor = "#ffbbbbbb";textAccent = 3;fontType = 2;sound = 4718;menuSort = 30000;
+#define FLETCHING_A_STYLE textColor = "#ffFFBF1E";backgroundColor = "#cc094A4C";borderColor = "#ffFFBF1E";menuTextColor = "#ffbbbbbb";textAccent = 3;fontType = 2;sound = 4218;menuSort = 30000;
 
 /*@ define:input:fletching
 label: B Tier
@@ -18602,6 +18657,7 @@ rule (name:FLETCHING_D_NAMES) {FLETCHING_D_STYLE}
 rule (name:FLETCHING_E_NAMES && quantity:>=FLETCHING_E_D_QUANT) {FLETCHING_D_STYLE}
 
 rule (name:FLETCHING_E_NAMES) {FLETCHING_E_STYLE}
+
 
 
 /*@ define:module:dragon_gear
@@ -19045,6 +19101,7 @@ rule (name:DRAGON_GEAR_E_NAMES && quantity:>=DRAGON_GEAR_E_D_QUANT) {DRAGON_GEAR
 rule (name:DRAGON_GEAR_E_NAMES) {DRAGON_GEAR_E_STYLE}
 
 
+
 /*@ define:module:runite_gear
 name: Runite Gear
 subtitle: The Iconic Metal
@@ -19057,7 +19114,7 @@ type: enumlist
 enum: ["Large rune keel parts","Rune keel parts","Rune pickaxe","Rune pickaxe","Rune sword","Rune axe","Rune hasta","Rune scimitar","Rune longsword","Rune warhammer","Rune battleaxe","Rune claws","Rune spear","Rune halberd","Rune gloves","Rune boots","Rune defender","Rune med helm","Rune full helm","Rune sq shield","Rune kiteshield","Rune plateskirt","Rune platelegs","Rune chainbody","Rune platebody","Rune crossbow","Runite ore","Runite bar","Runite limbs","Runite crossbow (u)","Rune dagger","Rune cannonball","Rune nails","Rune knife","Rune dart","Rune thrownaxe","Rune arrow","Rune brutal","Runite bolts","Rune javelin","Runite bolts (unf)","Rune dart tip","Rune arrowtips","Rune javelin tips","Rune felling axe","Seeking rune arrow"]
 group: SS Tier
 */
-#define RUNITE_GEAR_SS_NAMES []
+#define RUNITE_GEAR_SS_NAMES ["Large rune keel parts"]
 
 /*@ define:input:runite_gear
 label: Show Unnoted
@@ -19085,7 +19142,7 @@ type: style
 group: SS Tier
 exampleItem: Runite platebody
 */
-#define RUNITE_GEAR_SS_STYLE textColor = "#ff5B8796";backgroundColor = "#ffffffff";borderColor = "#ff5B8796";lootbeamColor = "#ff5B8796";menuTextColor = "#ff5B8796";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropSS.wav";menuSort = 50000;
+#define RUNITE_GEAR_SS_STYLE textColor = "#ff5B8796";backgroundColor = "#ffffffff";borderColor = "#ff5B8796";lootbeamColor = "#ff5B8796";menuTextColor = "#ffa7e9ff";textAccent = 3;fontType = 2;showLootbeam = true;menuSort = 50000;
 
 /*@ define:input:runite_gear
 label: S Tier Runite Gear
@@ -19093,7 +19150,7 @@ type: enumlist
 enum: ["Large rune keel parts","Rune keel parts","Rune pickaxe","Rune pickaxe","Rune sword","Rune axe","Rune hasta","Rune scimitar","Rune longsword","Rune warhammer","Rune battleaxe","Rune claws","Rune spear","Rune halberd","Rune gloves","Rune boots","Rune defender","Rune med helm","Rune full helm","Rune sq shield","Rune kiteshield","Rune plateskirt","Rune platelegs","Rune chainbody","Rune platebody","Rune crossbow","Runite ore","Runite bar","Runite limbs","Runite crossbow (u)","Rune dagger","Rune cannonball","Rune nails","Rune knife","Rune dart","Rune thrownaxe","Rune arrow","Rune brutal","Runite bolts","Rune javelin","Runite bolts (unf)","Rune dart tip","Rune arrowtips","Rune javelin tips","Rune felling axe","Seeking rune arrow"]
 group: S Tier
 */
-#define RUNITE_GEAR_S_NAMES ["Large rune keel parts","Rune felling axe"]
+#define RUNITE_GEAR_S_NAMES ["Rune felling axe","Rune cannonball","Rune keel parts"]
 
 /*@ define:input:runite_gear
 label: Show Unnoted
@@ -19129,7 +19186,7 @@ type: style
 group: S Tier
 exampleItem: Runite platelegs
 */
-#define RUNITE_GEAR_S_STYLE textColor = "#ffffffff";backgroundColor = "#ff5B8796";borderColor = "#ffffffff";lootbeamColor = "#ff5B8796";menuTextColor = "#ff5B8796";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropS.wav";menuSort = 40000;
+#define RUNITE_GEAR_S_STYLE textColor = "#ffffffff";backgroundColor = "#ff5B8796";borderColor = "#ffffffff";lootbeamColor = "#ff5B8796";menuTextColor = "#ff9ce6ff";textAccent = 3;fontType = 2;showLootbeam = true;sound = "DropS.wav";menuSort = 40000;
 
 /*@ define:input:runite_gear
 label: A Tier Runite Gear 
@@ -19137,7 +19194,7 @@ type: enumlist
 enum: ["Large rune keel parts","Rune keel parts","Rune pickaxe","Rune pickaxe","Rune sword","Rune axe","Rune hasta","Rune scimitar","Rune longsword","Rune warhammer","Rune battleaxe","Rune claws","Rune spear","Rune halberd","Rune gloves","Rune boots","Rune defender","Rune med helm","Rune full helm","Rune sq shield","Rune kiteshield","Rune plateskirt","Rune platelegs","Rune chainbody","Rune platebody","Rune crossbow","Runite ore","Runite bar","Runite limbs","Runite crossbow (u)","Rune dagger","Rune cannonball","Rune nails","Rune knife","Rune dart","Rune thrownaxe","Rune arrow","Rune brutal","Runite bolts","Rune javelin","Runite bolts (unf)","Rune dart tip","Rune arrowtips","Rune javelin tips","Rune felling axe","Seeking rune arrow"]
 group: A Tier
 */
-#define RUNITE_GEAR_A_NAMES ["Rune keel parts"]
+#define RUNITE_GEAR_A_NAMES ["Runite bar","Runite ore"]
 
 /*@ define:input:runite_gear
 label: Show Unnoted
@@ -19180,7 +19237,7 @@ type: style
 group: A Tier
 exampleItem: Runite kiteshield
 */
-#define RUNITE_GEAR_A_STYLE textColor = "#ffffffff";backgroundColor = "#cc5B8796";borderColor = "#ffffffff";menuTextColor = "#ff5B8796";textAccent = 3;fontType = 2;sound = "DropA.wav";menuSort = 30000;
+#define RUNITE_GEAR_A_STYLE textColor = "#ffffffff";backgroundColor = "#cc5B8796";borderColor = "#ffffffff";menuTextColor = "#ff8ee3ff";textAccent = 3;fontType = 2;menuSort = 30000;
 
 /*@ define:input:runite_gear
 label: B Tier Runite Gear
@@ -19188,7 +19245,7 @@ type: enumlist
 enum: ["Large rune keel parts","Rune keel parts","Rune pickaxe","Rune pickaxe","Rune sword","Rune axe","Rune hasta","Rune scimitar","Rune longsword","Rune warhammer","Rune battleaxe","Rune claws","Rune spear","Rune halberd","Rune gloves","Rune boots","Rune defender","Rune med helm","Rune full helm","Rune sq shield","Rune kiteshield","Rune plateskirt","Rune platelegs","Rune chainbody","Rune platebody","Rune crossbow","Runite ore","Runite bar","Runite limbs","Runite crossbow (u)","Rune dagger","Rune cannonball","Rune nails","Rune knife","Rune dart","Rune thrownaxe","Rune arrow","Rune brutal","Runite bolts","Rune javelin","Runite bolts (unf)","Rune dart tip","Rune arrowtips","Rune javelin tips","Rune felling axe","Seeking rune arrow"]
 group: B Tier
 */
-#define RUNITE_GEAR_B_NAMES ["Rune pickaxe","Rune pickaxe","Rune sword","Rune axe","Rune hasta","Rune scimitar","Rune longsword","Rune warhammer","Rune battleaxe","Rune claws","Rune spear","Rune halberd","Rune gloves","Rune boots","Rune defender","Rune med helm","Rune full helm","Rune sq shield","Rune kiteshield","Rune plateskirt","Rune platelegs","Rune chainbody","Rune platebody","Rune crossbow","Runite ore","Runite bar","Runite limbs","Runite crossbow (u)"]
+#define RUNITE_GEAR_B_NAMES ["Rune pickaxe","Rune pickaxe","Rune sword","Rune axe","Rune hasta","Rune scimitar","Rune longsword","Rune warhammer","Rune battleaxe","Rune claws","Rune spear","Rune halberd","Rune gloves","Rune boots","Rune defender","Rune med helm","Rune full helm","Rune sq shield","Rune kiteshield","Rune plateskirt","Rune platelegs","Rune chainbody","Rune platebody","Rune crossbow","Runite limbs","Runite crossbow (u)"]
 
 /*@ define:input:runite_gear
 label: Show Unnoted
@@ -19237,7 +19294,7 @@ type: style
 group: B Tier
 exampleItem: Runite pickaxe
 */
-#define RUNITE_GEAR_B_STYLE textColor = "#ffffffff";backgroundColor = "#995B8796";menuTextColor = "#ff5B8796";textAccent = 3;menuSort = 20000;
+#define RUNITE_GEAR_B_STYLE textColor = "#ffffffff";backgroundColor = "#995B8796";menuTextColor = "#ffa1e7ff";textAccent = 3;menuSort = 20000;
 
 /*@ define:input:runite_gear
 label: C Tier Runite Gear
@@ -19486,6 +19543,7 @@ rule (name:RUNITE_GEAR_E_NAMES && quantity:>=RUNITE_GEAR_E_D_QUANT) {RUNITE_GEAR
 rule (name:RUNITE_GEAR_E_NAMES) {RUNITE_GEAR_E_STYLE}
 
 
+
 /*@ define:module:adamantite_gear
 name: Adamantite Gear
 subtitle: The Green Metal
@@ -19498,7 +19556,7 @@ type: enumlist
 enum: ["Large adamant keel parts","Adamant felling axe","Adamant platebody","Adamant keel parts","Adamant pickaxe","Adamant axe","Adamant mace","Adamant sword","Adamant hasta","Adamant scimitar","Adamant longsword","Adamant warhammer","Adamant battleaxe","Adamant claws","Adamant spear","Adamant halberd","Adamant 2h sword","Adamant crossbow","Adamant gloves","Adamant boots","Adamant defender","Adamant med helm","Adamant full helm","Adamant sq shield","Adamant plateskirt","Adamant platelegs","Adamant kiteshield","Adamant chainbody","Adamantite ore","Adamantite bar","Adamantite limbs","Adamant crossbow (u)","Adamant dagger","Adamant cane","Adamantite nails","Adamant cannonball","Adamant knife","Adamant dart","Adamant thrownaxe","Adamant arrow","Adamant brutal","Adamant bolts","Adamant javelin","Adamant bolts(unf)","Adamant dart tip","Adamant arrowtips","Adamant javelin tips","Seeking adamant arrow"]
 group: SS Tier
 */
-#define ADAMANTITE_GEAR_SS_NAMES []
+#define ADAMANTITE_GEAR_SS_NAMES ["Large adamant keel parts","Adamant felling axe"]
 
 /*@ define:input:adamantite_gear
 label: Show Unnoted
@@ -19526,7 +19584,7 @@ type: style
 group: SS Tier
 exampleItem: Adamantite platebody
 */
-#define ADAMANTITE_GEAR_SS_STYLE textColor = "#ff506450";backgroundColor = "#ffffffff";borderColor = "#ff506450";lootbeamColor = "#ff506450";menuTextColor = "#ff506450";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropSS.wav";menuSort = 50000;
+#define ADAMANTITE_GEAR_SS_STYLE backgroundColor = "#ffffffff";borderColor = "#ff506450";lootbeamColor = "#ff506450";menuTextColor = "#ffbfffbf";textAccent = 3;fontType = 2;showLootbeam = true;menuSort = 50000;
 
 /*@ define:input:adamantite_gear
 label: S Tier Adamantite Gear
@@ -19534,7 +19592,7 @@ type: enumlist
 enum: ["Large adamant keel parts","Adamant felling axe","Adamant platebody","Adamant keel parts","Adamant pickaxe","Adamant axe","Adamant mace","Adamant sword","Adamant hasta","Adamant scimitar","Adamant longsword","Adamant warhammer","Adamant battleaxe","Adamant claws","Adamant spear","Adamant halberd","Adamant 2h sword","Adamant crossbow","Adamant gloves","Adamant boots","Adamant defender","Adamant med helm","Adamant full helm","Adamant sq shield","Adamant plateskirt","Adamant platelegs","Adamant kiteshield","Adamant chainbody","Adamantite ore","Adamantite bar","Adamantite limbs","Adamant crossbow (u)","Adamant dagger","Adamant cane","Adamantite nails","Adamant cannonball","Adamant knife","Adamant dart","Adamant thrownaxe","Adamant arrow","Adamant brutal","Adamant bolts","Adamant javelin","Adamant bolts(unf)","Adamant dart tip","Adamant arrowtips","Adamant javelin tips","Seeking adamant arrow"]
 group: S Tier
 */
-#define ADAMANTITE_GEAR_S_NAMES ["Adamant felling axe"]
+#define ADAMANTITE_GEAR_S_NAMES ["Adamant keel parts"]
 
 /*@ define:input:adamantite_gear
 label: Show Unnoted
@@ -19570,7 +19628,7 @@ type: style
 group: S Tier
 exampleItem: Adamantite platelegs
 */
-#define ADAMANTITE_GEAR_S_STYLE textColor = "#ffffffff";backgroundColor = "#ff506450";borderColor = "#ffffffff";lootbeamColor = "#ff506450";menuTextColor = "#ff506450";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropS.wav";menuSort = 40000;
+#define ADAMANTITE_GEAR_S_STYLE textColor = "#ffffffff";backgroundColor = "#ff506450";borderColor = "#ffffffff";lootbeamColor = "#ff506450";menuTextColor = "#ffe4ffe4";textAccent = 3;fontType = 2;showLootbeam = true;sound = "DropS.wav";menuSort = 40000;
 
 /*@ define:input:adamantite_gear
 label: A Tier Adamantite Gear 
@@ -19578,7 +19636,7 @@ type: enumlist
 enum: ["Large adamant keel parts","Adamant felling axe","Adamant platebody","Adamant keel parts","Adamant pickaxe","Adamant axe","Adamant mace","Adamant sword","Adamant hasta","Adamant scimitar","Adamant longsword","Adamant warhammer","Adamant battleaxe","Adamant claws","Adamant spear","Adamant halberd","Adamant 2h sword","Adamant crossbow","Adamant gloves","Adamant boots","Adamant defender","Adamant med helm","Adamant full helm","Adamant sq shield","Adamant plateskirt","Adamant platelegs","Adamant kiteshield","Adamant chainbody","Adamantite ore","Adamantite bar","Adamantite limbs","Adamant crossbow (u)","Adamant dagger","Adamant cane","Adamantite nails","Adamant cannonball","Adamant knife","Adamant dart","Adamant thrownaxe","Adamant arrow","Adamant brutal","Adamant bolts","Adamant javelin","Adamant bolts(unf)","Adamant dart tip","Adamant arrowtips","Adamant javelin tips","Seeking adamant arrow"]
 group: A Tier
 */
-#define ADAMANTITE_GEAR_A_NAMES ["Large adamant keel parts"]
+#define ADAMANTITE_GEAR_A_NAMES []
 
 /*@ define:input:adamantite_gear
 label: Show Unnoted
@@ -19629,7 +19687,7 @@ type: enumlist
 enum: ["Large adamant keel parts","Adamant felling axe","Adamant platebody","Adamant keel parts","Adamant pickaxe","Adamant axe","Adamant mace","Adamant sword","Adamant hasta","Adamant scimitar","Adamant longsword","Adamant warhammer","Adamant battleaxe","Adamant claws","Adamant spear","Adamant halberd","Adamant 2h sword","Adamant crossbow","Adamant gloves","Adamant boots","Adamant defender","Adamant med helm","Adamant full helm","Adamant sq shield","Adamant plateskirt","Adamant platelegs","Adamant kiteshield","Adamant chainbody","Adamantite ore","Adamantite bar","Adamantite limbs","Adamant crossbow (u)","Adamant dagger","Adamant cane","Adamantite nails","Adamant cannonball","Adamant knife","Adamant dart","Adamant thrownaxe","Adamant arrow","Adamant brutal","Adamant bolts","Adamant javelin","Adamant bolts(unf)","Adamant dart tip","Adamant arrowtips","Adamant javelin tips","Seeking adamant arrow"]
 group: B Tier
 */
-#define ADAMANTITE_GEAR_B_NAMES ["Adamant platebody","Adamant keel parts"]
+#define ADAMANTITE_GEAR_B_NAMES ["Adamant platebody"]
 
 /*@ define:input:adamantite_gear
 label: Show Unnoted
@@ -19927,6 +19985,7 @@ rule (name:ADAMANTITE_GEAR_E_NAMES && quantity:>=ADAMANTITE_GEAR_E_D_QUANT) {ADA
 rule (name:ADAMANTITE_GEAR_E_NAMES) {ADAMANTITE_GEAR_E_STYLE}
 
 
+
 /*@ define:module:mithril_gear
 name: Mithril Gear
 subtitle: The Mythical Metal
@@ -19967,7 +20026,7 @@ type: style
 group: SS Tier
 exampleItem: Mithril platebody
 */
-#define MITHRIL_GEAR_SS_STYLE textColor = "#ff4c4c70";backgroundColor = "#ffffffff";borderColor = "#ff4c4c70";lootbeamColor = "#ff4c4c70";menuTextColor = "#ff4c4c70";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropSS.wav";menuSort = 50000;
+#define MITHRIL_GEAR_SS_STYLE textColor = "#ff4c4c70";backgroundColor = "#ffffffff";borderColor = "#ff4c4c70";lootbeamColor = "#ff4c4c70";menuTextColor = "#ff4c4c70";textAccent = 3;fontType = 2;showLootbeam = true;menuSort = 50000;
 
 /*@ define:input:mithril_gear
 label: S Tier Mithril Gear
@@ -20011,7 +20070,7 @@ type: style
 group: S Tier
 exampleItem: Mithril platelegs
 */
-#define MITHRIL_GEAR_S_STYLE textColor = "#ffffffff";backgroundColor = "#ff4c4c70";borderColor = "#ffffffff";lootbeamColor = "#ff4c4c70";menuTextColor = "#ff4c4c70";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropS.wav";menuSort = 40000;
+#define MITHRIL_GEAR_S_STYLE textColor = "#ffffffff";backgroundColor = "#ff4c4c70";borderColor = "#ffffffff";lootbeamColor = "#ff4c4c70";menuTextColor = "#ff4c4c70";textAccent = 3;fontType = 2;showLootbeam = true;sound = "DropS.wav";menuSort = 40000;
 
 /*@ define:input:mithril_gear
 label: A Tier Mithril Gear 
@@ -20366,6 +20425,7 @@ rule (name:MITHRIL_GEAR_D_NAMES) {MITHRIL_GEAR_D_STYLE}
 rule (name:MITHRIL_GEAR_E_NAMES && quantity:>=MITHRIL_GEAR_E_D_QUANT) {MITHRIL_GEAR_D_STYLE}
 
 rule (name:MITHRIL_GEAR_E_NAMES) {MITHRIL_GEAR_E_STYLE}
+
 
 
 /*@ define:module:black_gear
@@ -20806,6 +20866,7 @@ rule (name:BLACK_GEAR_D_NAMES) {BLACK_GEAR_D_STYLE}
 rule (name:BLACK_GEAR_E_NAMES && quantity:>=BLACK_GEAR_E_D_QUANT) {BLACK_GEAR_D_STYLE}
 
 rule (name:BLACK_GEAR_E_NAMES) {BLACK_GEAR_E_STYLE}
+
 
 
 /*@ define:module:white_gear
@@ -21249,6 +21310,7 @@ rule (name:WHITE_GEAR_E_NAMES && quantity:>=WHITE_GEAR_E_D_QUANT) {WHITE_GEAR_D_
 rule (name:WHITE_GEAR_E_NAMES) {WHITE_GEAR_E_STYLE}
 
 
+
 /*@ define:module:steel_gear
 name: Steel Gear
 subtitle: Real Steel
@@ -21688,6 +21750,7 @@ rule (name:STEEL_GEAR_D_NAMES) {STEEL_GEAR_D_STYLE}
 rule (name:STEEL_GEAR_E_NAMES && quantity:>=STEEL_GEAR_E_D_QUANT) {STEEL_GEAR_D_STYLE}
 
 rule (name:STEEL_GEAR_E_NAMES) {STEEL_GEAR_E_STYLE}
+
 
 
 /*@ define:module:iron_gear
@@ -22130,6 +22193,7 @@ rule (name:IRON_GEAR_E_NAMES && quantity:>=IRON_GEAR_E_D_QUANT) {IRON_GEAR_D_STY
 rule (name:IRON_GEAR_E_NAMES) {IRON_GEAR_E_STYLE}
 
 
+
 /*@ define:module:bronze_gear
 name: Bronze Gear
 subtitle: The Classic Metal
@@ -22170,7 +22234,7 @@ type: style
 group: SS Tier
 exampleItem: Bronze platebody
 */
-#define BRONZE_GEAR_SS_STYLE backgroundColor = "#ffffffff";borderColor = "#ff5b462a";lootbeamColor = "#ff5b462a";menuTextColor = "#ffe6b372";textAccent = 3;fontType = 2;showLootbeam = true;sound = "DropSS.wav";menuSort = 50000;
+#define BRONZE_GEAR_SS_STYLE textColor = "#ff000000";backgroundColor = "#ffffffff";borderColor = "#ff5b462a";lootbeamColor = "#ff5b462a";menuTextColor = "#ffe6b372";textAccent = 3;fontType = 2;showLootbeam = true;sound = "DropSS.wav";menuSort = 50000;
 
 /*@ define:input:bronze_gear
 label: S Tier Bronze Gear
@@ -22571,6 +22635,7 @@ rule (name:BRONZE_GEAR_E_NAMES && quantity:>=BRONZE_GEAR_E_D_QUANT) {BRONZE_GEAR
 rule (name:BRONZE_GEAR_E_NAMES) {BRONZE_GEAR_E_STYLE}
 
 
+
 /*@ define:module:misc
 name: Miscellaneous
 subtitle: Things Too Small for their own Category  
@@ -22647,6 +22712,7 @@ group: Spicy Stew
 #define ORANGE_SPICE_STYLE textColor = "#ffff8000";menuTextColor = "#ffff8000";
 
 rule (name:"Orange spice*") {ORANGE_SPICE_STYLE}
+
 
 
 /*@ define:module:fallback
