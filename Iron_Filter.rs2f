@@ -71,13 +71,16 @@ apply (SHOW_ITEM_ICON) {icon = CurrentItem();}
 
 // Key tiering, forced ahead of the Keys module.
 //   Both key halves (the crystal and moon variants share one name) -> B tier
+//   Dark totem base / middle / top                                 -> B tier
 //   Full crystal key                                                -> A tier
 // These sit before every other `rule`; evaluation is top-down and terminates
 // on the first match, so they win outright. Properties are inlined copies of
 // KEYS_B_STYLE / KEYS_A_STYLE rather than macro references, because those
 // macros are defined further down the file, and because the Keys module's own
 // SS rule was reaching the halves regardless of the Moon Key Half toggle.
-rule (name:["Tooth half of key","Loop half of key"]) {textColor = "#ffea02ff";backgroundColor = "#b37dd6f0";borderColor = "#ffc400ff";menuTextColor = "#ffd000ff";textAccent = 1;fontType = 2;menuSort = 20000;}
+// The totem pieces are listed in KEYS_B_NAMES but hit that same SS rule,
+// because KEYS_B_SS_QUANT is 0 and every drop satisfies quantity:>=0.
+rule (name:["Tooth half of key","Loop half of key","Dark totem base","Dark totem middle","Dark totem top"]) {textColor = "#ffea02ff";backgroundColor = "#b37dd6f0";borderColor = "#ffc400ff";menuTextColor = "#ffd000ff";textAccent = 1;fontType = 2;menuSort = 20000;}
 rule (name:"Crystal key") {textColor = "#ffea02ff";backgroundColor = "#cc4e0a5d";borderColor = "#ffea02ff";menuTextColor = "#ffd000ff";textAccent = 1;fontType = 2;sound = 4218;menuSort = 30000;}
 
 /*@ define:input:settings
@@ -10337,14 +10340,14 @@ label: S Quantity
 type: number
 group: B Tier
 */
-#define KEYS_B_S_QUANT 0
+#define KEYS_B_S_QUANT 100
 
 /*@ define:input:keys
 label: SS Quantity
 type: number
 group: B Tier
 */
-#define KEYS_B_SS_QUANT 0
+#define KEYS_B_SS_QUANT 1000
 
 /*@ define:input:keys
 label: Moon Key Half B Tier
@@ -10393,28 +10396,28 @@ label: B Quantity
 type: number
 group: C Tier
 */
-#define KEYS_C_B_QUANT 0
+#define KEYS_C_B_QUANT 10
 
 /*@ define:input:keys
 label: A Quantity
 type: number
 group: C Tier
 */
-#define KEYS_C_A_QUANT 0
+#define KEYS_C_A_QUANT 100
 
 /*@ define:input:keys
 label: S Quantity
 type: number
 group: C Tier
 */
-#define KEYS_C_S_QUANT 0
+#define KEYS_C_S_QUANT 1000
 
 /*@ define:input:keys
 label: SS Quantity
 type: number
 group: C Tier
 */
-#define KEYS_C_SS_QUANT 0
+#define KEYS_C_SS_QUANT 10000
 
 
 /*@ define:input:keys
@@ -10465,35 +10468,35 @@ label: C Quantity
 type: number
 group: D Tier
 */
-#define KEYS_D_C_QUANT 0
+#define KEYS_D_C_QUANT 10
 
 /*@ define:input:keys
 label: B Quantity
 type: number
 group: D Tier
 */
-#define KEYS_D_B_QUANT 0
+#define KEYS_D_B_QUANT 100
 
 /*@ define:input:keys
 label: A Quantity
 type: number
 group: D Tier
 */
-#define KEYS_D_A_QUANT 0
+#define KEYS_D_A_QUANT 1000
 
 /*@ define:input:keys
 label: S Quantity
 type: number
 group: D Tier
 */
-#define KEYS_D_S_QUANT 0
+#define KEYS_D_S_QUANT 10000
 
 /*@ define:input:keys
 label: SS Quantity
 type: number
 group: D Tier
 */
-#define KEYS_D_SS_QUANT 0
+#define KEYS_D_SS_QUANT 100000
 
 /*@ define:input:keys
 label: Moon Key Half D Tier
