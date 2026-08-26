@@ -7,11 +7,13 @@ meta { name = "Iron Filter"; description = "A Filter for the Ironman Experience.
 
 
 
+
 /*@ define:module:greetings
 name: Welcome to Iron Filter
 description:
     This is filter made for Ironman players. Sit back, relax, and turn off item value. Items are organized into different tiers base on value to ironman, rather than GE price. 
 */
+
 
 
 
@@ -84,6 +86,7 @@ type: boolean
 group: Show
 */
 #define ENABLE_UIM_DEATH_PILES false
+
 
 
 
@@ -276,6 +279,7 @@ rule (ENABLE_UIM_DEATH_PILES && ((area:[3238, 6066, 0, 3284, 6102, 0] || area:[2
 rule (ENABLE_UIM_DEATH_PILES && ((area:[3238, 6066, 0, 3284, 6102, 0] || area:[2958, 3335, 0, 2983, 3355, 0] || area:[3088, 3468, 0, 3092, 3470, 0] || area:[3042, 3480, 1, 3062, 3501, 1] || area:[2672, 3305, 0, 2678, 3312, 0]  || area:[1794, 9479, 0, 1856, 9538, 0]  || area:[3206, 9600, 0, 3237, 9628, 0]) && value:>=UIM_FALLBACK_VALUE_C)) {UIM_FALLBACK_C_STYLE}
 rule (ENABLE_UIM_DEATH_PILES && ((area:[3238, 6066, 0, 3284, 6102, 0] || area:[2958, 3335, 0, 2983, 3355, 0] || area:[3088, 3468, 0, 3092, 3470, 0] || area:[3042, 3480, 1, 3062, 3501, 1] || area:[2672, 3305, 0, 2678, 3312, 0]  || area:[1794, 9479, 0, 1856, 9538, 0]  || area:[3206, 9600, 0, 3237, 9628, 0]) && value:>=UIM_FALLBACK_VALUE_D)) {UIM_FALLBACK_D_STYLE}
 rule (ENABLE_UIM_DEATH_PILES && ((area:[3238, 6066, 0, 3284, 6102, 0] || area:[2958, 3335, 0, 2983, 3355, 0] || area:[3088, 3468, 0, 3092, 3470, 0] || area:[3042, 3480, 1, 3062, 3501, 1] || area:[2672, 3305, 0, 2678, 3312, 0]  || area:[1794, 9479, 0, 1856, 9538, 0]  || area:[3206, 9600, 0, 3237, 9628, 0]) && value:>=UIM_FALLBACK_VALUE_E)) {UIM_FALLBACK_E_STYLE}
+
 
 
 
@@ -755,6 +759,7 @@ group: Extra Food & Potions
 
 
 
+
 /*@ define:module:uniques
 name: Uniques 
 subtitle: Style your Collection Log drops
@@ -965,6 +970,7 @@ group: Custom Uniques
 #define UNIQUE_CUSTOM_C_NAMES ["Looting bag note","looting bag"]
 
 rule (name:UNIQUE_CUSTOM_C_NAMES) {UNIQUE_C_STYLE}
+
 
 
 
@@ -2557,6 +2563,7 @@ group: Smoke Devils
 #define SMOKE_DEVILS_SUPPLY []
 
 SUPPLY_DROP_RULESET([2378,9415,0,2429,9471,0], SMOKE_DEVILS_SUPPLY)
+
 
 
 
@@ -6785,6 +6792,7 @@ rule (name:WILDERNESS_BOSSES_C_UNIQUES) {UNIQUE_C_STYLE}
 
 
 
+
 /*@ define:module:cox
 name: Chambers of Xeric
 subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
@@ -7020,6 +7028,7 @@ rule (area:[3210,5120,0,3369,5776,1] && name:SHOW_COX) {hidden = false;}
 
 
 
+
 /*@ define:module:tob
 name: Theatre of Blood
 subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
@@ -7093,6 +7102,7 @@ exampleItem: Dawnbringer
 #define TOB_DAWNBRINGER hidden = false;textColor = "#ffff0000";backgroundColor = "#ffffffff";borderColor = "#ffff0000";menuTextColor = "#ffff0000";textAccent = 2;fontType = 2;showLootbeam = true;highlightTile = true;icon = CurrentItem();
 
 rule (name:"Dawnbringer") {TOB_DAWNBRINGER}
+
 
 
 
@@ -7226,6 +7236,7 @@ group: Red-X
 
 
 rule (area:[3786,5398,0,3828,5419,0] && ownership:2 && ENABLE_TOA_REDX) {TOA_REDX_STYLE}
+
 
 
 
@@ -7368,6 +7379,7 @@ exampleItem: Reward casket (master)
 #define CASKET_MASTER_STYLE textColor = "#ffe40f0f";backgroundColor = "#ffffffff";borderColor = "#ffc90808";textAccent = 1;fontType = 2;
 
 rule (name:["Reward casket (master)"]) {CASKET_MASTER_STYLE}
+
 
 
 
@@ -7821,6 +7833,7 @@ group: Shared Clue Uniques
 #define PURPLE_SWEETS_C_QUANTITY 0
  
 rule (name:"Purple sweets" && quantity:>=PURPLE_SWEETS_C_QUANTITY) {UNIQUE_C_STYLE}
+
 
 
 
@@ -8315,6 +8328,7 @@ rule (name:EXTRA_FOOD_27_NAMES && noted:false) {EXTRA_FOOD_27_STYLE}
 rule (name:EXTRA_FOOD_28_NAMES && noted:false) {EXTRA_FOOD_28_STYLE}
 rule (name:EXTRA_FOOD_29_NAMES && noted:false) {EXTRA_FOOD_29_STYLE}
 rule (name:EXTRA_FOOD_30_NAMES && noted:false) {EXTRA_FOOD_30_STYLE}
+
 
 
 /*@ define:module:misc_uniques
@@ -9606,6 +9620,7 @@ apply ((PERFECT_KILL_LISTS)))) {menuSort = -50000;}
 
 
 
+
 /*@ define:module:currency
 name: Currency
 subtitle: Used to Trade with other Players and Vendors
@@ -9980,6 +9995,7 @@ rule (name:"Numulite" && quantity:>=NUMALITE_MIN_QUANT && quantity:>=NUMALITE_E_
 
 
 
+
 /*@ define:module:alchs
 name: Alchs
 subtitle: Turn Everything to Gold
@@ -10121,6 +10137,7 @@ rule (name:ALCHS_NAMES && !name:ALCHS_BAD_NAMES && havalue:>=ALCHS_MIN_VALUE && 
 rule (name:ALCHS_NAMES && !name:ALCHS_BAD_NAMES && havalue:>=ALCHS_MIN_VALUE && havalue:>=ALCHS_C_VALUE) {ALCHS_C_STYLE}
 rule (name:ALCHS_NAMES && !name:ALCHS_BAD_NAMES && havalue:>=ALCHS_MIN_VALUE && havalue:>=ALCHS_D_VALUE) {ALCHS_D_STYLE}
 rule (name:ALCHS_NAMES && !name:ALCHS_BAD_NAMES && havalue:>=ALCHS_MIN_VALUE && havalue:>=ALCHS_E_VALUE) {ALCHS_E_STYLE}
+
 
 
 
@@ -10615,6 +10632,7 @@ rule (name:KEYS_E_NAMES || (KEYS_MOON_KEY_E && id:[30107,30105])) {KEYS_E_STYLE}
 
 
 
+
 /*@ define:module:teleports
 name: Teleports
 subtitle: Teleport Items and Teleport Charges
@@ -11059,6 +11077,7 @@ rule (name:TELEPORTS_E_NAMES) {TELEPORTS_E_STYLE}
 
 
 
+
 /*@ define:module:charges
 name: Item Charges
 subtitle: Charges for Various Items
@@ -11495,6 +11514,7 @@ rule (name:CHARGES_D_NAMES) {CHARGES_D_STYLE}
 rule (name:CHARGES_E_NAMES && quantity:>=CHARGES_E_D_QUANT) {CHARGES_D_STYLE}
 
 rule (name:CHARGES_E_NAMES) {CHARGES_E_STYLE}
+
 
 
 
@@ -11954,6 +11974,7 @@ rule (name:SEEDS_D_NAMES) {SEEDS_D_STYLE}
 rule (name:SEEDS_E_NAMES && quantity:>=SEEDS_E_D_QUANT) {SEEDS_D_STYLE}
 
 rule (name:SEEDS_E_NAMES) {SEEDS_E_STYLE}
+
 
 
 
@@ -12910,6 +12931,7 @@ rule (name:HERBS_E_NAMES) {HERBS_E_STYLE}
 
 
 
+
 /*@ define:module:herblore_secondaries
 name: Herblore Secondaries
 subtitle: Mix with Herbs for Wonderful Potions
@@ -13352,6 +13374,7 @@ rule (name:HERBLORE_SECONDARIES_E_NAMES) {HERBLORE_SECONDARIES_E_STYLE}
 
 
 
+
 /*@ define:module:cooking
 name: Cooking 
 subtitle: Raw Food and other Ingrediants
@@ -13391,7 +13414,7 @@ type: style
 group: SS Tier
 exampleItem: Raw anglerfish
 */
-#define COOKING_SS_STYLE textColor = "#ff4b0866";backgroundColor = "#ffffffff";borderColor = "#ff4c0369";lootbeamColor = "#ff4c0369";menuTextColor = "#ffb700ff";textAccent = 3;fontType = 1;showLootbeam = true;menuSort = 50000;
+#define COOKING_SS_STYLE textColor = "#ff4b0866";backgroundColor = "#b3ffffff";borderColor = "#ff4c0369";lootbeamColor = "#ff4c0369";menuTextColor = "#ffb700ff";textAccent = 3;fontType = 1;showLootbeam = true;menuSort = 50000;
 
 /*@ define:input:cooking
 label: S Tier Cooking
@@ -13435,7 +13458,7 @@ type: style
 group: S Tier
 exampleItem: Raw manta ray
 */
-#define COOKING_S_STYLE textColor = "#ffc42533";backgroundColor = "#ff4c0369";borderColor = "#ffc42533";lootbeamColor = "#ffc42533";menuTextColor = "#ffb700ff";textAccent = 3;fontType = 1;showLootbeam = true;menuSort = 40000;
+#define COOKING_S_STYLE textColor = "#ffffffff";backgroundColor = "#78b700ff";borderColor = "#ffc42533";lootbeamColor = "#ffc42533";menuTextColor = "#ffb700ff";textAccent = 3;fontType = 1;showLootbeam = true;menuSort = 40000;
 
 /*@ define:input:cooking
 label: A Tier Cooking
@@ -13486,7 +13509,7 @@ type: style
 group: A Tier
 exampleItem: Raw sea turtle
 */
-#define COOKING_A_STYLE textColor = "#ffc42533";backgroundColor = "#cc4c0369";borderColor = "#ffc42533";menuTextColor = "#ff4c0369";textAccent = 3;fontType = 2;sound = "DropA.wav";menuSort = 30000;
+#define COOKING_A_STYLE textColor = "#ffffffff";backgroundColor = "#a14c0369";borderColor = "#ffc42533";menuTextColor = "#ff4c0369";textAccent = 3;fontType = 2;sound = "DropA.wav";menuSort = 30000;
 
 /*@ define:input:cooking
 label: B Tier Cooking
@@ -13543,7 +13566,7 @@ type: style
 group: B Tier
 exampleItem: Raw shark
 */
-#define COOKING_B_STYLE textColor = "#ffc42533";backgroundColor = "#994c0369";menuTextColor = "#ff4c0369";textAccent = 3;menuSort = 20000;
+#define COOKING_B_STYLE textColor = "#ffffffff";backgroundColor = "#994c0369";menuTextColor = "#ffb700ff";textAccent = 3;menuSort = 20000;
 
 /*@ define:input:cooking
 label: C Tier Cooking
@@ -13607,7 +13630,7 @@ type: style
 group: C Tier
 exampleItem: Raw monkfish
 */
-#define COOKING_C_STYLE textColor = "#ffc42533";backgroundColor = "#334c0369";menuTextColor = "#ff4c0369";textAccent = 3;menuSort = 10000;
+#define COOKING_C_STYLE textColor = "#ffffffff";backgroundColor = "#334c0369";menuTextColor = "#ffb700ff";textAccent = 3;menuSort = 10000;
 /*@ define:input:cooking
 label: D Tier Cooking
 type: enumlist
@@ -13677,7 +13700,7 @@ type: style
 group: D Tier
 exampleItem: Grapes
 */
-#define COOKING_D_STYLE textColor = "#ffc42533";menuTextColor = "#ff4c0369";
+#define COOKING_D_STYLE textColor = "#ffcc00ff";menuTextColor = "#ffe29aff";
 
 /*@ define:input:cooking
 label: E Tier Cooking
@@ -13794,6 +13817,7 @@ rule (name:COOKING_E_NAMES) {COOKING_E_STYLE}
 
 
 
+
 /*@ define:module:food_and_pots_stockpile
 name: Food and Potion Drops
 subtitle: Food and Drinks for Later Consumption
@@ -13833,7 +13857,7 @@ type: style
 group: SS Tier
 exampleItem: "Sanfew serum(4)"
 */
-#define FOOD_AND_POTS_STOCKPILE_SS_STYLE textColor = "#ffff0000";backgroundColor = "#ffffffff";borderColor = "#ff813f09";lootbeamColor = "#ff813f09";menuTextColor = "#ffff7300";textAccent = 3;fontType = 2;showLootbeam = true;menuSort = 50000;
+#define FOOD_AND_POTS_STOCKPILE_SS_STYLE textColor = "#ffff0000";backgroundColor = "#ffffffff";borderColor = "#ffff7300";lootbeamColor = "#ff813f09";menuTextColor = "#ffff7300";textAccent = 3;fontType = 2;showLootbeam = true;menuSort = 50000;
 
 /*@ define:input:food_and_pots_stockpile
 label: S Tier Food and Pots
@@ -13877,7 +13901,7 @@ type: style
 group: S Tier
 exampleItem: "Super restore(4)"
 */
-#define FOOD_AND_POTS_STOCKPILE_S_STYLE textColor = "#ffffffff";backgroundColor = "#ff813f09";borderColor = "#ffffffff";lootbeamColor = "#ffffffff";menuTextColor = "#ffff7300";textAccent = 3;fontType = 2;showLootbeam = true;menuSort = 40000;
+#define FOOD_AND_POTS_STOCKPILE_S_STYLE textColor = "#ffffffff";backgroundColor = "#ffd743bf";borderColor = "#ffffffff";lootbeamColor = "#ffffffff";menuTextColor = "#ffff7300";textAccent = 3;fontType = 2;showLootbeam = true;menuSort = 40000;
 
 /*@ define:input:food_and_pots_stockpile
 label: A Tier Food and Pots
@@ -13928,7 +13952,7 @@ type: style
 group: A Tier
 exampleItem: "Saradomin brew(4)"
 */
-#define FOOD_AND_POTS_STOCKPILE_A_STYLE textColor = "#ffffffff";backgroundColor = "#cc813f09";borderColor = "#ffffffff";menuTextColor = "#ff813f09";textAccent = 3;fontType = 2;sound = "DropA.wav";menuSort = 30000;
+#define FOOD_AND_POTS_STOCKPILE_A_STYLE textColor = "#ff000000";backgroundColor = "#ccfaff00";borderColor = "#ffffffff";menuTextColor = "#ff813f09";textAccent = 3;fontType = 2;sound = "DropA.wav";menuSort = 30000;
 
 /*@ define:input:food_and_pots_stockpile
 label: B Tier Food and Pots
@@ -13985,7 +14009,7 @@ type: style
 group: B Tier
 exampleItem: "Prayer potion(4)"
 */
-#define FOOD_AND_POTS_STOCKPILE_B_STYLE textColor = "#ffffffff";backgroundColor = "#99813f09";menuTextColor = "#ff813f09";textAccent = 3;menuSort = 20000;
+#define FOOD_AND_POTS_STOCKPILE_B_STYLE textColor = "#ffffffff";backgroundColor = "#9940bf99";menuTextColor = "#ff813f09";textAccent = 3;menuSort = 20000;
 
 /*@ define:input:food_and_pots_stockpile
 label: C Tier Food and Pots
@@ -14049,7 +14073,7 @@ type: style
 group: C Tier
 exampleItem: "Super combat potion(4)"
 */
-#define FOOD_AND_POTS_STOCKPILE_C_STYLE textColor = "#ffffffff";backgroundColor = "#33813f09";menuTextColor = "#ffff7300";textAccent = 3;menuSort = 10000;
+#define FOOD_AND_POTS_STOCKPILE_C_STYLE textColor = "#ffffffff";backgroundColor = "#bd3b6a47";menuTextColor = "#ffff7300";textAccent = 3;menuSort = 10000;
 /*@ define:input:food_and_pots_stockpile
 label: D Tier Food and Pots
 type: enumlist
@@ -14119,7 +14143,7 @@ type: style
 group: D Tier
 exampleItem: Energy potion
 */
-#define FOOD_AND_POTS_STOCKPILE_D_STYLE textColor = "#ff813f09";menuTextColor = "#ff813f09";
+#define FOOD_AND_POTS_STOCKPILE_D_STYLE textColor = "#ffff7300";menuTextColor = "#ffff7300";fontType = 2;
 
 /*@ define:input:food_and_pots_stockpile
 label: E Tier Food and Pots
@@ -14197,7 +14221,7 @@ type: style
 group: E Tier
 exampleItem: Attack potion(4)
 */
-#define FOOD_AND_POTS_STOCKPILE_E_STYLE textColor = "#66813f09";textAccentColor = "#66000000";menuTextColor = "#ff813f09";menuSort = -10000;
+#define FOOD_AND_POTS_STOCKPILE_E_STYLE textColor = "#66ffffff";textAccentColor = "#66000000";menuTextColor = "#ffff9b4a";menuSort = -10000;
 rule (name:FOOD_AND_POTS_STOCKPILE_SS_NAMES) {FOOD_AND_POTS_STOCKPILE_SS_STYLE}
 rule (name:FOOD_AND_POTS_STOCKPILE_S_NAMES && quantity:>=FOOD_AND_POTS_STOCKPILE_S_SS_QUANT) {FOOD_AND_POTS_STOCKPILE_SS_STYLE}
 rule (name:FOOD_AND_POTS_STOCKPILE_A_NAMES && quantity:>=FOOD_AND_POTS_STOCKPILE_A_SS_QUANT) {FOOD_AND_POTS_STOCKPILE_SS_STYLE}
@@ -14239,7 +14263,7 @@ type: enumlist
 enum: ["Blighted super restore(*)","Blighted karambwan","Blighted manta ray","Blighted anglerfish"]
 group: Blighted SS Tier
 */
-#define BLIGHTED_FOOD_AND_POTS_STOCKPILE_SS_NAMES []
+#define BLIGHTED_FOOD_AND_POTS_STOCKPILE_SS_NAMES ["Blighted super restore(*)","Blighted karambwan","Blighted anglerfish"]
 
 /*@ define:input:food_and_pots_stockpile
 label: Show Unnoted
@@ -14267,7 +14291,7 @@ type: style
 group: Blighted SS Tier
 exampleItem: Blighted super restore(4)
 */
-#define BLIGHTED_FOOD_AND_POTS_STOCKPILE_SS_STYLE textColor = "#ff683307";backgroundColor = "#ffffffff";borderColor = "#ff683307";lootbeamColor = "#ff683307";menuTextColor = "#ff683307";textAccent = 3;fontType = 3;showLootbeam = true;sound = 0;menuSort = 50000;
+#define BLIGHTED_FOOD_AND_POTS_STOCKPILE_SS_STYLE textColor = "#ffff00b8";backgroundColor = "#faffffff";borderColor = "#ffff00f5";lootbeamColor = "#ff683307";menuTextColor = "#ffff00ed";textAccent = 3;fontType = 2;showLootbeam = true;highlightTile = false;menuSort = 50000;
 
 /*@ define:input:food_and_pots_stockpile
 label: S Tier Blighted Food and Pots
@@ -14275,7 +14299,7 @@ type: enumlist
 enum: ["Blighted super restore(*)","Blighted karambwan","Blighted manta ray","Blighted anglerfish"]
 group: Blighted S Tier
 */
-#define BLIGHTED_FOOD_AND_POTS_STOCKPILE_S_NAMES []
+#define BLIGHTED_FOOD_AND_POTS_STOCKPILE_S_NAMES ["Blighted manta ray"]
 
 /*@ define:input:food_and_pots_stockpile
 label: Show Unnoted
@@ -14311,7 +14335,7 @@ type: style
 group: Blighted S Tier
 exampleItem: Blighted manta ray
 */
-#define BLIGHTED_FOOD_AND_POTS_STOCKPILE_S_STYLE textColor = "#ff000000";backgroundColor = "#ff683307";borderColor = "#ff000000";lootbeamColor = "#ff683307";menuTextColor = "#ff683307";textAccent = 3;fontType = 3;showLootbeam = true;sound = 0;menuSort = 40000;
+#define BLIGHTED_FOOD_AND_POTS_STOCKPILE_S_STYLE textColor = "#ff000000";backgroundColor = "#75ff6be6";borderColor = "#ff000000";lootbeamColor = "#ff683307";menuTextColor = "#ffff00de";textAccent = 3;fontType = 2;showLootbeam = true;showValue = false;menuSort = 40000;
 
 /*@ define:input:food_and_pots_stockpile
 label: A Tier Blighted Food and Pots
@@ -14362,7 +14386,7 @@ type: style
 group: Blighted A Tier
 exampleItem: Blighted anglerfish
 */
-#define BLIGHTED_FOOD_AND_POTS_STOCKPILE_A_STYLE textColor = "#ff000000";backgroundColor = "#cc683307";borderColor = "#ff000000";menuTextColor = "#ff683307";textAccent = 3;fontType = 2;sound = 0;menuSort = 30000;
+#define BLIGHTED_FOOD_AND_POTS_STOCKPILE_A_STYLE textColor = "#ffffffff";backgroundColor = "#cc683307";borderColor = "#ff000000";menuTextColor = "#ffff7300";textAccent = 3;fontType = 2;sound = 0;menuSort = 30000;
 
 /*@ define:input:food_and_pots_stockpile
 label: B Tier Blighted Food and Pots
@@ -14419,7 +14443,7 @@ type: style
 group: Blighted B Tier
 exampleItem: Blighted super restore(4)
 */
-#define BLIGHTED_FOOD_AND_POTS_STOCKPILE_B_STYLE textColor = "#ff000000";backgroundColor = "#99683307";menuTextColor = "#ff683307";textAccent = 3;menuSort = 20000;
+#define BLIGHTED_FOOD_AND_POTS_STOCKPILE_B_STYLE textColor = "#ffffffff";backgroundColor = "#99683307";menuTextColor = "#ffff7300";textAccent = 3;menuSort = 20000;
 
 /*@ define:input:food_and_pots_stockpile
 label: C Tier Blighted Food and Pots
@@ -14483,14 +14507,14 @@ type: style
 group: Blighted C Tier
 exampleItem: Blighted manta ray
 */
-#define BLIGHTED_FOOD_AND_POTS_STOCKPILE_C_STYLE textColor = "#ff000000";backgroundColor = "#33683307";menuTextColor = "#ff683307";textAccent = 3;menuSort = 10000;
+#define BLIGHTED_FOOD_AND_POTS_STOCKPILE_C_STYLE textColor = "#ff000000";backgroundColor = "#33683307";menuTextColor = "#ffff7300";textAccent = 3;menuSort = 10000;
 /*@ define:input:food_and_pots_stockpile
 label: D Tier Blighted Food and Pots
 type: enumlist
 enum: ["Blighted super restore(*)","Blighted karambwan","Blighted manta ray","Blighted anglerfish"]
 group: Blighted D Tier
 */
-#define BLIGHTED_FOOD_AND_POTS_STOCKPILE_D_NAMES ["Blighted karambwan","Blighted manta ray","Blighted anglerfish"]
+#define BLIGHTED_FOOD_AND_POTS_STOCKPILE_D_NAMES []
 
 /*@ define:input:food_and_pots_stockpile
 label: Show Unnoted
@@ -14553,7 +14577,7 @@ type: style
 group: Blighted D Tier
 exampleItem: Blighted anglerfish
 */
-#define BLIGHTED_FOOD_AND_POTS_STOCKPILE_D_STYLE textColor = "#ff683307";menuTextColor = "#ff683307";
+#define BLIGHTED_FOOD_AND_POTS_STOCKPILE_D_STYLE textColor = "#ffff7300";menuTextColor = "#ffff7300";
 
 /*@ define:input:food_and_pots_stockpile
 label: E Tier Blighted Food and Pots
@@ -14631,7 +14655,7 @@ type: style
 group: Blighted E Tier
 exampleItem: Blighted karambwan
 */
-#define BLIGHTED_FOOD_AND_POTS_STOCKPILE_E_STYLE textColor = "#66683307";textAccentColor = "#66000000";menuTextColor = "#ff683307";menuSort = -10000;
+#define BLIGHTED_FOOD_AND_POTS_STOCKPILE_E_STYLE textColor = "#66ffffff";textAccentColor = "#66000000";menuTextColor = "#ffff7300";menuSort = -10000;
 rule (name:BLIGHTED_FOOD_AND_POTS_STOCKPILE_SS_NAMES) {BLIGHTED_FOOD_AND_POTS_STOCKPILE_SS_STYLE}
 rule (name:BLIGHTED_FOOD_AND_POTS_STOCKPILE_S_NAMES && quantity:>=BLIGHTED_FOOD_AND_POTS_STOCKPILE_S_SS_QUANT) {BLIGHTED_FOOD_AND_POTS_STOCKPILE_SS_STYLE}
 rule (name:BLIGHTED_FOOD_AND_POTS_STOCKPILE_A_NAMES && quantity:>=BLIGHTED_FOOD_AND_POTS_STOCKPILE_A_SS_QUANT) {BLIGHTED_FOOD_AND_POTS_STOCKPILE_SS_STYLE}
@@ -14666,6 +14690,7 @@ rule (name:BLIGHTED_FOOD_AND_POTS_STOCKPILE_D_NAMES) {BLIGHTED_FOOD_AND_POTS_STO
 rule (name:BLIGHTED_FOOD_AND_POTS_STOCKPILE_E_NAMES && quantity:>=BLIGHTED_FOOD_AND_POTS_STOCKPILE_E_D_QUANT) {BLIGHTED_FOOD_AND_POTS_STOCKPILE_D_STYLE}
 
 rule (name:BLIGHTED_FOOD_AND_POTS_STOCKPILE_E_NAMES) {BLIGHTED_FOOD_AND_POTS_STOCKPILE_E_STYLE}
+
 
 
 
@@ -15110,6 +15135,7 @@ rule (name:RUNES_E_NAMES) {RUNES_E_STYLE}
 
 
 
+
 /*@ define:module:ores_and_bars
 name: Ores & Bars
 subtitle: Everything from Bronze to Rune
@@ -15548,6 +15574,7 @@ rule (name:ORES_AND_BARS_D_NAMES) {ORES_AND_BARS_D_STYLE}
 rule (name:ORES_AND_BARS_E_NAMES && quantity:>=ORES_AND_BARS_E_D_QUANT) {ORES_AND_BARS_D_STYLE}
 
 rule (name:ORES_AND_BARS_E_NAMES) {ORES_AND_BARS_E_STYLE}
+
 
 
 
@@ -15992,6 +16019,7 @@ rule (name:LOGS_E_NAMES) {LOGS_E_STYLE}
 
 
 
+
 /*@ define:module:planks
 name: Planks
 subtitle: Materials for Aspiring Carpenters
@@ -16433,6 +16461,7 @@ rule (name:PLANKS_E_NAMES) {PLANKS_E_STYLE}
 
 
 
+
 /*@ define:module:crafting
 name: Crafting Materials
 subtitle: Gems & Leathers
@@ -16871,6 +16900,7 @@ rule (name:CRAFTING_D_NAMES) {CRAFTING_D_STYLE}
 rule (name:CRAFTING_E_NAMES && quantity:>=CRAFTING_E_D_QUANT) {CRAFTING_D_STYLE}
 
 rule (name:CRAFTING_E_NAMES) {CRAFTING_E_STYLE}
+
 
 
 
@@ -18218,6 +18248,7 @@ rule (name:PRAYER_HEADS_E_NAMES) {PRAYER_HEADS_E_STYLE}
 
 
 
+
 /*@ define:module:fletching
 name: Fletching
 subtitle: Creating Ranged Weapons and Ammo
@@ -18657,6 +18688,7 @@ rule (name:FLETCHING_D_NAMES) {FLETCHING_D_STYLE}
 rule (name:FLETCHING_E_NAMES && quantity:>=FLETCHING_E_D_QUANT) {FLETCHING_D_STYLE}
 
 rule (name:FLETCHING_E_NAMES) {FLETCHING_E_STYLE}
+
 
 
 
@@ -19102,6 +19134,7 @@ rule (name:DRAGON_GEAR_E_NAMES) {DRAGON_GEAR_E_STYLE}
 
 
 
+
 /*@ define:module:runite_gear
 name: Runite Gear
 subtitle: The Iconic Metal
@@ -19541,6 +19574,7 @@ rule (name:RUNITE_GEAR_D_NAMES) {RUNITE_GEAR_D_STYLE}
 rule (name:RUNITE_GEAR_E_NAMES && quantity:>=RUNITE_GEAR_E_D_QUANT) {RUNITE_GEAR_D_STYLE}
 
 rule (name:RUNITE_GEAR_E_NAMES) {RUNITE_GEAR_E_STYLE}
+
 
 
 
@@ -19986,6 +20020,7 @@ rule (name:ADAMANTITE_GEAR_E_NAMES) {ADAMANTITE_GEAR_E_STYLE}
 
 
 
+
 /*@ define:module:mithril_gear
 name: Mithril Gear
 subtitle: The Mythical Metal
@@ -20428,6 +20463,7 @@ rule (name:MITHRIL_GEAR_E_NAMES) {MITHRIL_GEAR_E_STYLE}
 
 
 
+
 /*@ define:module:black_gear
 name: Black Gear
 subtitle: Enlist in the Black Knights Today!
@@ -20866,6 +20902,7 @@ rule (name:BLACK_GEAR_D_NAMES) {BLACK_GEAR_D_STYLE}
 rule (name:BLACK_GEAR_E_NAMES && quantity:>=BLACK_GEAR_E_D_QUANT) {BLACK_GEAR_D_STYLE}
 
 rule (name:BLACK_GEAR_E_NAMES) {BLACK_GEAR_E_STYLE}
+
 
 
 
@@ -21311,6 +21348,7 @@ rule (name:WHITE_GEAR_E_NAMES) {WHITE_GEAR_E_STYLE}
 
 
 
+
 /*@ define:module:steel_gear
 name: Steel Gear
 subtitle: Real Steel
@@ -21753,6 +21791,7 @@ rule (name:STEEL_GEAR_E_NAMES) {STEEL_GEAR_E_STYLE}
 
 
 
+
 /*@ define:module:iron_gear
 name: Iron Gear
 subtitle: BTW 
@@ -22191,6 +22230,7 @@ rule (name:IRON_GEAR_D_NAMES) {IRON_GEAR_D_STYLE}
 rule (name:IRON_GEAR_E_NAMES && quantity:>=IRON_GEAR_E_D_QUANT) {IRON_GEAR_D_STYLE}
 
 rule (name:IRON_GEAR_E_NAMES) {IRON_GEAR_E_STYLE}
+
 
 
 
@@ -22636,6 +22676,7 @@ rule (name:BRONZE_GEAR_E_NAMES) {BRONZE_GEAR_E_STYLE}
 
 
 
+
 /*@ define:module:misc
 name: Miscellaneous
 subtitle: Things Too Small for their own Category  
@@ -22712,6 +22753,7 @@ group: Spicy Stew
 #define ORANGE_SPICE_STYLE textColor = "#ffff8000";menuTextColor = "#ffff8000";
 
 rule (name:"Orange spice*") {ORANGE_SPICE_STYLE}
+
 
 
 
