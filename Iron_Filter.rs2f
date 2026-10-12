@@ -8,11 +8,13 @@ meta { name = "Iron Filter"; description = "A Filter for the Ironman Experience.
 
 
 
+
 /*@ define:module:greetings
 name: Welcome to Iron Filter
 description:
     This is filter made for Ironman players. Sit back, relax, and turn off item value. Items are organized into different tiers base on value to ironman, rather than GE price. 
 */
+
 
 
 
@@ -89,6 +91,7 @@ type: boolean
 group: Show
 */
 #define ENABLE_UIM_DEATH_PILES false
+
 
 
 
@@ -286,6 +289,7 @@ rule (ENABLE_UIM_DEATH_PILES && ((area:[3238, 6066, 0, 3284, 6102, 0] || area:[2
 
 
 
+
 /*@ define:module:food_and_pots
 name: Food and Potions
 subtitle: Never Forget your Pots Again
@@ -311,7 +315,7 @@ type: style
 group: Styles
 exampleItem: Shark
 */
-#define MYFOOD_STYLE textColor = "#ffff0000";backgroundColor = "#a1ffffff";fontType = 2;menuSort = 7500;
+#define MYFOOD_STYLE textColor = "#ffff0000";backgroundColor = "#00ffffff";fontType = 1;menuSort = 7500;
 
 /*@ define:input:food_and_pots
 label: Potion Style
@@ -319,7 +323,7 @@ type: style
 group: Styles
 exampleItem: Saradomin brew(4)
 */
-#define MYPOTS_STYLE textColor = "#ff0500ff";backgroundColor = "#a1ffffff";fontType = 2;showLootbeam = true;menuSort = 7500;
+#define MYPOTS_STYLE textColor = "#ff0500ff";backgroundColor = "#00ffffff";fontType = 2;showLootbeam = true;menuSort = 7500;
 
 /* MOVED: the "My Food and Potions" rules now live just above the
    Miscellaneous Uniques module, so location-specific Hide/Show/Supply
@@ -331,7 +335,7 @@ type: style
 group: Styles
 exampleItem: Wild pie
 */
-#define SUPPLY_DROP_STYLE hidden = false;textColor = "#ffff0000";fontType = 2;menuSort = 5000;
+#define SUPPLY_DROP_STYLE hidden = false;textColor = "#ffff0000";fontType = 1;menuSort = 5000;
 	
 #define SUPPLY_DROP_RULESET(_area, _name) rule (area:_area && name:_name && (!ownership:2 || SHOW_OTHER_DROPS)) {SUPPLY_DROP_STYLE}
 
@@ -763,6 +767,7 @@ group: Extra Food & Potions
 
 
 
+
 /*@ define:module:uniques
 name: Uniques 
 subtitle: Style your Collection Log drops
@@ -973,6 +978,7 @@ group: Custom Uniques
 #define UNIQUE_CUSTOM_C_NAMES ["Looting bag note","looting bag"]
 
 rule (name:UNIQUE_CUSTOM_C_NAMES) {UNIQUE_C_STYLE}
+
 
 
 
@@ -2566,6 +2572,7 @@ group: Smoke Devils
 #define SMOKE_DEVILS_SUPPLY []
 
 SUPPLY_DROP_RULESET([2378,9415,0,2429,9471,0], SMOKE_DEVILS_SUPPLY)
+
 
 
 
@@ -4269,7 +4276,7 @@ label: Enable Sound on MVP
 type: boolean
 group: Hueycoatle
 */
-#define ENABLE_HUEYCOATL_MVP true
+#define ENABLE_HUEYCOATL_MVP false
 
 /*@ define:input:boss_pvm
 label: Sound ID
@@ -4993,7 +5000,7 @@ label: Enable Sound on MVP
 type: boolean
 group: Nex
 */
-#define ENABLE_NEX_MVP true
+#define ENABLE_NEX_MVP false
 
 /*@ define:input:boss_pvm
 label: Sound ID
@@ -5082,7 +5089,7 @@ label: Enable Sound on MVP
 type: boolean
 group: The Nightmare
 */
-#define ENABLE_NIGHTMARE_MVP true
+#define ENABLE_NIGHTMARE_MVP false
 
 /*@ define:input:boss_pvm
 label: Sound ID
@@ -5875,7 +5882,7 @@ label: Sound ID
 type: number
 group: Vardorvis
 */
-#define VARDORVIS_PERFECT_SOUND 3018
+#define VARDORVIS_PERFECT_SOUND 1794
 
 #define VARDORVIS_PERFECT_ITEMS name:"Coal" && quantity:==195) || (name:"Adamantite ore" && quantity:==67) || (name:"Rune javelin tips" && quantity:==54) || (name:"Dragon javelin tips" && quantity:==54) || (name:"Uncut ruby" && quantity:==37) || (name:"Uncut diamond" && quantity:==37) || (name:"Runite ore" && quantity:==27) || (name:"Dragon dart tip" && quantity:==150) || (name:"Pure essence" && quantity:==180) || (name:"Iron ore" && quantity:==57) || (name:"Silver ore" && quantity:==57) || (name:"Mithril ore" && quantity:==57) || (name:"Sapphire" && quantity:==25) || (name:"Emerald" && quantity:==25) || (name:"Ruby" && quantity:==25) || (name:"Raw shark" && quantity:==300) || (name:"Lava rune" && quantity:==300) || (name:"Blood rune" && quantity:==300) || (name:"Soul rune" && quantity:==600) || (name:"Bronze javelin" && quantity:==63) || (name:"Mithril javelin" && quantity:==63) || (name:"Adamant javelin" && quantity:==63) || (name:"Onyx bolts (e)" && quantity:==90) || (name:"Mind rune" && quantity:==180) || (name:"Fire rune" && quantity:==180
 
@@ -5967,7 +5974,7 @@ label: Enable Sound on MVP
 type: boolean
 group: Venenatis and Spindel
 */
-#define ENABLE_VENENATIS_AND_SPINDEL_MVP true
+#define ENABLE_VENENATIS_AND_SPINDEL_MVP false
 
 /*@ define:input:boss_pvm
 label: Sound ID
@@ -6061,7 +6068,7 @@ label: Enable Sound on MVP
 type: boolean
 group: Vet'ion and Calver'ion
 */
-#define ENABLE_VETION_AND_CALVARION_MVP true
+#define ENABLE_VETION_AND_CALVARION_MVP false
 
 /*@ define:input:boss_pvm
 label: Sound ID
@@ -6205,7 +6212,7 @@ label: Hide Unnoted Blue Dhide
 type: boolean
 group: Vorkath
 */
-#define VORKATH_HIDE_DHIDE true
+#define VORKATH_HIDE_DHIDE false
 
 rule (area:[2257,4050,0,2288,4081,0] && VORKATH_HIDE_DHIDE && name:"Blue dragonhide" && stackable:false) {hidden=true;}
 
@@ -6240,7 +6247,7 @@ label: Sound ID
 type: number
 group: The Whisperer
 */
-#define WHISPERER_PERFECT_SOUND 3018
+#define WHISPERER_PERFECT_SOUND 1794
 
 #define WHISPERER_PERFECT_ITEMS name:"Battlestaff" && quantity:==105) || (name:"Bronze longsword" && quantity:==24) || (name:"Mithril longsword" && quantity:==10) || (name:"Adamant longsword" && quantity:==14) || (name:"Dragon plateskirt" && quantity:==10) || (name:"Coal" && quantity:==455) || (name:"Adamantite ore" && quantity:==157) || (name:"Dragon javelin tips" && quantity:==126) || (name:"Runite bolts (unf)" && quantity:==126) || (name:"Uncut ruby" && quantity:==87) || (name:"Uncut diamond" && quantity:==87) || (name:"Runite ore" && quantity:==63) || (name:"Pure essence" && quantity:==420) || (name:"Iron ore" && quantity:==133) || (name:"Gold ore" && quantity:==133) || (name:"Mithril ore" && quantity:==133) || (name:"Sapphire" && quantity:==59) || (name:"Emerald" && quantity:==59) || (name:"Ruby" && quantity:==59) || (name:"Raw monkfish" && quantity:==1050) || (name:"Steam rune" && quantity:==700) || (name:"Death rune" && quantity:==700) || (name:"Soul rune" && quantity:==1400) || (name:"Water rune" && quantity:==420) || (name:"Chaos rune" && quantity:==210
 
@@ -6512,14 +6519,14 @@ label: Enable Sound on MVP
 type: boolean
 group: Zalcano
 */
-#define ENABLE_ZALCANO_MVP true
+#define ENABLE_ZALCANO_MVP false
 
 /*@ define:input:boss_pvm
 label: Sound ID
 type: number
 group: Zalcano
 */
-#define ZALCANO_MVP_SOUND 3018
+#define ZALCANO_MVP_SOUND 1794
 
 AREA_UNHIDE(area:[3020,6036,0,3048,6064,0] && name:"Infernal ashes" && ENABLE_ZALCANO_MVP && ownership:1)
 
@@ -6796,6 +6803,7 @@ rule (name:WILDERNESS_BOSSES_C_UNIQUES) {UNIQUE_C_STYLE}
 
 
 
+
 /*@ define:module:cox
 name: Chambers of Xeric
 subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
@@ -7032,6 +7040,7 @@ rule (area:[3210,5120,0,3369,5776,1] && name:SHOW_COX) {hidden = false;}
 
 
 
+
 /*@ define:module:tob
 name: Theatre of Blood
 subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
@@ -7105,6 +7114,7 @@ exampleItem: Dawnbringer
 #define TOB_DAWNBRINGER hidden = false;textColor = "#ffff0000";backgroundColor = "#ffffffff";borderColor = "#ffff0000";menuTextColor = "#ffff0000";textAccent = 2;fontType = 2;showLootbeam = true;highlightTile = true;icon = CurrentItem();
 
 rule (name:"Dawnbringer") {TOB_DAWNBRINGER}
+
 
 
 
@@ -7239,6 +7249,7 @@ group: Red-X
 
 
 rule (area:[3786,5398,0,3828,5419,0] && ownership:2 && ENABLE_TOA_REDX) {TOA_REDX_STYLE}
+
 
 
 
@@ -7382,6 +7393,7 @@ exampleItem: Reward casket (master)
 #define CASKET_MASTER_STYLE textColor = "#ffe40f0f";backgroundColor = "#ffffffff";borderColor = "#ffc90808";textAccent = 1;fontType = 2;
 
 rule (name:["Reward casket (master)"]) {CASKET_MASTER_STYLE}
+
 
 
 
@@ -7836,6 +7848,7 @@ group: Shared Clue Uniques
 #define PURPLE_SWEETS_C_QUANTITY 0
  
 rule (name:"Purple sweets" && quantity:>=PURPLE_SWEETS_C_QUANTITY) {UNIQUE_C_STYLE}
+
 
 
 
@@ -8331,6 +8344,7 @@ rule (name:EXTRA_FOOD_27_NAMES && noted:false) {EXTRA_FOOD_27_STYLE}
 rule (name:EXTRA_FOOD_28_NAMES && noted:false) {EXTRA_FOOD_28_STYLE}
 rule (name:EXTRA_FOOD_29_NAMES && noted:false) {EXTRA_FOOD_29_STYLE}
 rule (name:EXTRA_FOOD_30_NAMES && noted:false) {EXTRA_FOOD_30_STYLE}
+
 
 
 
@@ -9624,6 +9638,7 @@ apply ((PERFECT_KILL_LISTS)))) {menuSort = -50000;}
 
 
 
+
 /*@ define:module:currency
 name: Currency
 subtitle: Used to Trade with other Players and Vendors
@@ -9999,6 +10014,7 @@ rule (name:"Numulite" && quantity:>=NUMALITE_MIN_QUANT && quantity:>=NUMALITE_E_
 
 
 
+
 /*@ define:module:alchs
 name: Alchs
 subtitle: Turn Everything to Gold
@@ -10140,6 +10156,7 @@ rule (name:ALCHS_NAMES && !name:ALCHS_BAD_NAMES && havalue:>=ALCHS_MIN_VALUE && 
 rule (name:ALCHS_NAMES && !name:ALCHS_BAD_NAMES && havalue:>=ALCHS_MIN_VALUE && havalue:>=ALCHS_C_VALUE) {ALCHS_C_STYLE}
 rule (name:ALCHS_NAMES && !name:ALCHS_BAD_NAMES && havalue:>=ALCHS_MIN_VALUE && havalue:>=ALCHS_D_VALUE) {ALCHS_D_STYLE}
 rule (name:ALCHS_NAMES && !name:ALCHS_BAD_NAMES && havalue:>=ALCHS_MIN_VALUE && havalue:>=ALCHS_E_VALUE) {ALCHS_E_STYLE}
+
 
 
 
@@ -10636,6 +10653,7 @@ rule (name:KEYS_E_NAMES || (KEYS_MOON_KEY_E && id:[30107,30105])) {KEYS_E_STYLE}
 
 
 
+
 /*@ define:module:teleports
 name: Teleports
 subtitle: Teleport Items and Teleport Charges
@@ -11081,6 +11099,7 @@ rule (name:TELEPORTS_E_NAMES) {TELEPORTS_E_STYLE}
 
 
 
+
 /*@ define:module:charges
 name: Item Charges
 subtitle: Charges for Various Items
@@ -11517,6 +11536,7 @@ rule (name:CHARGES_D_NAMES) {CHARGES_D_STYLE}
 rule (name:CHARGES_E_NAMES && quantity:>=CHARGES_E_D_QUANT) {CHARGES_D_STYLE}
 
 rule (name:CHARGES_E_NAMES) {CHARGES_E_STYLE}
+
 
 
 
@@ -11977,6 +11997,7 @@ rule (name:SEEDS_D_NAMES) {SEEDS_D_STYLE}
 rule (name:SEEDS_E_NAMES && quantity:>=SEEDS_E_D_QUANT) {SEEDS_D_STYLE}
 
 rule (name:SEEDS_E_NAMES) {SEEDS_E_STYLE}
+
 
 
 
@@ -12935,6 +12956,7 @@ rule (name:HERBS_E_NAMES) {HERBS_E_STYLE}
 
 
 
+
 /*@ define:module:herblore_secondaries
 name: Herblore Secondaries
 subtitle: Mix with Herbs for Wonderful Potions
@@ -13378,6 +13400,7 @@ rule (name:HERBLORE_SECONDARIES_E_NAMES) {HERBLORE_SECONDARIES_E_STYLE}
 
 
 
+
 /*@ define:module:cooking
 name: Cooking 
 subtitle: Raw Food and other Ingrediants
@@ -13817,6 +13840,7 @@ rule (name:COOKING_D_NAMES) {COOKING_D_STYLE}
 rule (name:COOKING_E_NAMES && quantity:>=COOKING_E_D_QUANT) {COOKING_D_STYLE}
 
 rule (name:COOKING_E_NAMES) {COOKING_E_STYLE}
+
 
 
 
@@ -14697,6 +14721,7 @@ rule (name:BLIGHTED_FOOD_AND_POTS_STOCKPILE_E_NAMES) {BLIGHTED_FOOD_AND_POTS_STO
 
 
 
+
 /*@ define:module:runes
 name: Runes
 subtitle: Cast some Magic Spells
@@ -14780,7 +14805,7 @@ type: style
 group: S Tier
 exampleItem: Blood rune
 */
-#define RUNES_S_STYLE textColor = "#ffffffff";backgroundColor = "#ff6a9190";borderColor = "#ffffffff";lootbeamColor = "#ffffffff";menuTextColor = "#ff6a9190";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropS.wav";menuSort = 40000;
+#define RUNES_S_STYLE textColor = "#ffffffff";backgroundColor = "#ff6a9190";borderColor = "#ffffffff";lootbeamColor = "#ffffffff";menuTextColor = "#ff6a9190";textAccent = 3;fontType = 2;showLootbeam = true;sound = "DropS.wav";menuSort = 40000;
 
 /*@ define:input:runes
 label: A Tier Runes
@@ -15135,6 +15160,7 @@ rule (name:RUNES_D_NAMES) {RUNES_D_STYLE}
 rule (name:RUNES_E_NAMES && quantity:>=RUNES_E_D_QUANT) {RUNES_D_STYLE}
 
 rule (name:RUNES_E_NAMES) {RUNES_E_STYLE}
+
 
 
 
@@ -15581,6 +15607,7 @@ rule (name:ORES_AND_BARS_E_NAMES) {ORES_AND_BARS_E_STYLE}
 
 
 
+
 /*@ define:module:logs
 name: Logs
 subtitle: Collect all sorts of Wood
@@ -15620,7 +15647,7 @@ type: style
 group: SS Tier
 exampleItem: Rosewood logs
 */
-#define LOGS_SS_STYLE textColor = "#ff512A02";backgroundColor = "#ffffffff";borderColor = "#ff512A02";lootbeamColor = "#ff512A02";menuTextColor = "#ff512A02";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropSS.wav";menuSort = 50000;
+#define LOGS_SS_STYLE textColor = "#ff512A02";backgroundColor = "#ffffffff";borderColor = "#ff512A02";lootbeamColor = "#ff512A02";menuTextColor = "#fffd7f00";textAccent = 3;fontType = 2;showLootbeam = true;sound = "DropSS.wav";menuSort = 50000;
 
 /*@ define:input:logs
 label: S Tier Logs
@@ -15664,7 +15691,7 @@ type: style
 group: S Tier
 exampleItem: Redwood logs
 */
-#define LOGS_S_STYLE textColor = "#ffAC8C53";backgroundColor = "#ff512A02";borderColor = "#ffAC8C53";lootbeamColor = "#ff512A02";menuTextColor = "#ffAC8C53";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropS.wav";menuSort = 40000;
+#define LOGS_S_STYLE textColor = "#fffbc260";backgroundColor = "#ff512A02";borderColor = "#ffAC8C53";lootbeamColor = "#ff512A02";menuTextColor = "#ffAC8C53";textAccent = 3;fontType = 2;showLootbeam = true;sound = "DropS.wav";menuSort = 40000;
 
 /*@ define:input:logs
 label: A Tier Logs
@@ -15715,7 +15742,7 @@ type: style
 group: A Tier
 exampleItem: Magic logs
 */
-#define LOGS_A_STYLE textColor = "#ffAC8C53";backgroundColor = "#cc512A02";borderColor = "#ffAC8C53";menuTextColor = "#ffAC8C53";textAccent = 3;fontType = 2;sound = "DropA.wav";menuSort = 30000;
+#define LOGS_A_STYLE textColor = "#ffffc35c";backgroundColor = "#cc512A02";borderColor = "#ffAC8C53";menuTextColor = "#ffAC8C53";textAccent = 3;fontType = 2;sound = "DropA.wav";menuSort = 30000;
 
 /*@ define:input:logs
 label: B Tier Logs
@@ -15772,7 +15799,7 @@ type: style
 group: B Tier
 exampleItem: Yew logs
 */
-#define LOGS_B_STYLE textColor = "#ffAC8C53";backgroundColor = "#99512A02";menuTextColor = "#ffAC8C53";textAccent = 3;menuSort = 20000;
+#define LOGS_B_STYLE textColor = "#ffffc45e";backgroundColor = "#99512A02";menuTextColor = "#ffffce7a";textAccent = 3;menuSort = 20000;
 
 /*@ define:input:logs
 label: C Tier Logs
@@ -15836,7 +15863,7 @@ type: style
 group: C Tier
 exampleItem: Maple logs
 */
-#define LOGS_C_STYLE textColor = "#ffAC8C53";backgroundColor = "#33512A02";menuTextColor = "#ffAC8C53";textAccent = 3;menuSort = 10000;
+#define LOGS_C_STYLE textColor = "#ffffc766";backgroundColor = "#33512A02";menuTextColor = "#ffffcc73";textAccent = 3;menuSort = 10000;
 /*@ define:input:logs
 label: D Tier Logs
 type: enumlist
@@ -15906,7 +15933,7 @@ type: style
 group: D Tier
 exampleItem: Oak logs
 */
-#define LOGS_D_STYLE textColor = "#ffAC8C53";menuTextColor = "#ffAC8C53";
+#define LOGS_D_STYLE textColor = "#ffffb433";menuTextColor = "#ffAC8C53";
 
 /*@ define:input:logs
 label: E Tier Logs
@@ -16019,6 +16046,7 @@ rule (name:LOGS_D_NAMES) {LOGS_D_STYLE}
 rule (name:LOGS_E_NAMES && quantity:>=LOGS_E_D_QUANT) {LOGS_D_STYLE}
 
 rule (name:LOGS_E_NAMES) {LOGS_E_STYLE}
+
 
 
 
@@ -16465,6 +16493,7 @@ rule (name:PLANKS_E_NAMES) {PLANKS_E_STYLE}
 
 
 
+
 /*@ define:module:crafting
 name: Crafting Materials
 subtitle: Gems & Leathers
@@ -16903,6 +16932,7 @@ rule (name:CRAFTING_D_NAMES) {CRAFTING_D_STYLE}
 rule (name:CRAFTING_E_NAMES && quantity:>=CRAFTING_E_D_QUANT) {CRAFTING_D_STYLE}
 
 rule (name:CRAFTING_E_NAMES) {CRAFTING_E_STYLE}
+
 
 
 
@@ -18252,6 +18282,7 @@ rule (name:PRAYER_HEADS_E_NAMES) {PRAYER_HEADS_E_STYLE}
 
 
 
+
 /*@ define:module:fletching
 name: Fletching
 subtitle: Creating Ranged Weapons and Ammo
@@ -18691,6 +18722,7 @@ rule (name:FLETCHING_D_NAMES) {FLETCHING_D_STYLE}
 rule (name:FLETCHING_E_NAMES && quantity:>=FLETCHING_E_D_QUANT) {FLETCHING_D_STYLE}
 
 rule (name:FLETCHING_E_NAMES) {FLETCHING_E_STYLE}
+
 
 
 
@@ -19138,6 +19170,7 @@ rule (name:DRAGON_GEAR_E_NAMES) {DRAGON_GEAR_E_STYLE}
 
 
 
+
 /*@ define:module:runite_gear
 name: Runite Gear
 subtitle: The Iconic Metal
@@ -19581,6 +19614,7 @@ rule (name:RUNITE_GEAR_E_NAMES) {RUNITE_GEAR_E_STYLE}
 
 
 
+
 /*@ define:module:adamantite_gear
 name: Adamantite Gear
 subtitle: The Green Metal
@@ -19621,7 +19655,7 @@ type: style
 group: SS Tier
 exampleItem: Adamantite platebody
 */
-#define ADAMANTITE_GEAR_SS_STYLE backgroundColor = "#ffffffff";borderColor = "#ff506450";lootbeamColor = "#ff506450";menuTextColor = "#ffbfffbf";textAccent = 3;fontType = 2;showLootbeam = true;menuSort = 50000;
+#define ADAMANTITE_GEAR_SS_STYLE textColor = "#ff1e4331";backgroundColor = "#ffffffff";borderColor = "#ff506450";lootbeamColor = "#ff506450";menuTextColor = "#ffbfffbf";textAccent = 3;fontType = 2;showLootbeam = true;menuSort = 50000;
 
 /*@ define:input:adamantite_gear
 label: S Tier Adamantite Gear
@@ -20020,6 +20054,7 @@ rule (name:ADAMANTITE_GEAR_D_NAMES) {ADAMANTITE_GEAR_D_STYLE}
 rule (name:ADAMANTITE_GEAR_E_NAMES && quantity:>=ADAMANTITE_GEAR_E_D_QUANT) {ADAMANTITE_GEAR_D_STYLE}
 
 rule (name:ADAMANTITE_GEAR_E_NAMES) {ADAMANTITE_GEAR_E_STYLE}
+
 
 
 
@@ -20467,6 +20502,7 @@ rule (name:MITHRIL_GEAR_E_NAMES) {MITHRIL_GEAR_E_STYLE}
 
 
 
+
 /*@ define:module:black_gear
 name: Black Gear
 subtitle: Enlist in the Black Knights Today!
@@ -20507,7 +20543,7 @@ type: style
 group: SS Tier
 exampleItem: Black platebody
 */
-#define BLACK_GEAR_SS_STYLE textColor = "#ff000000";backgroundColor = "#ffffffff";borderColor = "#ff000000";lootbeamColor = "#ff000000";menuTextColor = "#ff000000";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropSS.wav";menuSort = 50000;
+#define BLACK_GEAR_SS_STYLE textColor = "#ff000000";backgroundColor = "#ffffffff";borderColor = "#ff000000";lootbeamColor = "#ff000000";menuTextColor = "#ff000000";textAccent = 3;fontType = 2;showLootbeam = true;sound = "DropSS.wav";menuSort = 50000;
 
 /*@ define:input:black_gear
 label: S Tier Black Gear
@@ -20551,7 +20587,7 @@ type: style
 group: S Tier
 exampleItem: Black platelegs
 */
-#define BLACK_GEAR_S_STYLE textColor = "#ffffffff";backgroundColor = "#ff000000";borderColor = "#ffffffff";lootbeamColor = "#ff000000";menuTextColor = "#ff000000";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropS.wav";menuSort = 40000;
+#define BLACK_GEAR_S_STYLE textColor = "#ffffffff";backgroundColor = "#ff000000";borderColor = "#ffffffff";lootbeamColor = "#ff000000";menuTextColor = "#ff000000";textAccent = 3;fontType = 2;showLootbeam = true;sound = "DropS.wav";menuSort = 40000;
 
 /*@ define:input:black_gear
 label: A Tier Black Gear 
@@ -20909,6 +20945,7 @@ rule (name:BLACK_GEAR_E_NAMES) {BLACK_GEAR_E_STYLE}
 
 
 
+
 /*@ define:module:white_gear
 name: White Gear
 subtitle: Enlist in the White Knights Today!
@@ -20949,7 +20986,7 @@ type: style
 group: SS Tier
 exampleItem: White platebody
 */
-#define WHITE_GEAR_SS_STYLE textColor = "#ffffffff";backgroundColor = "#ff000000";borderColor = "#ffffffff";lootbeamColor = "#ffffffff";menuTextColor = "#ffffffff";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropSS.wav";menuSort = 50000;
+#define WHITE_GEAR_SS_STYLE textColor = "#ffffffff";backgroundColor = "#ff000000";borderColor = "#ffffffff";lootbeamColor = "#ffffffff";menuTextColor = "#ffffffff";textAccent = 3;fontType = 2;showLootbeam = true;sound = "DropSS.wav";menuSort = 50000;
 
 /*@ define:input:white_gear
 label: S Tier White Gear
@@ -20993,7 +21030,7 @@ type: style
 group: S Tier
 exampleItem: White platelegs
 */
-#define WHITE_GEAR_S_STYLE textColor = "#ff000000";backgroundColor = "#ffffffff";borderColor = "#ff000000";lootbeamColor = "#ffffffff";menuTextColor = "#ffffffff";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropS.wav";menuSort = 40000;
+#define WHITE_GEAR_S_STYLE textColor = "#ff000000";backgroundColor = "#ffffffff";borderColor = "#ff000000";lootbeamColor = "#ffffffff";menuTextColor = "#ffffffff";textAccent = 3;fontType = 2;showLootbeam = true;sound = "DropS.wav";menuSort = 40000;
 
 /*@ define:input:white_gear
 label: A Tier White Gear 
@@ -21352,6 +21389,7 @@ rule (name:WHITE_GEAR_E_NAMES) {WHITE_GEAR_E_STYLE}
 
 
 
+
 /*@ define:module:steel_gear
 name: Steel Gear
 subtitle: Real Steel
@@ -21392,7 +21430,7 @@ type: style
 group: SS Tier
 exampleItem: Steel platebody
 */
-#define STEEL_GEAR_SS_STYLE textColor = "#ff908686";backgroundColor = "#ffffffff";borderColor = "#ff908686";lootbeamColor = "#ff908686";menuTextColor = "#ff908686";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropSS.wav";menuSort = 50000;
+#define STEEL_GEAR_SS_STYLE textColor = "#ff908686";backgroundColor = "#ffffffff";borderColor = "#ff908686";lootbeamColor = "#ff908686";menuTextColor = "#ff908686";textAccent = 3;fontType = 2;showLootbeam = true;sound = "DropSS.wav";menuSort = 50000;
 
 /*@ define:input:steel_gear
 label: S Tier Steel Gear
@@ -21436,7 +21474,7 @@ type: style
 group: S Tier
 exampleItem: Steel platelegs
 */
-#define STEEL_GEAR_S_STYLE textColor = "#ffffffff";backgroundColor = "#ff908686";borderColor = "#ffffffff";lootbeamColor = "#ff908686";menuTextColor = "#ff908686";textAccent = 3;fontType = 3;showLootbeam = true;sound = "DropS.wav";menuSort = 40000;
+#define STEEL_GEAR_S_STYLE textColor = "#ffffffff";backgroundColor = "#ff908686";borderColor = "#ffffffff";lootbeamColor = "#ff908686";menuTextColor = "#ff908686";textAccent = 3;fontType = 2;showLootbeam = true;sound = "DropS.wav";menuSort = 40000;
 
 /*@ define:input:steel_gear
 label: A Tier Steel Gear 
@@ -21791,6 +21829,7 @@ rule (name:STEEL_GEAR_D_NAMES) {STEEL_GEAR_D_STYLE}
 rule (name:STEEL_GEAR_E_NAMES && quantity:>=STEEL_GEAR_E_D_QUANT) {STEEL_GEAR_D_STYLE}
 
 rule (name:STEEL_GEAR_E_NAMES) {STEEL_GEAR_E_STYLE}
+
 
 
 
@@ -22233,6 +22272,7 @@ rule (name:IRON_GEAR_D_NAMES) {IRON_GEAR_D_STYLE}
 rule (name:IRON_GEAR_E_NAMES && quantity:>=IRON_GEAR_E_D_QUANT) {IRON_GEAR_D_STYLE}
 
 rule (name:IRON_GEAR_E_NAMES) {IRON_GEAR_E_STYLE}
+
 
 
 
@@ -22680,6 +22720,7 @@ rule (name:BRONZE_GEAR_E_NAMES) {BRONZE_GEAR_E_STYLE}
 
 
 
+
 /*@ define:module:misc
 name: Miscellaneous
 subtitle: Things Too Small for their own Category  
@@ -22756,6 +22797,7 @@ group: Spicy Stew
 #define ORANGE_SPICE_STYLE textColor = "#ffff8000";menuTextColor = "#ffff8000";
 
 rule (name:"Orange spice*") {ORANGE_SPICE_STYLE}
+
 
 
 
@@ -22862,3 +22904,6 @@ rule (value:>=FALLBACK_VALUE_B) {FALLBACK_B_STYLE}
 rule (value:>=FALLBACK_VALUE_C) {FALLBACK_C_STYLE}
 rule (value:>=FALLBACK_VALUE_D) {FALLBACK_D_STYLE}
 rule (value:>=FALLBACK_VALUE_E) {FALLBACK_E_STYLE}
+/*@ define:sitemeta
+{"version":1,"source":"https://raw.githubusercontent.com/cwen96/osrs-loot-filter/refs/heads/main/Iron_Filter.rs2f","commit":"4b622216ad8ce40666bb7836707ac469a48dd977","revisionUrl":"https://raw.githubusercontent.com/cwen96/osrs-loot-filter/4b622216ad8ce40666bb7836707ac469a48dd977/Iron_Filter.rs2f","sourceHash":"76a1d624d3b4d6116fa544df6d44472574e719fb","name":"Iron Filter","description":"A Filter for the Ironman Experience.     Turn off GE value and enjoy!","config":{"enabledModules":{},"inputConfigs":{"WHITE_GEAR_SS_STYLE":{"fontType":2},"WHITE_GEAR_S_STYLE":{"fontType":2},"BLACK_GEAR_SS_STYLE":{"fontType":2},"BLACK_GEAR_S_STYLE":{"fontType":2},"STEEL_GEAR_SS_STYLE":{"fontType":2},"STEEL_GEAR_S_STYLE":{"fontType":2},"ADAMANTITE_GEAR_SS_STYLE":{"textColor":"#ff1e4331"},"LOGS_SS_STYLE":{"fontType":2,"menuTextColor":"#fffd7f00"},"LOGS_S_STYLE":{"fontType":2,"textColor":"#fffbc260"},"LOGS_A_STYLE":{"textColor":"#ffffc35c"},"LOGS_B_STYLE":{"textColor":"#ffffc45e","menuTextColor":"#ffffce7a"},"LOGS_C_STYLE":{"textColor":"#ffffc766","menuTextColor":"#ffffcc73"},"LOGS_D_STYLE":{"textColor":"#ffffb433"},"RUNES_S_STYLE":{"fontType":2},"MYFOOD_STYLE":{"backgroundColor":"#00ffffff","fontType":1},"SUPPLY_DROP_STYLE":{"fontType":1},"MYPOTS_STYLE":{"backgroundColor":"#00ffffff"},"ENABLE_HUEYCOATL_MVP":false,"ENABLE_NEX_MVP":false,"ENABLE_NIGHTMARE_MVP":false,"ENABLE_VARDORVIS_PERFECT":true,"VARDORVIS_PERFECT_SOUND":1794,"ENABLE_VENENATIS_AND_SPINDEL_MVP":false,"ENABLE_VETION_AND_CALVARION_MVP":false,"VORKATH_HIDE_DHIDE":false,"ENABLE_WHISPERER_PERFECT":true,"WHISPERER_PERFECT_SOUND":1794,"ENABLE_ZALCANO_MVP":false,"ZALCANO_MVP_SOUND":1794}}}
+*/
